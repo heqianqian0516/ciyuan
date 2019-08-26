@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/m_list_item_wiki_type_name"
+        android:layout_width="50dp"
+        android:layout_height="37.5dp"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:singleLine="true"
+        android:text="全部"
+        android:textColor="#333333"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/m_list_item_wiki_type_selected"
+        android:layout_width="20dp"
+        android:layout_height="2.5dp"
+        android:background="@drawable/main_news_tab_bottom_color_selector" />
+
+</LinearLayout>

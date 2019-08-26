@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/m_community_contacts_common_title"
+        layout="@layout/common_title_bar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/m_community_contacts_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_community_contacts_common_title"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
+
+    <com.ciyuanplus.mobile.widget.SideBar
+        android:id="@+id/m_community_contacts_sidebar"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_community_contacts_common_title"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+    <LinearLayout
+        android:id="@+id/m_community_contacts_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_community_contacts_common_title"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/null_data_fans" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/string_community_user_null_alert"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+</RelativeLayout>

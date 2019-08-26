@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/m_list_item_community_user_tag"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:background="#f2f2f2"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="A"
+        android:textColor="#aaaaaa"
+        android:textSize="15dp" />
+
+    <View
+        android:id="@+id/m_list_item_community_user_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="15dp"
+        android:background="#e9e9e9" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_community_user_head"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/default_head_" />
+
+        <ImageView
+            android:id="@+id/m_list_item_community_user_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/m_list_item_community_user_head"
+            android:layout_alignBottom="@id/m_list_item_community_user_head"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/my_icon_boy_small" />
+
+        <TextView
+            android:id="@+id/m_list_item_community_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/m_list_item_community_user_head"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text="姓名"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <LinearLayout
+            android:id="@+id/m_list_item_community_user_opera_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/m_list_item_community_user_opera_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/chat_follow_xianghu" />
+
+            <TextView
+                android:id="@+id/m_list_item_community_user_opera_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#ffffff">-->
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0.5dp"-->
+    <!--android:layout_marginLeft="55dp"-->
+    <!--android:background="#e9e9e9"/>-->
+    <!--</LinearLayout>-->
+</LinearLayout>

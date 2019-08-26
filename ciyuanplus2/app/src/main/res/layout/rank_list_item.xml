@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/white"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:id="@+id/ivFristBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:scaleType="fitXY" />
+        <TextView
+            android:id="@+id/tvBg"
+            android:layout_marginBottom="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+        android:id="@+id/tvRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#585858"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/tvBg"
+        app:layout_constraintBottom_toBottomOf="@id/tvBg"
+        app:layout_constraintLeft_toLeftOf="@id/tvBg"
+        android:layout_marginLeft="8dp"
+        android:text="4"
+        />
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/riv_head_image"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/chat_icon_opinion"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBg"
+            app:layout_constraintLeft_toLeftOf="@+id/tvBg"
+            app:layout_constraintTop_toTopOf="@+id/tvBg" />
+        <ImageView
+            android:id="@+id/numberBg"
+            android:layout_width="55dp"
+            android:layout_height="59dp"
+            android:src="@drawable/rank_first"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBg"
+            app:layout_constraintLeft_toLeftOf="@+id/tvBg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="3dp"
+            android:visibility="invisible"
+            />
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:maxLength="12"
+            android:singleLine="true"
+            android:text="社会我晶哥"
+            android:textColor="#ff000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/riv_head_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="18dp"
+            android:layout_marginRight="112dp"
+            android:src="@drawable/heart"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvBg" />
+
+        <TextView
+            android:id="@+id/text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:text="999"
+            android:textColor="#ffff6600"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBg"
+            app:layout_constraintRight_toRightOf="@+id/tvBg"
+            app:layout_constraintTop_toTopOf="@+id/tvBg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

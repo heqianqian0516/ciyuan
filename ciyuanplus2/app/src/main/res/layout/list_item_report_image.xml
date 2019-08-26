@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/m_list_item_report_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_default_image_007" />
+
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/m_list_item_report_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#f6f6f6"
+        android:scaleType="center"
+        android:src="@mipmap/icon_plus_market" />
+
+    <ImageView
+        android:id="@+id/m_list_item_report_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@null"
+        android:src="@mipmap/launch_icon_img_delete" />
+
+</RelativeLayout>

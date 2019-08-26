@@ -1,0 +1,397 @@
+apply plugin: 'bugly'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jakewharton.butterknife'
+
+bugly {
+    appId = '1c0b102fc0' // 注册时分配的App ID
+    appKey = '69bdc129-0a37-4e31-ad5c-d09a94993f6c' // 注册时分配的App Key
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    def currentVersionCode = getVersionCode()
+    def currentVersionName = getVersionName()
+    defaultConfig {
+        applicationId "com.asdfghjjkk.superiordiaryokdsakd"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionName currentVersionName
+        versionCode currentVersionCode
+        multiDexEnabled true
+//        ndk { abiFilters "armeabi" }
+    }
+    /**
+     * 4 . 用静态的构建配置值来构建你的Debug版
+     * 一般地，在你的debug 构建时，为manifest文件或者资源文件配置使用静态/硬编码的值。如果你的manifest或者资源文件的值每次构建都需要动态更新，那么Instant Run 无法执行代码交换－它必须重新构建和安装新的APK。
+     * 例如，使用动态的version codes ,version names ,resources或者其他更改manifest文件的构建逻辑，每次你想执行一个修改都会构建全部APK，即使实际的修改可能仅仅只需要热交换。如果这些构建配置是需要动态配置的，那么将它们从你的release 构建变体中分离出来，并且在你的debug 构建中保留它们的静态值。像下面build.gradle 文件显示的这样：
+     *
+     * */
+//
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            output.versionNameOverride = minutesSinceEpoch + "-" + "debug"
+//        }
+//    }
+
+    //如果是构建debug包, 则禁用 "png cruncher" (默认cruncherEnabled=true, 禁用以加速构建)
+//    def enableCruncher = { ->
+//        return !isDebug()
+//    }
+
+    aaptOptions { //禁止每次构建app都自动压缩图片来提升构建速度
+        cruncherEnabled = false
+    }
+
+    //跳过Lint和Test相关的task, 以加速编译
+    if (isDebug()) {
+        gradle.taskGraph.whenReady {
+            tasks.each { task ->
+                if (task.name.contains("Test") || task.name.contains("Lint")) {
+                    task.enabled = false
+                }
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'ztlkey'
+            keyPassword '732310'
+            storeFile file('./keystore/android.jks')
+            storePassword '732310'
+        }
+        debug {
+            keyAlias 'ztlkey'
+            keyPassword '732310'
+            storeFile file('./keystore/android.jks')
+            storePassword '732310'
+        }
+    }
+    configurations {
+        all*.exclude group: 'com.google.code.gson'
+    }
+
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false//移除无用的resource文件
+            crunchPngs false //关闭crunchPng优化, 以加快构建
+            /**
+             * 在debug 构建状态下，如果不需要运行崩溃上报，可以将这个插件设置为不可用状态来提升你的构建速度,会影响编译速度 (enableCrashlytics默认值为true)
+             * Crushlytics 为崩溃上报分析工具，在开发的时候我们可能不需要，因此不需要打开，在我们实际开发中，像崩溃上报SDK，数据统计SDK等（如 友盟统计、GrowingIO、百度统计）在开发阶段都设置为不可用，来提升构建速度。
+             */
+            ext.enableCrashlytics = false
+            ext.alwaysUpdateBuildId = false
+            signingConfig signingConfigs.release
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            ndk {
+                abiFilters "x86", "armeabi"
+            }
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false//移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable true
+            jniDebuggable = false
+//            ndk { "armeabi" }
+            ndk { abiFilters "armeabi", 'x86' }
+        }
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets', 'src/main/assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+//    greendao {
+//        schemaVersion 1
+//        daoPackage 'com.ciyuanplus.mobile.gen'
+//        targetGenDir 'src/main/java'
+//    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    /**
+     * Android 插件提供了 dexOptions script block ,因此你可以配置相应的 DEX 构建特性，它们可以提高构建速度：
+     * （1）preDexLibraaies : 声明是否对依赖的库进行dex 预处理来使你的增量构建更快速，因为这个特性可能会使你的clean 构建变慢，因此在你的持续集成服务器上你可能想关闭这个特性。
+     * (2) maxProcessCount : 设置最大的线程数量使用当运行 dex-in-process时,默认值是4。
+     * （3）javaMaxHeapSize: 为DEX 编译器 设置最大的堆大小，相对于设置这个属性，你应该增加 Gradle的 堆大小（这个堆大小dex-in-process可用的时候对DEX 编译器有效）
+     *
+     * */
+
+    dexOptions {
+        dexInProcess true
+        javaMaxHeapSize "8g"
+        preDexLibraries true
+        maxProcessCount 8
+        // Instead of setting the heap size for the DEX process, increase Gradle's
+        // heap size to enable dex-in-process. To learm more, read the next section.
+        // javaMaxHeapSize "2048m"
+    }
+
+
+    flavorDimensions "app"
+    productFlavors {
+
+        guanfang {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "0"]
+            dimension "app"
+        }
+        ali {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "ali"]
+            dimension "app"
+        }
+        qh360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+            dimension "app"
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+            dimension "app"
+        }
+        tengxun {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "tengxun"]
+            dimension "app"
+        }
+        anzhi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "anzhi"]
+            dimension "app"
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+            dimension "app"
+        }
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+            dimension "app"
+        }
+        oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
+            dimension "app"
+        }
+        meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "meizu"]
+            dimension "app"
+        }
+        lxiang {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "lxiang"]
+            dimension "app"
+        }
+        zhushou {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "zhushou"]
+            dimension "app"
+        }
+        anzhuo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "anzhuo"]
+            dimension "app"
+        }
+        samsung {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "samsung"]
+            dimension "app"
+        }
+        jinli {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "jinli"]
+            dimension "app"
+        }
+        vivo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "vivo"]
+            dimension "app"
+        }
+    }
+    compileOptions {
+        targetCompatibility = '1.8'
+        sourceCompatibility = '1.8'
+    }
+
+
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//        incremental = true  //开启增量编译
+//    }
+}
+
+
+def getVersionCode() {
+    def versionFile = file('version.properties')
+    if (versionFile.exists()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def versionCode = versionProps['build.number'].toInteger()
+        println('Current version code is ' + versionCode.toString())
+        return versionCode
+    } else {
+        throw new GradleException("Could not find version.properties!")
+    }
+}
+
+def getVersionName() {
+    def versionFile = file('version.properties')
+    if (versionFile.exists()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def versionName = versionProps['version.major'] + "." + versionProps['version.minor'] + "." + versionProps['version.path']
+        println('Current version code is ' + versionName)
+        return versionName
+    } else {
+        throw new GradleException("Could not find version.properties!")
+    }
+}
+
+def updateVersionCode() {
+    def runTasks = gradle.startParameter.taskNames
+
+    if (!('assemble' in runTasks || 'assembleRelease' in runTasks || 'aR' in runTasks)) {
+        return
+    }
+
+    File versionFile = file('version.properties')
+
+    if (versionFile.exists()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def currentVerCode = versionProps['build.number'].toInteger()
+        currentVerCode++
+        versionProps['build.number'] = currentVerCode.toString()
+        versionProps.store(versionFile.newWriter(), null)
+        println('Updated version code to ' + currentVerCode.toString())
+    } else {
+        throw new GradleException("Could not find version.properties!")
+    }
+}
+
+def updateVersionName() {
+    def runTasks = gradle.startParameter.taskNames
+
+    if (!('assemble' in runTasks || 'assembleRelease' in runTasks || 'aR' in runTasks)) {
+        return
+    }
+
+    File versionFile = file('version.properties')
+
+    if (versionFile.exists()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionFile))
+        def currentVersionName = versionProps['version.path'].toInteger()
+        currentVersionName++
+        versionProps['version.path'] = currentVersionName.toString()
+        versionProps.store(versionFile.newWriter(), null)
+        println('Updated version code to ' + currentVersionName.toString())
+    } else {
+        throw new GradleException("Could not find version.properties!")
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.yuyh.easyadapter:library:1.1.0'
+    implementation files('libs/lite-http-2.3.1.jar')
+    implementation files('libs/gson-2.3.jar')
+    implementation files('libs/Amap_2DMap_V4.2.0_20170209.jar')
+    implementation files('libs/AMap_Location_V3.4.0_20170427.jar')
+    implementation files('libs/AMap_Search_V5.1.0_20170517.jar')
+//    implementation project(':IMKit')
+    implementation project(':xrichtext')
+    implementation project(':base')
+    //JSR250的jar包，使用这个和使用glassFish的那个一样，仅为了使用@Inject 和@Named注解
+    //    compileOnly 'javax.annotation:jsr250-api:1.0'
+    implementation 'com.google.dagger:dagger:2.22.1'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    kapt 'com.google.dagger:dagger-compiler:2.22.1'
+    //sophix 热更新
+    implementation('com.aliyun.ams:alicloud-android-hotfix:3.1.9') {
+        exclude(module: 'alicloud-android-utdid')
+    }
+//    implementation project(':multiple-status-view')
+//    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+//    implementation project(':ShortcutBadger')
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation files('libs/tbs_sdk.jar')
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    implementation 'com.xhb:xbanner:1.2.2'
+    implementation 'com.jcodecraeer:xrecyclerview:1.3.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha04'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.5.0'
+    kapt 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-4'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-4'
+    implementation 'com.jude:easyrecyclerview:4.4.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.anko:anko:0.10.8'
+
+    implementation 'com.github.lygttpod:SuperTextView:2.2.0'
+    //   implementation 'com.commit451:PhotoView:1.2.4'
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    implementation 'com.youth.banner:banner:1.4.10'
+    //最新版本
+    implementation 'com.orhanobut:logger:2.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    implementation project(':picture_library')
+    implementation project(':ucrop')
+    implementation 'com.lzy.widget:ninegridview:0.2.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation project(':baselibrary')
+    implementation 'com.blankj:utilcode:1.23.7'
+    //支付宝
+    implementation(name: 'alipaySdk-15.5.7-20181023110917', ext: 'aar')
+    //https://github.com/Justson/AgentWeb
+    implementation 'com.facebook.fresco:fresco:1.13.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    implementation 'com.zhy:base-adapter:2.0.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    implementation project(':UMLibrary')
+    implementation 'com.github.YvesCheung.TouchEventBus:nestedtouch:1.5.2'
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+    //    implementation 'com.sunfusheng:GlideImageView::2.0.0'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //微信支付
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.3.1'
+    //视频播放 https://github.com/CarGuo/GSYVideoPlayer
+    implementation 'com.shuyu:GSYVideoPlayer:7.0.0-beta1'
+    //Runtime权限
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    //腾讯bugly
+    implementation 'com.tencent.bugly:crashreport:2.8.6'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:nativecrashreport:3.6.0'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    //noinspection GradleDependency
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.0.3'
+    implementation 'com.github.zackratos.ultimatebar:ultimatebar3:3.1.1'
+    //状态栏
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+    implementation 'com.github.crossoverone:StatusBarUtil:1.3.4'//会不定时更新，请及时更新
+}
+tasks.findByName("assemble").doLast {
+    updateVersionCode()
+    updateVersionName()
+}
+repositories {
+    mavenCentral()
+}

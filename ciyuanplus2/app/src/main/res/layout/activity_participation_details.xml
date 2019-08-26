@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+    <include layout="@layout/rank_toolbar"
+        android:id="@+id/in"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        />
+    <androidx.core.widget.NestedScrollView
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_below="@+id/in"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lin_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+           <!-- <com.ciyuanplus.mobile.widget.BigView
+                android:id="@+id/activity_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.ciyuanplus.mobile.widget.BigView
+                android:id="@+id/activity_imgtwo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/participate_activity"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_activity_bg"
+        android:text="参加活动"
+        android:textColor="@color/white" />
+</RelativeLayout>

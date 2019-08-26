@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/m_market_top_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingTop="5dp">
+
+        <ImageView
+            android:id="@+id/m_market_back_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_back" />
+
+        <ImageView
+            android:id="@+id/m_market_add_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:scaleType="center"
+            android:src="@mipmap/icon_plus_market"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/m_market_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/m_market_add_image"
+            android:layout_toRightOf="@id/m_market_back_image"
+            android:background="@drawable/rc_search_view_bg"
+            android:gravity="center"
+            android:imeOptions="actionSearch"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/nav_icon_search_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/string_main_search_alert"
+                android:textColor="#999999"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/m_market_sort_lp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/m_market_top_lp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/m_market_sort_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:drawableRight="@mipmap/btn_dropdown"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="最新发布"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/m_market_sort_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:drawableRight="@mipmap/btn_dropdown"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="价格"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/m_market_sort_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:drawableRight="@mipmap/btn_dropdown"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            android:text="全部状态"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/m_market_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_market_sort_lp"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nul_data_news" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="暂无帖子"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <com.ciyuanplus.base.irecyclerview.IRecyclerView
+        android:id="@+id/m_market_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_market_sort_lp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="none"
+        app:loadMoreEnabled="true"
+        app:loadMoreFooterLayout="@layout/layout_irecyclerview_load_more_footer_view"
+        app:refreshEnabled="true"
+        app:refreshHeaderLayout="@layout/layout_irecyclerview_classic_refresh_header_view" />
+
+
+    <View
+        android:id="@+id/m_market_shadow_lp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/m_market_sort_lp"
+        android:background="#8f000000"
+        android:visibility="gone" />
+</RelativeLayout>

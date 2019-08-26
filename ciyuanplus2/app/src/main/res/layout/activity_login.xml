@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_background"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/iv_login_back_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="center"
+        android:src="@mipmap/nav_icon_back"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_login_logo_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:fitsSystemWindows="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_login_logo_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="次元PLUS"
+        android:textColor="#ffffffff"
+        android:textSize="17sp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/iv_login_logo_image"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="visible">
+
+
+        <EditText
+            android:id="@+id/m_login_account_view"
+            android:layout_width="293dp"
+            android:layout_height="39dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="78dp"
+            android:background="@drawable/shape_login_input"
+            android:drawableLeft="@drawable/login_icon_phone"
+            android:drawablePadding="10dp"
+            android:hint="手机号"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="11"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="12dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_get_sms_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_login_account_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp">
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="293dp"
+                android:layout_height="39dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/shape_login_input"
+                android:drawableStart="@drawable/login_icon_verification"
+                android:drawableLeft="@drawable/login_icon_verification"
+                android:drawablePadding="10dp"
+                android:hint="验证码"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:paddingBottom="2dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="12dp" />
+
+            <com.ciyuanplus.mobile.widget.CountDownButton
+                android:id="@+id/btn_get_sms_code"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:layout_alignEnd="@id/et_code"
+                android:layout_alignRight="@id/et_code"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:text="获取验证码"
+                android:textColor="#ff999999"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+
+        <com.ciyuanplus.mobile.widget.NoEmojiEditText
+            android:id="@+id/m_login_password_view"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_login_account_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_input_bg"
+            android:drawableLeft="@mipmap/login_icon_password"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="@string/string_login_password_alert"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="12dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/m_login_forget_password_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_login_password_view"
+            android:layout_alignRight="@id/m_login_password_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/string_login_forget_password_alert"
+            android:textColor="#555555"
+            android:textSize="13dp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tv_login_protocol_cy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_get_sms_code"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="登录即代表同意次元PLUS用户协议"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_login_protocol_cy"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/login_login_btn_bg"
+            android:gravity="center"
+            android:padding="@dimen/spacing_small"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_login_weichat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_weixin" />
+
+            <ImageView
+                android:id="@+id/iv_login_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_qq" />
+
+            <ImageView
+                android:id="@+id/iv_login_weibo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/icon_weibo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_other"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="第三方登录" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@color/black" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

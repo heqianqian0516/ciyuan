@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/m_list_item_my_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:maxLength="20"
+            android:textColor="#666666"
+            android:textSize="13dp"
+            tools:text="账号管理" />
+
+        <ImageView
+            android:id="@+id/m_list_item_my_profile_enter_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/chat_icon_enterarrow" />
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_my_profile_head_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@id/m_list_item_my_profile_enter_image"
+            android:src="@mipmap/default_head_"
+            android:visibility="invisible"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/m_list_item_my_profile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_toStartOf="@id/m_list_item_my_profile_enter_image"
+            android:layout_toLeftOf="@id/m_list_item_my_profile_enter_image"
+            android:layout_toEndOf="@id/m_list_item_my_profile_name"
+            android:layout_toRightOf="@id/m_list_item_my_profile_name"
+            android:gravity="right"
+            android:textColor="#666666"
+            android:textSize="13dp"
+            tools:visibility="gone"
+            tools:text="发了发动机拉法基拉法基阿里附近拉法基阿里" />
+
+        <LinearLayout
+            android:id="@+id/ll_account_manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/m_list_item_my_profile_enter_image"
+            android:layout_toLeftOf="@id/m_list_item_my_profile_enter_image"
+            android:layout_toEndOf="@id/m_list_item_my_profile_name"
+            android:layout_toRightOf="@id/m_list_item_my_profile_name"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            tools:visibility="visible"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_bind_weixin"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_setting_unbind_weixin" />
+
+            <ImageView
+                android:id="@+id/iv_bind_qq"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/icon_setting_unbind_qq" />
+
+            <ImageView
+                android:id="@+id/iv_bind_weibo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_setting_unbind_weibo" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/m_list_item_my_profile_small_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#f2f2f2" />
+
+    <View
+        android:id="@+id/m_list_item_my_profile_big_divider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f2f2f2"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/m_start_food_common_title"
+        layout="@layout/common_title_bar" />
+
+    <LinearLayout
+        android:id="@+id/m_start_food_bottom_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#e9e9e9" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/m_start_food_add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/launch_icon_addphoto" />
+
+            <ImageView
+                android:id="@+id/m_start_food_location_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="120dp"
+                android:src="@mipmap/btn_release_location" />
+
+            <TextView
+                android:id="@+id/m_start_food_location_name"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="20dp"
+                android:layout_toRightOf="@id/m_start_food_location_img"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="请选择位置"
+                android:textColor="#999999"
+                android:textSize="16dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/m_start_food_bottom_lp"
+        android:layout_below="@id/m_start_food_common_title"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="我给它打分"
+                    android:textColor="#999999"
+                    android:textSize="15dp" />
+
+                <com.ciyuanplus.mobile.widget.MarkView
+                    android:id="@+id/m_start_mark_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    app:contentSize="25dp"
+                    app:leftPadding="5dp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="#e9e9e9" />
+
+            <com.sendtion.xrichtext.RichTextEditor
+                android:id="@+id/m_start_food_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="left|top"
+                android:padding="0dp"
+                android:textColor="#ff333333"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

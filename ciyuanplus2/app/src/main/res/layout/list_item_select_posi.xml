@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="15dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_address_list_grey" />
+
+    <TextView
+        android:id="@+id/m_list_item_select_posi_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:ellipsize="end"
+        android:maxWidth="300dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="14dp" />
+
+    <CheckBox
+        android:id="@+id/m_list_item_select_posi_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:button="@drawable/select_posi_check_box_button_selector"
+        android:checked="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/m_list_item_select_posi_name"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:background="#c5c5c5" />
+</RelativeLayout>

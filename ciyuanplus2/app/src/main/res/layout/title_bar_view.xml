@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title_bar_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="#212021">
+
+        <ImageView
+            android:id="@+id/iv_title_bar_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_nav_back"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_title_bar_left_text"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:padding="@dimen/spacing_small"
+            android:scaleType="centerInside"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            tools:text="返回"
+            tools:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title_bar_title"
+                style="@style/TitleBarMainTitle"
+                android:drawablePadding="@dimen/spacing_small"
+                android:ellipsize="end"
+                android:maxWidth="200dp"
+                android:singleLine="true"
+                android:text="主标题"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_title_bar_sub_title"
+                style="@style/TitleBarSunTitle"
+                android:ellipsize="end"
+                android:maxWidth="200dp"
+                android:singleLine="true"
+                android:text="子标题"
+                android:visibility="gone"
+                tools:visibility="gone" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_title_bar_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="gone"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_title_bar_left_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:padding="5dp"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:layout_marginTop="15dp"
+            tools:src="@drawable/icon_my_setting"
+            tools:visibility="visible" />
+
+        <CheckedTextView
+            android:id="@+id/ctv_title_bar_right_txt"
+            style="@style/TitleBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:gravity="center"
+            tools:text="设置"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_title_bar_right_img_title"
+            style="@style/TitleBarTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            tools:text=">>>>>"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/iv_title_bar_right_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:gravity="center"
+            android:scaleType="centerInside"
+            tools:src="@drawable/icon_like"
+            tools:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_notification"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal">
+
+            <ImageView
+                android:id="@+id/iv_notification"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_message"
+                android:visibility="gone"
+
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tv_notification_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/iv_notification"
+                android:layout_alignRight="@id/iv_notification"
+                android:layout_marginTop="-2dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/icon_msg_num_bg"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="1dp"
+                android:textColor="#ffffffff"
+                android:textSize="8dp"
+                android:visibility="gone"
+                tools:text="28"
+                tools:visibility="visible" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="#ffffff"
+        android:padding="@dimen/spacing_normal">
+
+        <com.ciyuanplus.mobile.widget.SquareImageView
+            android:id="@+id/siv_order_image"
+            android:layout_width="77dp"
+            android:layout_height="79dp"
+            android:scaleType="fitXY"
+            tools:src="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_price"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:textColor="#eda108"
+            tools:text="卖家待发货" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/siv_order_image"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:layout_toStartOf="@id/tv_status"
+            android:layout_toLeftOf="@id/tv_status"
+            android:layout_toEndOf="@+id/siv_order_image"
+            android:layout_toRightOf="@+id/siv_order_image"
+            android:ellipsize="end"
+            android:minLines="1"
+            android:singleLine="true"
+            android:textColor="#ff0000"
+            tools:text="￥99999999999999999999999999998888" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextFormatOrderBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_toEndOf="@+id/siv_order_image"
+            android:layout_toRightOf="@+id/siv_order_image"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。金鳞岂是池中物，一遇风云便化龙。" />
+
+        <TextView
+            android:id="@+id/tv_specification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tv_price"
+            android:layout_below="@id/tv_title"
+            android:layout_alignStart="@id/tv_title"
+            android:layout_marginTop="9dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#ff9b9b9b"
+            android:textSize="13sp"
+            tools:text="规格：红色 x1" />
+    </RelativeLayout>
+</FrameLayout>

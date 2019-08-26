@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="260dp"
+        android:background="@drawable/register_view_bg">
+
+        <TextView
+            android:id="@+id/topText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="修改签名"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_below="@id/topText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="#333333" />
+
+        <ImageView
+            android:id="@+id/closeButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="center"
+            android:src="@mipmap/my_icon_location_close" />
+
+        <LinearLayout
+            android:id="@+id/m_change_name_first_lp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topText"
+            android:layout_marginTop="35dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <com.ciyuanplus.mobile.widget.ClearEditText
+                android:id="@+id/signText"
+                android:layout_width="280dp"
+                android:layout_height="55dp"
+                android:background="@drawable/shape_edit_bg"
+                android:drawableLeft="@mipmap/login_icon_phone"
+                android:drawablePadding="10dp"
+                android:imeOptions="actionNext"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:paddingRight="15dp"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/submitButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/login_login_btn_bg"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

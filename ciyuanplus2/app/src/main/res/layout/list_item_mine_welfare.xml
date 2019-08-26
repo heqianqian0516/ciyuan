@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="horizontal"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/m_list_item_mine_welfare_image"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        tools:src="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginLeft="15dp">
+
+        <TextView
+            android:id="@+id/m_list_item_mine_welfare_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#333333"
+            android:textSize="15dp"
+            tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+
+        <TextView
+            android:id="@+id/m_list_item_mine_welfare_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="#999999"
+            android:textSize="12dp"
+            tools:text="bnbbbbbnbbbbbnbbbbbnbbbbbnbbb" />
+
+        <TextView
+            android:id="@+id/m_list_item_mine_welfare_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/m_list_item_mine_welfare_area"
+            android:layout_below="@id/m_list_item_mine_welfare_title"
+            android:gravity="bottom"
+            android:textColor="#999999"
+            android:textSize="12dp"
+            tools:text="ccccccccccccccccccccccc" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:drawableStart="@mipmap/icon_enroll"
+            android:drawableLeft="@mipmap/icon_enroll"
+            android:gravity="center"
+            android:text="已完成" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/m_search_market_top_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/m_search_market_cancel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:scaleType="center"
+            android:text="取消"
+            android:textColor="#666666"
+            android:textSize="14dp"
+            android:visibility="visible" />
+
+        <com.ciyuanplus.mobile.widget.ClearEditText
+            android:id="@+id/m_search_market_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/m_search_market_cancel"
+            android:background="@drawable/shape_edit_bg"
+            android:drawablePadding="5dp"
+            android:gravity="left|center_vertical"
+            android:hint="@string/string_main_search_alert"
+
+            android:imeOptions="actionSearch"
+            android:paddingLeft="35dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="13dp" />
+
+        <!--android:textCursorDrawable="@drawable/editcolor"-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/m_search_market_search_edit"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/nav_icon_search_small" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/m_search_market_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/nul_data_news" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="未搜索到相关宝贝"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <com.ciyuanplus.base.irecyclerview.IRecyclerView
+        android:id="@+id/m_search_market_scroll_grid_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:scrollbars="none"
+        app:loadMoreEnabled="true"
+        app:loadMoreFooterLayout="@layout/layout_irecyclerview_load_more_footer_view"
+        app:refreshEnabled="true"
+        app:refreshHeaderLayout="@layout/layout_irecyclerview_classic_refresh_header_view" />
+
+</LinearLayout>

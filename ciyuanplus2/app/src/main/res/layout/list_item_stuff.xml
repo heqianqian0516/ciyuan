@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/m_list_item_stuff_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/m_list_item_stuff_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/m_list_item_stuff_image"
+        android:layout_marginBottom="20dp"
+        android:background="@mipmap/bg_label_grey"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="免费"
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
+
+    <RelativeLayout
+        android:id="@+id/m_list_item_stuff_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/m_list_item_stuff_image"
+        android:layout_alignBottom="@id/m_list_item_stuff_image"
+        android:background="#8f000000"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/m_list_item_stuff_shadow_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="已预订"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/m_list_item_stuff_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_list_item_stuff_image"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:text="标题"
+        android:textColor="#333333"
+        android:textSize="16dp" />
+
+    <RelativeLayout
+        android:id="@+id/m_list_item_stuff_info_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_list_item_stuff_title"
+        android:layout_marginBottom="10dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_stuff_head"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/default_head_" />
+
+        <TextView
+            android:id="@+id/m_list_item_stuff_browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/m_list_item_stuff_head"
+            android:drawableLeft="@mipmap/img_eye"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="2000"
+            android:textColor="#666666"
+            android:textSize="14dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/m_list_item_stuff_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@mipmap/icon_location_market"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="2"
+            android:textColor="#666666"
+            android:textSize="14dp" />
+    </RelativeLayout>
+</RelativeLayout>

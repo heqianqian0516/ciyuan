@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <WebView
+        android:id="@+id/wv_weather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/message_icon_kefu"
+        android:scaleType="fitXY"
+        tools:visibility="gone" />
+
+
+    <com.ciyuanplus.mobile.widget.PullRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="49dp"
+        tools:visibility="visible">
+
+        <com.ciyuanplus.mobile.widget.SubScrollView
+            android:id="@+id/main4_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/top_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#ffffff" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcl_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="150dp"
+                        android:clipChildren="false" />
+                </RelativeLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcl_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/top_banner"
+                    android:layout_gravity="center"
+                    android:background="#fff"
+                    android:nestedScrollingEnabled="false" />
+
+            </RelativeLayout>
+
+        </com.ciyuanplus.mobile.widget.SubScrollView>
+    </com.ciyuanplus.mobile.widget.PullRefreshLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_tab_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/myhome_serch2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/icon_searchtopbara2x"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/icon_locationa2x" />
+
+            <TextView
+                android:id="@+id/myhome_address2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                android:maxWidth="50dp"
+                android:maxEms="8"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:textColor="#fff"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_title_with_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        tools:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/myhome_serch"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@mipmap/icon_searchtopbar_greya2x" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/img_location_reda2x" />
+
+                <TextView
+                    android:id="@+id/myhome_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="50dp"
+                    android:maxEms="8"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textColor="#f28149"
+                    android:textSize="18dp"
+                    tools:text="火星园aaaaaaaaaaaaaaaaaaa"
+                    tools:textColor="#ff0000" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center">
+
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:tabBackground="@drawable/home_tab_select_bg_selector"
+                app:tabContentStart="20dp"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="#fff"
+                app:tabTextColor="#000" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="89dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible"
+            tools:src="@mipmap/ic_launcher"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/compile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/launch_btn_open" />
+
+    </LinearLayout>
+
+</RelativeLayout>

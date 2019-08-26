@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="146dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="true">
+
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/m_list_item_around_stuff_image"
+        android:layout_width="131dp"
+        android:layout_height="131dp" />
+
+    <TextView
+        android:id="@+id/m_list_item_around_stuff_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/m_list_item_around_stuff_image"
+        android:layout_alignBottom="@id/m_list_item_around_stuff_image"
+        android:layout_marginRight="-10dp"
+        android:layout_marginBottom="5dp"
+        android:background="@mipmap/find_icon_price"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingTop="4dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp"
+        android:text="￥0"
+        android:textColor="#ffffff"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/m_list_item_around_stuff_name"
+        android:layout_width="131dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_list_item_around_stuff_image"
+        android:layout_marginTop="12dp"
+        android:ellipsize="end"
+        android:gravity="left|center_vertical"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="14dp" />
+</RelativeLayout>

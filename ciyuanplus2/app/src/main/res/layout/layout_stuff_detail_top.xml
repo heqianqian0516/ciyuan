@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_stuff_detail_head_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:src="@mipmap/default_head_" />
+
+        <ImageView
+            android:id="@+id/m_stuff_detail_sex_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/m_stuff_detail_head_image"
+            android:layout_alignBottom="@id/m_stuff_detail_head_image"
+            android:layout_marginRight="3dp"
+            android:src="@mipmap/my_icon_boy" />
+
+        <TextView
+            android:id="@+id/m_stuff_detail_name_text"
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/m_stuff_detail_head_image"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/m_stuff_detail_neighbor_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="13dp"
+            android:layout_toRightOf="@id/m_stuff_detail_name_text"
+            android:src="@mipmap/icon_neighbor_label" android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/m_stuff_detail_follow_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp"
+            android:src="@mipmap/icon_follow" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/m_stuff_detail_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="12.5dp"
+        android:lineSpacingExtra="10dp"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="18dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <TextView
+            android:id="@+id/m_stuff_detail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text="￥00000000"
+            android:textColor="#ff5200"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/m_stuff_detail_stuff_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@mipmap/icon_location_market"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="0km"
+            android:textColor="#666666"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/m_stuff_detail_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/m_stuff_detail_stuff_distance"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text="在售中"
+            android:textColor="#00A2ff"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <com.sendtion.xrichtext.RichTextView
+        android:id="@+id/m_stuff_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12.5dp"
+        android:layout_marginRight="15dp"
+        android:gravity="left|top"
+        android:textColor="#333333"
+        android:textSize="12dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp">
+
+        <TextView
+            android:id="@+id/m_stuff_detail_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:text="2017-01-01 12:00"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/m_stuff_detail_community_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"
+            android:maxWidth="150dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="20dp"
+        android:background="#e9e9e9" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_news_detail_comment_alert"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:background="#333333" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/m_stuff_detail_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/null_data_comment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/string_news_detail_comment_null_alert"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+</LinearLayout>

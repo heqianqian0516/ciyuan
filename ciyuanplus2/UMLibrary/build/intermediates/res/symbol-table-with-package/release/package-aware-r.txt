@@ -1,0 +1,2 @@
+com.umeng.message.lib
+drawable umeng_socialize_edit_bg

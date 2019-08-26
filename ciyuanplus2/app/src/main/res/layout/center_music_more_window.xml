@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffb299"
+    android:gravity="bottom">
+
+    <ImageView
+        android:id="@+id/iv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_seek_help"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="125dp"
+        android:src="@mipmap/img_launchslogn" />
+
+    <TextView
+        android:id="@+id/tv_seek_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="right"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/launch_btn_qiuzhu2x"
+        android:drawablePadding="12dp"
+        android:gravity="center"
+        android:text="求助"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tv_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:drawableTop="@mipmap/launch_btn_tuijian2x"
+        android:drawablePadding="12dp"
+        android:gravity="center"
+        android:text="推荐"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tv_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/launch_btn_zatan2x"
+        android:drawablePadding="12dp"
+        android:gravity="center"
+        android:text="杂谈"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tv_business"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_seek_help"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:clickable="true"
+        android:drawableTop="@mipmap/launch_btn_maimai2x"
+        android:drawablePadding="12dp"
+        android:gravity="center_horizontal"
+        android:text="买卖"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:focusable="true" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_business"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="89dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/launch_btn_close2x" />
+
+</RelativeLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:layout_gravity="center_vertical"
+        android:background="#FF050505"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iv_back_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/icon_nav_back" />
+
+
+        <com.ciyuanplus.mobile.widget.ClearEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_toRightOf="@id/iv_back_icon"
+            android:background="@drawable/search_view_bg"
+            android:drawableStart="@mipmap/icon_searchtopbara2x"
+            android:drawableLeft="@mipmap/icon_searchtopbara2x"
+            android:drawablePadding="10dp"
+            android:gravity="left|center_vertical"
+            android:hint="@string/string_main_search_user_alert"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="@dimen/spacing_small"
+            android:paddingRight="@dimen/spacing_small"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="13dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/postUserSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#FFF5F5F7"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:id="@+id/rl_user"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="用户"
+                android:textColor="#ff333333"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_user_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/tv_user"
+                android:layout_alignLeft="@id/tv_user"
+                android:layout_alignEnd="@id/tv_user"
+                android:layout_alignRight="@id/tv_user"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/icon_search_bottom_image" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="17dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_search_middle_image" />
+
+        <RelativeLayout
+            android:id="@+id/rl_post"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="帖子"
+                android:textColor="#ff333333"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_post_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/tv_post"
+                android:layout_alignRight="@id/tv_post"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/icon_search_bottom_image"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:srlEnableLoadMore="false">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcl_user_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcl_news_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffebebeb"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/commodityList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_no_data_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_no_data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="110dp"
+                    android:visibility="visible"
+                    tools:src="@drawable/image_serach_no_user" />
+
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:textColor="#ff666666"
+                    android:textSize="15sp"
+                    tools:text="未搜索到相关商品" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

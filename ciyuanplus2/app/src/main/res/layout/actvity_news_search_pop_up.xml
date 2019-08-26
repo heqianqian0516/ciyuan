@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/m_news_search_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f000000"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="35dp"
+        android:background="@mipmap/bg_dropdown"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/m_news_search_all_lp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="搜索广场内容"
+            android:textColor="@drawable/search_news_drop_text_selector" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="1px"
+            android:background="#e9e9e9" />
+
+        <TextView
+            android:id="@+id/m_news_search_zone_lp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="搜索小区内容"
+            android:textColor="@drawable/search_news_drop_text_selector" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="1px"
+            android:background="#e9e9e9" />
+
+        <TextView
+            android:id="@+id/m_news_search_user_lp"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="搜索用户"
+            android:textColor="@drawable/search_news_drop_text_selector" />
+    </LinearLayout>
+</LinearLayout>

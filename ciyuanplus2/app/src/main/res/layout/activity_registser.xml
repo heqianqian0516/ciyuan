@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/img_loginbackground2x"
+        android:scaleType="fitXY" />
+
+    <ImageView
+        android:id="@+id/m_register_back_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="center"
+        android:src="@mipmap/nav_icon_back"
+        android:visibility="visible" />
+
+    <ImageView
+        android:layout_width="107dp"
+        android:layout_height="107dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:src="@mipmap/my_icon_head_shadow" />
+
+    <com.ciyuanplus.mobile.widget.RoundImageView
+        android:id="@+id/m_register_head_icon"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <ImageView
+        android:id="@+id/m_register_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/m_register_head_icon"
+        android:layout_alignBottom="@id/m_register_head_icon"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/btn_camera" />
+
+    <TextView
+        android:id="@+id/m_register_user_name"
+        style="@style/TextViewBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_register_head_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="15dp" />
+
+    <ImageView
+        android:id="@+id/m_register_edit_name_image"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@id/m_register_user_name"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@id/m_register_user_name"
+        android:scaleType="center"
+        android:src="@mipmap/btn_editname" />
+
+    <LinearLayout
+        android:id="@+id/m_register_first_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/m_register_user_name"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/m_register_account_view"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_input_bg"
+            android:drawableLeft="@mipmap/login_icon_phone"
+            android:drawablePadding="10dp"
+            android:hint="@string/string_forget_password_account_alert"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:paddingBottom="2dp"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="12dp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+
+            <EditText
+                android:id="@+id/m_register_verify_view"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/login_input_bg"
+                android:drawableLeft="@mipmap/login_icon_verification"
+                android:drawablePadding="10dp"
+                android:hint="@string/string_forget_password_verify_alert"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:paddingBottom="2dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/m_register_send_verify_text"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_alignRight="@id/m_register_verify_view"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:text="@string/string_forget_password_send_verify_alert"
+                android:textColor="#999999"
+                android:textSize="11dp" />
+        </RelativeLayout>
+
+        <com.ciyuanplus.mobile.widget.NoEmojiEditText
+            android:id="@+id/m_register_password_view"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/login_input_bg"
+            android:drawableLeft="@mipmap/login_icon_password"
+            android:drawablePadding="10dp"
+            android:hint="@string/string_login_password_alert"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:paddingBottom="2dp"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="12dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/m_register_agreement_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/register_agreenment_check_box_selector"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/string_register_agreement_alert"
+                android:textColor="#555555"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/m_register_agreement_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/string_register_agreement_hint"
+                android:textColor="#555555"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/m_register_next"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_btn_bg"
+            android:gravity="center"
+            android:text="确 定"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/m_register_login_btn"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/select_sex_login_btn_bg"
+            android:gravity="center"
+            android:text="已有账号"
+            android:textColor="#018ad9"
+            android:textSize="15dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

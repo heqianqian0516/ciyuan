@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/m_select_location_guide_lp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f000000"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/m_select_location_guide_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="60dp"
+        android:src="@mipmap/guide_choice_xiaoqu2" />
+
+    <ImageView
+        android:id="@+id/m_select_location_guide_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:src="@mipmap/guide_choice_xiaoqu1"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/m_select_location_guide_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:src="@mipmap/guide_choice_btn"
+        android:visibility="visible" />
+</RelativeLayout>

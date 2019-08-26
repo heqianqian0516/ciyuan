@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+
+        <attr name="civ_border_width" format="dimension" />
+
+        <attr name="civ_border_color" format="color" />
+
+        <attr name="civ_border_overlay" format="boolean" />
+
+        <attr name="civ_fill_color" format="color" />
+
+    </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="CustomCommonClearEditText">
+        <!-- 自定义的属性名称 和对应的单位 -->
+        <attr name="delete_icon" format="reference" />
+    </declare-styleable>
+    <!-- 自定义可收起 展开view-->
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer" />
+        <attr name="animDuration" format="integer" />
+        <attr name="expandDrawable" format="reference" />
+        <attr name="collapseDrawable" format="reference" />
+        <attr name="contentTextColor" format="color" />
+        <attr name="collapseExpandTextColor" format="color" />
+        <attr name="contentTextSize" format="dimension" />
+        <attr name="collapseExpandTextSize" format="dimension" />
+        <attr name="textCollapse" format="string" />
+        <attr name="textExpand" format="string" />
+        <attr name="collapseExpandGrarity">
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+        </attr>
+        <attr name="drawableGrarity">
+            <flag name="left" value="3" />
+            <flag name="right" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MarkViewStyle">
+        <attr name="contentSize" format="dimension" />
+        <attr name="leftPadding" format="dimension" />
+        <attr name="disabled" format="boolean" />
+    </declare-styleable>
+
+</resources>

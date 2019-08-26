@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_mine_like_news_head_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/default_head_" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/m_list_item_mine_like_news_head_image"
+            android:layout_alignBottom="@id/m_list_item_mine_like_news_head_image"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/my_icon_boy_small" />
+
+        <TextView
+            android:id="@+id/m_list_item_mine_like_news_name_text"
+            android:layout_width="wrap_content"
+            style="@style/TextViewBold"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/m_list_item_mine_like_news_head_image"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#3484b2"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/m_list_item_mine_like_news_name_text"
+            android:src="@mipmap/icon_neighbor_label" android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/m_list_item_mine_like_news_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_list_item_mine_like_news_name_text"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/m_list_item_mine_like_news_head_image"
+            android:text="2017-01-01 12:00"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/m_list_item_mine_like_news_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text=""
+        android:textColor="#333333"
+        android:textSize="14dp" />
+
+    <com.ciyuanplus.mobile.widget.ThreeGrideView
+        android:id="@+id/m_list_item_mine_like_news_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/m_list_item_mine_like_news_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="小月"
+            android:textColor="#747474"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="3dp"
+            android:layout_toLeftOf="@id/m_list_item_mine_like_news_location"
+            android:src="@mipmap/user_address_icon_gray" />
+    </RelativeLayout>
+</LinearLayout>

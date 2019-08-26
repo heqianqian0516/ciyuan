@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ciyuanplus.base.irecyclerview.ClassicRefreshHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top">
+
+        <ImageView
+            android:id="@+id/m_animation_iv_image3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/loading_header_ball_bg_3"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/m_animation_iv_image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/m_animation_iv_image3"
+            android:src="@drawable/loading_header_ball_bg_2"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/m_animation_iv_image4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/m_animation_iv_image3"
+            android:src="@drawable/loading_header_ball_bg_4"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/m_animation_iv_image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/m_animation_iv_image2"
+            android:src="@drawable/loading_header_ball_bg_1"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/m_animation_iv_image5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@id/m_animation_iv_image4"
+            android:src="@drawable/loading_header_ball_bg_5"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Loading..."
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+</com.ciyuanplus.base.irecyclerview.ClassicRefreshHeaderView>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_user_notice_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/message_icon_set" />
+
+
+        <TextView
+            android:id="@+id/m_system_message_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/m_list_item_user_notice_icon"
+            android:layout_alignBottom="@id/m_list_item_user_notice_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/m_list_item_user_notice_icon"
+            android:drawablePadding="5dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text="我是标题"
+            android:textColor="#ff000000"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_list_item_user_notice_icon"
+            android:layout_alignLeft="@id/m_system_message_detail_title"
+            tools:visibility="visible"
+            tools:layout_height="200dp"
+            android:orientation="vertical">
+
+            <com.ciyuanplus.mobile.widget.MyWebView
+                android:id="@+id/m_system_message_detail_webview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:background="@color/darkred"
+                android:layout_marginTop="@dimen/spacing_tiny" />
+
+            <TextView
+                android:id="@+id/m_system_message_detail_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#ff999999"
+                android:textSize="11sp"
+                tools:text="2017-12-05  12：24" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

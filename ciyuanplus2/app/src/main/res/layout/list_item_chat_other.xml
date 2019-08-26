@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:id="@+id/m_list_item_chat_mine_lp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/m_list_item_chat_mine_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="2017-11-11 12:12:32"
+            android:textColor="#999999"
+            android:textSize="10dp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="100dp">
+
+            <ImageView
+                android:id="@+id/m_list_item_chat_mine_message_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:id="@+id/m_list_item_chat_mine_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@mipmap/chat_information_bg_white"
+                android:padding="15dp"
+                android:text="你的名字叫什么"
+                android:textColor="#000000"
+                android:textSize="13dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/m_list_item_chat_other_lp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/m_list_item_chat_other_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="2017-11-11 12:12:32"
+            android:textColor="#666666"
+            android:textSize="10dp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/m_list_item_chat_other_message_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp" />
+
+            <TextView
+                android:id="@+id/m_list_item_chat_other_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:background="@mipmap/chat_information_bg_orange"
+                android:padding="15dp"
+                android:text="你的名字叫什么"
+                android:textColor="#000000"
+                android:textSize="13dp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ciyuanplus.mobile.module.community.homeFragment.HomeFragment">
+
+    <com.ciyuanplus.mobile.widget.ScrollableViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_title_with_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_title_height"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fff">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/icon_searchtopbar_greya2x" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/img_location_reda2x" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="50dp"
+                    android:maxEms="8"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true"
+                    android:textColor="#f28149"
+                    android:textSize="18dp"
+                    tools:text="火星园aaaaaaaaaaaaaaaaaaa" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:gravity="center">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_home_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tab_height"
+                app:tabBackground="@drawable/home_tab_select_bg_selector"
+                app:tabContentStart="18dp"
+                app:tabIndicatorHeight="0dp"
+                app:tabMinWidth="8dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#fff"
+                app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+                app:tabTextColor="#000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="89dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/iv_activity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="invisible"
+            tools:src="@mipmap/ic_launcher"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitStart"
+            android:src="@mipmap/launch_btn_open" />
+
+    </LinearLayout>
+
+</RelativeLayout>

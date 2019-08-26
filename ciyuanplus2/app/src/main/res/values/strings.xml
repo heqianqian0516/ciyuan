@@ -1,0 +1,186 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">次元PLUS</string>
+
+    <string name="string_send_verify_code_success_alert">发送验证码成功</string>
+    <string name="string_delete_default_community_alert">不能删除默认地址</string>
+    <string name="string_get_fresh_news_fail_alert">获取新鲜事失败</string>
+    <string name="string_get_activity">参加活动失败</string>
+    <string name="footer_hint_load_ready">松开加载更多...</string>
+    <!-- 登录-->
+    <string name="string_login_password_alert">密码</string>
+    <string name="string_login_account_empty_alert">手机号不能为空</string>
+    <string name="string_login_password_empty_alert">密码不能为空</string>
+    <string name="string_login_forget_password_alert">忘记密码</string>
+    <string name="string_logout_fail_alert">退出登录失败</string>
+
+    <!-- 主页面-->
+    <string name="string_user_anonymous_alert">匿名</string>
+
+    <!-- 忘记密码-->
+    <string name="string_forget_password_account_alert">手机号</string>
+    <string name="string_forget_password_verify_alert">验证码</string>
+    <string name="string_forget_password_password_alert">新密码</string>
+    <string name="string_forget_password_confirm_alert">确 定</string>
+    <string name="string_forget_password_send_verify_alert">发送验证码</string>
+    <string name="string_forget_password_resend_verify_alert">重新发送</string>
+    <string name="string_forget_password_resend_verify_hint">秒后重试</string>
+    <string name="string_forget_password_phone_empty_alert">请输入手机号</string>
+    <string name="string_forget_password_phone_unformat_alert">请输入正确手机号</string>
+    <string name="string_forget_password_password_empty_alert">请输入密码</string>
+    <string name="string_forget_password_verify_empty_alert">请输入验证码</string>
+    <string name="string_forget_password_change_success_alert">修改密码成功</string>
+    <!-- 重置密码-->
+    <string name="string_reset_password_old_alert">原密码</string>
+    <string name="string_reset_password_new_alert">新密码</string>
+    <!-- 选择性别-->
+
+    <!-- 切换小区-->
+    <string name="string_change_community_title_alert">小区切换</string>
+
+    <!-- 选择小区-->
+    <string name="string_select_location_create_alert">创建小区</string>
+    <string name="string_select_location_add_community_empty_alert">请选择小区</string>
+
+    <!-- 注册-->
+    <string name="string_register_agreement_alert">同意</string>
+    <string name="string_register_agreement_hint">《次元PLUS用户协议》</string>
+    <string name="string_register_phone_empty_hint">手机号不能为空</string>
+    <string name="string_register_verify_empty_hint">验证码不能为空</string>
+    <string name="string_register_password_empty_hint">密码不能为空</string>
+    <string name="string_register_password_unformatted_hint">请输入6–16位密码</string>
+    <string name="string_register_agreement_unchecked_hint">请同意用户协议</string>
+
+    <!-- 选择性别弹窗 -->
+    <string name="string_select_location_title_hint">请选择您所在的小区</string>
+
+    <!-- 主页面-->
+    <string name="string_main_search_alert">搜索</string>
+    <string name="string_main_search_all_alert">搜索广场内容</string>
+    <string name="string_main_search_zone_alert">搜索小区内容</string>
+    <string name="string_main_search_user_alert">搜索用户</string>
+    <string name="string_main_news_null_alert">暂无帖子</string>
+    <string name="string_community_user_null_alert">暂无用户</string>
+    <string name="string_friends_null_alert">未搜索到相关用户</string>
+
+    <string name="string_news_detail_comment_null_alert">暂无评论</string>
+    <string name="string_news_detail_comment_alert">评论</string>
+
+    <!--评论页面-->
+    <string name="string_expand">全文</string>
+    <string name="string_collapse">收起</string>
+
+    <!-- 发布-->
+    <string name="start_news_content_hint">快来分享最新的消息吧~</string>
+    <string name="start_news_empty_alert">请输入标题</string>
+    <string name="start_news_content_empty_alert">请输入内容或上传图片</string>
+    <string name="start_post_content_empty_alert">请添加正文或图片</string>
+    <string name="start_stuff_image_empty_alert">请至少添加一张图片</string>
+    <string name="start_stuff_price_zero_alert">您选择了开价请输入价格</string>
+
+    <!-- 图片选择-->
+    <string name="image_select_sd_disable">SD卡不可用</string>
+    <string name="image_select_minnum">最少选择一张图片</string>
+    <string name="image_select_maxnum">最多选择%1$d张图片</string>
+    <string name="image_select_permission_denied">请打开相机权限</string>
+    <string name="image_select_open_camera_failure">打开相机失败</string>
+    <string name="image_select_takephoto">拍照</string>
+    <string name="image_select_image">图片</string>
+    <string name="image_select_confirm">确定</string>
+    <string name="image_select_all_images">所有图片</string>
+
+    <!-- 我的个人中心-->
+
+    <!-- ta的个人中心-->
+
+    <!-- 个人中心编辑-->
+    <string name="string_my_profile_logout_alert">退出登录</string>
+    <string name="string_my_profile_head_alert">头像</string>
+    <string name="string_my_profile_name_alert">昵称</string>
+    <string name="string_my_profile_sex_alert">性别</string>
+    <string name="string_my_profile_birthday_alert">生日</string>
+    <string name="string_my_profile_phone_alert">手机号</string>
+    <string name="string_my_profile_message_alert">消息设置</string>
+    <string name="string_my_profile_cache_alert">清除缓存</string>
+    <string name="string_my_profile_help_alert">帮助中心</string>
+    <string name="string_my_profile_about_alert">关于我们</string>
+    <string name="string_my_profile_remove_cache_success_alert">清除缓存成功</string>
+    <string name="string_my_profile_remove_cache_error_alert">清除缓存失败</string>
+    <string name="string_my_profile_change_head_success_alert">更新头像成功</string>
+    <string name="string_my_profile_change_name_success_alert">更新姓名成功</string>
+    <string name="string_my_profile_change_name_empty_alert">请输入姓名</string>
+    <string name="string_my_profile_change_phone_success_alert">更新手机号成功</string>
+    <string name="string_my_profile_change_phone_empty_alert">请输入手机号</string>
+    <string name="string_my_profile_change_verify_empty_alert">请输入验证码</string>
+    <string name="string_my_profile_change_sex_success_alert">更新性别成功</string>
+    <string name="string_my_profile_change_password_old_empty_alert">请输入旧密码</string>
+    <string name="string_my_profile_change_password_new_empty_alert">请输入新密码</string>
+    <string name="string_my_profile_change_password_success_alert">更新密码成功</string>
+
+    <!-- 关于我们-->
+    <string name="string_about_version_alert">版本号</string>
+    <string name="string_select_stuff_community_title_alert">选择宝贝发布小区</string>
+    <!-- 绑定手机号 -->
+    <string name="string_bind_phone_alert">修改手机号</string>
+    <string name="string_reset_password_alert">修改密码</string>
+    <!-- 修改姓名 -->
+    <string name="string_change_name_alert">修改昵称</string>
+    <string name="string_change_name_account_alert">姓名</string>
+
+    <!-- 认证 -->
+
+    <!-- 选择性别弹窗 -->
+    <string name="string_select_sex_popup_man">男</string>
+    <string name="string_select_sex_popup_female">女</string>
+    <string name="string_select_sex_popup_cancel">取消</string>
+    <string name="string_select_image_popup_camera">相机</string>
+    <string name="string_select_image_popup_picture">相册</string>
+    <string name="string_select_image_popup_cancel">取消</string>
+    <string name="string_select_edit_delete_news_edit">编辑</string>
+    <string name="string_select_edit_delete_news_delete">删除</string>
+    <string name="string_select_edit_delete_news_collect">收藏</string>
+    <string name="string_select_edit_delete_news_report">举报</string>
+    <string name="string_select_edit_delete_stuff_change">更改状态</string>
+    <string name="string_change_stuff_state_selling">在售中</string>
+    <string name="string_change_stuff_state_ordered">已预订</string>
+    <string name="string_change_stuff_state_selled">已售出</string>
+
+    <!-- 消息-->
+    <string name="string_main_friends_fan_huxiang_alert">互相关注</string>
+    <string name="string_main_friends_fan_alert">已关注</string>
+    <string name="string_invite_contact_alert">手机通讯录好友</string>
+    <string name="string_invite_weichat_circle_alert">微信朋友圈</string>
+    <string name="string_invite_weichat_alert">微信好友</string>
+    <string name="string_invite_qq_alert">QQ好友</string>
+    <string name="string_invite_recommand_alert">推荐</string>
+
+    <!-- 搜索小区页面 -->
+    <string name="string_search_community_cancel_alert">取消</string>
+    <string name="string_search_community_null_zone_alert1">sorry, 没有您搜索的小区！</string>
+    <string name="string_search_community_null_zone_alert2">您可以输入城市名搜索外地小区</string>
+    <string name="string_search_news_null_zone_alert">未搜索到相关内容</string>
+    <string name="string_search_friends_null_zone_alert">未搜索到相关用户</string>
+    <!-- 分享 -->
+    <string name="string_share_success_alert">分享成功</string>
+    <string name="string_share_fail_alert">分享失败,请检查是否安装该应用</string>
+    <string name="string_share_cancel_alert">分享取消</string>
+
+    <!-- 通用消息 -->
+    <string name="string_network_not_available_alert">无网络，请检查网络设置</string>
+    <string name="string_network_un_stable_alert">网络不稳定</string>
+    <string name="string_network_disable_alert">请开启网络</string>
+    <string name="string_server_error_alert">服务器错误</string>
+    <string name="string_client_error_alert">请求错误</string>
+    <string name="string_http_error_alert">请求失败</string>
+
+
+    <!--Runtime权限-->
+    <string name="rationale_ask"> 开启权限后，才能正常使用应用</string>
+    <string name="rationale_ask_again">
+        开启权限后，才能正常使用应用
+    </string>
+    <string name="title_settings_dialog" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

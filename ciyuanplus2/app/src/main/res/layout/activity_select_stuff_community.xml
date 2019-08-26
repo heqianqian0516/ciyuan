@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6f000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/register_view_bg">
+
+        <TextView
+            android:id="@+id/m_select_stuff_community_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/string_select_stuff_community_title_alert"
+            android:textColor="#333333"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_below="@id/m_select_stuff_community_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#333333" />
+
+        <ImageView
+            android:id="@+id/m_select_stuff_community_close_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:scaleType="center"
+            android:src="@mipmap/my_icon_location_close" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/m_select_stuff_community_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="30dp"
+            android:divider="#00ffffff"
+            android:dividerHeight="0px"
+            android:listSelector="@android:color/transparent"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:scrollbars="none" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

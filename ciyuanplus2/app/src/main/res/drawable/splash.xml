@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+    <!--白色矩形 作为背景色-->
+    <item>
+        <layer-list>
+            <item>
+
+                <bitmap android:src="@drawable/default_splash"/>
+            </item>
+
+            <!--单独的slogan图片 并且设置下间距-->
+            <!--<item android:bottom="80dp">-->
+                <!--&lt;!&ndash;位置设置成靠下&ndash;&gt;-->
+                <!--<bitmap-->
+                    <!--android:gravity="bottom"-->
+                    <!--android:src="@drawable/channel_splash" />-->
+            <!--</item>-->
+        </layer-list>
+    </item>
+
+    <!--&lt;!&ndash;单独的slogan图片 并且设置下间距&ndash;&gt;-->
+    <!--<item android:bottom="80dp">-->
+    <!--&lt;!&ndash;位置设置成靠下&ndash;&gt;-->
+    <!--<bitmap-->
+    <!--android:gravity="bottom"-->
+    <!--android:src="@drawable/channel_splash" />-->
+    <!--</item>-->
+</layer-list>
+

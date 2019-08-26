@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_header"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true">
+
+            <com.ciyuanplus.mobile.widget.RoundImageView
+                android:id="@+id/m_list_item_user_notice_icon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/tab_icon_my" />
+
+            <ImageView
+                android:id="@+id/m_list_item_user_notice_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/m_list_item_user_notice_icon"
+                android:layout_alignBottom="@id/m_list_item_user_notice_icon"
+                android:layout_marginRight="5dp"
+                android:src="@mipmap/my_icon_boy_small"
+                android:visibility="gone" />
+
+            <com.ciyuanplus.mobile.widget.RoundImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="#ffff9915"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="50dp"
+                android:background="#e9e9e9" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_header"
+            android:layout_alignBottom="@id/rl_header"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/rl_header"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/m_list_item_user_notice_name"
+                style="@style/TextViewBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:maxWidth="200dp"
+                android:singleLine="true"
+                android:textColor="#ff333333"
+                android:textSize="15sp"
+                tools:text="欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋欧阳锋" />
+
+            <TextView
+                android:id="@+id/m_list_item_user_notice_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:singleLine="true"
+                android:textColor="#ff999999"
+                android:textSize="11sp"
+                tools:text="我是一只鱼，只有七秒钟记忆" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/m_list_item_user_notice_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/rl_header"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:drawablePadding="5dp"
+            android:text="2017-01-01 12:02"
+            android:textColor="#ff999999"
+            android:textSize="11sp" />
+
+
+    </RelativeLayout>
+</LinearLayout>

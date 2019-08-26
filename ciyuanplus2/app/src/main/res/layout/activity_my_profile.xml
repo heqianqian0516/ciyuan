@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/m_my_profile_common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_login_out"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#ffb422e4"
+        android:gravity="center"
+        android:text="@string/string_my_profile_logout_alert"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_login_out"
+        android:layout_below="@id/m_my_profile_common_title"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/m_my_profile_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#e9e9e9"
+            android:dividerHeight="0px"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none"
+            tools:layout_height="100dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

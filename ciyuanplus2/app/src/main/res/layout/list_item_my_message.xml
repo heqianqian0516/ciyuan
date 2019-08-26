@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_list_item_my_message_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/chat_icon_opinion" />
+
+        <TextView
+            android:id="@+id/m_list_item_my_message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dp"
+            android:layout_toRightOf="@id/m_list_item_my_message_icon"
+            android:textColor="#333333"
+            android:textSize="15dp"
+            tools:text="系统消息" />
+
+        <ImageView
+            android:id="@+id/m_list_item_my_message_enter_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/chat_icon_enterarrow" />
+
+        <TextView
+            android:id="@+id/m_list_item_my_message_hot_tag"
+            tools:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/message_icon_numberbg"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="gone"
+            android:text="34"
+            android:textColor="#ffffff"
+            android:textSize="8dp" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignStart="@id/m_list_item_my_message_title"
+            android:layout_alignLeft="@id/m_list_item_my_message_title"
+            android:layout_alignParentBottom="true"
+            android:background="#ffe9e9e9" />
+
+    </RelativeLayout>
+</RelativeLayout>

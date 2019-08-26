@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/m_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/m_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:minWidth="300dp"
+            android:minHeight="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/m_message"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#D1D1D1"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/m_opera_lp_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/m_cancel_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_left_btn_selector"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/m_single_line"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="#D1D1D1"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/m_neutral_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_left_btn_selector"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/m_second_line"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:background="#D1D1D1"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/m_confirm_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_right_btn_selector"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/m_opera_lp_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/m_cancel_btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_left_btn_selector"
+                android:gravity="center"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#D1D1D1"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/m_neutral_btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_left_btn_selector"
+                android:gravity="center"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#D1D1D1"
+                android:orientation="horizontal" />
+
+            <Button
+                android:id="@+id/m_confirm_btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_right_btn_selector"
+                android:gravity="center"
+                android:textColor="@drawable/dialog_button_text_color_selector"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

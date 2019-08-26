@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/in"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_marginTop="45dp"
+        android:paddingLeft="@dimen/spacing_normal"
+        android:paddingRight="@dimen/spacing_normal">
+
+        <include layout="@layout/item_list_header_new" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="#ff030303"
+            android:textIsSelectable="true"
+            android:textSize="15sp"
+            tools:text="为了梦想，勇敢前行吧！" />
+
+        <com.lzy.ninegrid.NineGridView
+            android:id="@+id/nineGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:visibility="gone"
+            app:ngv_mode="grid"
+            tools:layout_height="200dp" />
+
+
+        <com.ciyuanplus.mobile.video.SampleCoverVideo
+            android:id="@+id/detail_player"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:visibility="gone" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal">
+
+
+
+
+
+
+
+
+                <TextView
+                    android:id="@+id/tv_browse_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_brower"
+                    android:drawablePadding="@dimen/spacing_tiny"
+                    android:text="0"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#ff030303"
+                    android:textSize="12sp"
+                    android:layout_marginRight="25dp"
+                    tools:text="5000" />
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:drawableLeft="@drawable/icon_comment"
+                android:drawablePadding="@dimen/spacing_tiny"
+                android:gravity="center_vertical"
+                android:text="0"
+                android:textColor="#ff030303"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:text="20" />
+
+        </RelativeLayout>
+
+
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_normal">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="15dp"
+            android:background="#B422E4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:text="评论"
+            android:textColor="#ff333333"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:visibility="gone"
+        android:padding="26dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:visibility="gone"
+            android:layout_gravity="center_horizontal"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/string_news_detail_comment_null_alert"
+            android:visibility="gone"
+            android:textColor="#333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_like_count"
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:drawableTop="@drawable/thumbs_up"
+            android:drawablePadding="@dimen/spacing_tiny"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#FF6600"
+            android:textSize="24sp"
+            tools:text="1000" />
+</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <include layout="@layout/rank_toolbar"/>
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/m_search_friends_top_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/m_search_friends_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="@string/string_search_community_cancel_alert"
+            android:textColor="#373737"
+            android:textSize="14dp" />
+
+        <com.ciyuanplus.mobile.widget.ClearEditText
+            android:id="@+id/m_search_friends_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/m_search_friends_cancel"
+            android:background="@drawable/search_view_bg"
+            android:drawablePadding="5dp"
+            android:gravity="left|center_vertical"
+            android:hint="@string/string_main_search_alert"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="35dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+
+            android:textSize="13dp" />
+
+        <!--android:textCursorDrawable="@drawable/editcolor"-->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/m_search_friends_search_edit"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/nav_icon_search_small" />
+    </RelativeLayout>
+
+    <com.ciyuanplus.base.irecyclerview.IRecyclerView
+        android:id="@+id/m_search_friends_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="#c5c5c5"
+        android:dividerHeight="0px"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        app:loadMoreEnabled="true"
+        app:loadMoreFooterLayout="@layout/layout_irecyclerview_load_more_footer_view"
+        app:refreshEnabled="true"
+        app:refreshHeaderLayout="@layout/layout_irecyclerview_classic_refresh_header_view" />
+
+    <LinearLayout
+        android:id="@+id/m_search_friends_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/m_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/null_data_fans" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/string_search_friends_null_zone_alert"
+            android:textColor="#999999"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+</LinearLayout>

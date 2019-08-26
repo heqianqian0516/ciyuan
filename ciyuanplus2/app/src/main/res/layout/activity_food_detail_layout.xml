@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="20dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_food_detail_head_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:src="@mipmap/default_head_" />
+        <!--android:src="@mipmap/default_head_"-->
+
+        <ImageView
+            android:id="@+id/m_food_detail_sex_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/m_food_detail_head_image"
+            android:layout_alignBottom="@id/m_food_detail_head_image"
+            android:layout_marginRight="3dp"
+            android:src="@mipmap/my_icon_boy_small" />
+
+        <TextView
+            android:id="@+id/m_food_detail_name_text"
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/m_food_detail_head_image"
+            android:ellipsize="end"
+            android:maxWidth="200dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/m_food_detail_neighbor_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="13dp"
+            android:layout_toRightOf="@id/m_food_detail_name_text"
+            android:src="@mipmap/icon_neighbor_label" android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/m_food_detail_follow_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp"
+            android:src="@mipmap/icon_follow" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/m_food_detail_location_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/img_location_black" />
+
+        <com.ciyuanplus.mobile.widget.MarkView
+            android:id="@+id/m_food_detail_mark_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:contentSize="20dp"
+            app:disabled="true"
+            app:leftPadding="3dp" />
+
+        <TextView
+            android:id="@+id/m_food_detail_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@id/m_food_detail_mark_view"
+            android:layout_toRightOf="@id/m_food_detail_location_img"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#020202"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+
+    <com.sendtion.xrichtext.RichTextView
+        android:id="@+id/m_food_detail_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:gravity="left|top"
+        android:textColor="#333333"
+        android:textSize="12dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/m_food_detail_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:text="2017-01-01 12:00"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/m_food_detail_community_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"
+            android:maxWidth="150dp"
+            android:singleLine="true"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f2f2f2" />
+
+    <RelativeLayout
+        android:id="@+id/m_food_detail_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp">
+
+        <ImageView
+            android:id="@+id/m_food_detail_info_image"
+            android:layout_width="102dp"
+            android:layout_height="102dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/m_food_detail_info_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/m_food_detail_info_image"
+            android:text="0.0"
+            android:textColor="#000000"
+            android:textSize="39dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/m_food_detail_info_score"
+            android:paddingTop="10dp"
+            android:text="分"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/m_food_detail_place_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/m_food_detail_info_image"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/m_food_detail_info_image"
+            android:drawableLeft="@mipmap/img_location_black"
+            android:drawablePadding="7dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/m_food_detail_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="次元PLUS评分"
+            android:textColor="#999999"
+            android:textSize="12dp" />
+
+        <com.ciyuanplus.mobile.widget.MarkView
+            android:id="@+id/m_food_detail_position_mark_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_food_detail_alert"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            app:contentSize="20dp"
+            app:disabled="true"
+            app:leftPadding="3dp" />
+
+        <TextView
+            android:id="@+id/m_food_detail_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_food_detail_position_mark_view"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="#999999"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f2f2f2" />
+
+    <RelativeLayout
+        android:id="@+id/m_food_detail_more_detail_lp_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/m_food_detail_more_detail_lp_2_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="收藏"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_below="@id/m_food_detail_more_detail_lp_2_alert"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="3dp"
+            android:background="#333333" />
+
+        <TextView
+            android:id="@+id/m_food_detail_more_detail_lp_2_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="15dp"
+            android:text="0 >"
+            android:textColor="#999999"
+            android:textSize="13dp" />
+
+        <com.ciyuanplus.mobile.widget.DuplicateHeadIconImageView2
+            android:id="@+id/m_food_detail_more_detail_lp_2_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_food_detail_more_detail_lp_2_alert"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/string_news_detail_comment_alert"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="3dp"
+            android:background="#333333" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/m_food_detail_null_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/null_data_comment" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/string_news_detail_comment_null_alert"
+            android:textColor="#333333"
+            android:textSize="15dp" />
+    </LinearLayout>
+</LinearLayout>

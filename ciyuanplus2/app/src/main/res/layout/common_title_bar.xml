@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ciyuanplus.mobile.widget.CommonTitleBar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:paddingTop="5dp"
+        android:paddingBottom="0dp">
+
+        <ImageView
+            android:id="@+id/m_common_title_bar_left_title"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@+id/m_common_title_bar_center_icon"
+            android:layout_toRightOf="@+id/m_common_title_bar_center_icon"
+            android:gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_back" />
+
+        <TextView
+            android:id="@+id/m_common_title_bar_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:maxWidth="250dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/m_common_title_bar_center_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:scaleType="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/m_common_title_bar_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:maxWidth="250dp"
+            android:text=""
+            android:textColor="@android:color/white"
+            android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/m_common_title_bar_right_title"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center_vertical"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_stop"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</com.ciyuanplus.mobile.widget.CommonTitleBar>

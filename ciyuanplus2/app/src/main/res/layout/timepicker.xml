@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <com.ciyuanplus.mobile.widget.datepicker.WheelView
+        android:id="@+id/m_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <com.ciyuanplus.mobile.widget.datepicker.WheelView
+        android:id="@+id/m_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <com.ciyuanplus.mobile.widget.datepicker.WheelView
+        android:id="@+id/m_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <com.ciyuanplus.mobile.widget.datepicker.WheelView
+        android:id="@+id/m_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <com.ciyuanplus.mobile.widget.datepicker.WheelView
+        android:id="@+id/m_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+</LinearLayout>

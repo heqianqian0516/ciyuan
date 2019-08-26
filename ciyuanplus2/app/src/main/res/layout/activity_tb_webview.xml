@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/m_js_common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+    <com.ciyuanplus.mobile.widget.MyWebView
+        android:id="@+id/m_js_webview"
+        android:layout_weight="9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/linear_taobao"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_height="44dp">
+            <Button
+                android:id="@+id/enter_coupons"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:background="#CD73EB"
+                android:text="领取优惠券"
+                android:textColor="#ffffff"/>
+            <Button
+                android:id="@+id/enter_taobao"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:background="#B422E4"
+                android:text="进入淘宝购买"
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+              />
+        </LinearLayout>
+    </com.ciyuanplus.mobile.widget.MyWebView>
+
+</LinearLayout>

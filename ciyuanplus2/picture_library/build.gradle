@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion cfgs.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion cfgs.minSdkVersion
+        targetSdkVersion cfgs.targetSdkVersion
+        versionCode cfgs.versionCode
+        versionName cfgs.versionName
+    }
+
+    buildTypes {
+        debug{
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':ucrop')
+    implementation "androidx.appcompat:appcompat:${cfgs.androidSupportVersion}"
+    implementation "androidx.recyclerview:recyclerview:${cfgs.androidSupportVersion}"
+    implementation "com.github.bumptech.glide:glide:${cfgs.glide}"
+    implementation "io.reactivex.rxjava2:rxjava:${cfgs.rxjava}"
+    implementation "io.reactivex.rxjava2:rxandroid:${cfgs.rxandroid}"
+}

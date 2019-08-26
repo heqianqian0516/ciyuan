@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/m_rate_list_info_image"
+            android:layout_width="102dp"
+            android:layout_height="102dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/m_rate_list_info_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/m_rate_list_info_image"
+            android:text="0.0"
+            android:textColor="#000000"
+            android:textSize="39dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:layout_toRightOf="@id/m_rate_list_info_score"
+            android:paddingTop="10dp"
+            android:text="分"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/m_rate_list_place_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/m_rate_list_info_image"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/m_rate_list_info_image"
+            android:drawableLeft="@mipmap/img_location_black"
+            android:drawablePadding="7dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/m_rate_list_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="次元PLUS评分"
+            android:textColor="#999999"
+            android:textSize="12dp" />
+
+        <com.ciyuanplus.mobile.widget.MarkView
+            android:id="@+id/m_rate_list_mark_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_rate_list_alert"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            app:contentSize="18dp"
+            app:disabled="true"
+            app:leftPadding="5dp" />
+
+        <TextView
+            android:id="@+id/m_rate_list_numbers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_rate_list_mark_view"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:text=""
+            android:textColor="#999999"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/m_rate_list_mine_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <com.ciyuanplus.mobile.widget.RoundImageView
+            android:id="@+id/m_rate_list_mine_head"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/default_head_" />
+
+        <TextView
+            android:id="@+id/m_rate_list_mine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextViewBold"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toRightOf="@id/m_rate_list_mine_head"
+            android:text="asdgasdg"
+            android:textColor="#333333"
+            android:textSize="13dp" />
+
+        <com.ciyuanplus.mobile.widget.MarkView
+            android:id="@+id/m_rate_list_mine_mark_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            app:contentSize="18dp"
+            app:disabled="true"
+            app:leftPadding="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_rate_list_mine_name"
+            android:layout_marginLeft="45dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/m_rate_list_mine_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:textColor="#999999"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/m_rate_list_mine_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:textSize="11dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

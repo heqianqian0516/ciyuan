@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/m_select_post_location_common_title"
+        layout="@layout/common_title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <com.ciyuanplus.mobile.widget.ClearEditText
+            android:id="@+id/m_select_post_location_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_edit_bg"
+            android:drawablePadding="5dp"
+            android:gravity="left|center_vertical"
+            android:hint="@string/string_main_search_alert"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="35dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/m_select_post_location_search_edit"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/nav_icon_search_small" />
+    </RelativeLayout>
+
+    <com.ciyuanplus.base.irecyclerview.IRecyclerView
+        android:id="@+id/m_select_post_location_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#747474"
+        android:dividerHeight="0px"
+        android:listSelector="@android:color/transparent"
+        android:paddingBottom="0dp"
+        android:scrollbars="none"
+        app:loadMoreEnabled="true"
+        app:loadMoreFooterLayout="@layout/layout_irecyclerview_load_more_footer_view"
+        app:refreshEnabled="false"
+        app:refreshHeaderLayout="@layout/layout_irecyclerview_classic_refresh_header_view" />
+
+</LinearLayout>

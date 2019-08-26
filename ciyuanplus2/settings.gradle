@@ -1,0 +1,3 @@
+include ':app' //, ':IMKit', ':IMLib'
+include  ':xrichtext', ':base', ':picture_library', ':ucrop', ':baselibrary'
+include ':UMLibrary'

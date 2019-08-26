@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/m_select_location_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/choice_icon_location_red" />
+
+    <RelativeLayout
+        android:id="@+id/m_select_location_top_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:id="@+id/m_select_location_back_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_back" />
+
+        <ImageView
+            android:id="@+id/m_select_location_complete_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_save"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/m_select_location_search_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/m_select_location_complete_image"
+            android:layout_toRightOf="@id/m_select_location_back_image"
+            android:background="@drawable/shape_edit_bg"
+            android:gravity="center"
+            android:imeOptions="actionSearch"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/nav_icon_search_small" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/string_main_search_alert"
+                android:textColor="#999999"
+                android:textSize="13dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/m_select_location_list_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/m_select_location_list_title"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="#f1f5f8"
+            android:gravity="center"
+            android:text="@string/string_select_location_title_hint"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+
+        <ListView
+            android:id="@+id/m_select_location_list"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#ffffff"
+            android:divider="#c5c5c5"
+            android:dividerHeight="0px"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/m_select_location_list_lp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/m_select_location_found"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/choice_icon_found" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:text="@string/string_select_location_create_alert"
+            android:textColor="#666666"
+            android:textSize="11dp" />
+    </LinearLayout>
+</RelativeLayout>

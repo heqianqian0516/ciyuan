@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/m_main_welfare_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f000000"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/m_main_welfare_bg_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/hongbao_bg" />
+
+        <ImageView
+            android:id="@+id/m_main_welfare_close_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_main_welfare_bg_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/btn_closedx" />
+
+        <ImageView
+            android:id="@+id/m_main_welfare_receive_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/m_main_welfare_bg_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:src="@mipmap/hongbao_btn" />
+
+        <TextView
+            android:id="@+id/m_main_welfare_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignBottom="@id/m_main_welfare_bg_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="260dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxWidth="220dp"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/m_main_welfare_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignBottom="@id/m_main_welfare_bg_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="80dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxWidth="260dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

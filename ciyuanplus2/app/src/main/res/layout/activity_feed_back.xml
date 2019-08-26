@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/m_feed_back_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:id="@+id/m_feed_back_common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/m_feed_back_back_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:scaleType="center"
+            android:src="@mipmap/nav_icon_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="客服 米儿"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/m_feed_back_right_image"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/message_icon_kefu"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/m_feed_back_opera_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e9e9e9" />
+
+        <RelativeLayout
+            android:id="@+id/m_feed_back_bottom_lp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <com.ciyuanplus.mobile.widget.NoEmojiEditText
+                android:id="@+id/m_feed_back_input_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="55dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/search_view_bg"
+                android:maxLines="3"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="13dp" />
+
+            <ImageView
+                android:id="@+id/m_feed_back_add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/m_feed_back_input_edit"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toLeftOf="@id/m_feed_back_input_edit"
+                android:src="@mipmap/chat_icon_add" />
+
+            <TextView
+                android:id="@+id/m_feed_back_send_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@id/m_feed_back_input_edit"
+                android:text="发送"
+                android:textColor="#333333"
+                android:textSize="16dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/m_feed_back_image_lp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/m_feed_back_input_edit"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/m_feed_back_camera_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:src="@mipmap/chat_icon_add_camera" />
+
+                <ImageView
+                    android:id="@+id/m_feed_back_photo_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:src="@mipmap/chat_icon_add_photo" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/m_feed_back_opera_lp"
+        android:layout_below="@id/m_feed_back_common_title">
+
+        <com.ciyuanplus.mobile.widget.smartRefresh.WalkRefreshHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/m_feed_back_chat_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_centerHorizontal="true"
+            android:divider="#747474"
+            android:dividerHeight="0px"
+            android:listSelector="@android:color/transparent"
+            android:paddingBottom="0dp"
+            android:scrollbars="none"
+            app:loadMoreEnabled="false"
+            app:refreshEnabled="false"
+            tools:context=".activity.chat.FeedBackActivity" />
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</RelativeLayout>

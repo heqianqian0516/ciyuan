@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/m_comment_detail_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:id="@+id/m_comment_detail_bottom_input_lp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+        <EditText
+            android:id="@+id/m_comment_detail_comment_input"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginRight="70dp"
+            android:background="@drawable/news_detail_input_bg"
+            android:gravity="center_vertical"
+            android:hint="写下您的回复"
+            android:imeOptions="actionDone"
+            android:maxLength="120"
+            android:maxLines="3"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:textColor="#333333"
+            android:textColorHint="#999999"
+            android:textSize="11dp" />
+
+        <TextView
+            android:id="@+id/m_comment_detail_comment_submit"
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@id/m_comment_detail_comment_input"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="发送"
+            android:textColor="#ff666666"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_below="@id/title_bar"
+        android:layout_height="wrap_content">
+
+    <com.ciyuanplus.mobile.pulltorefresh.XScrollView
+        android:id="@+id/m_comment_detail_comment_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/m_comment_detail_bottom_input_lp"
+        android:layout_below="@id/title_bar"
+        android:scrollbars="none" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</RelativeLayout>

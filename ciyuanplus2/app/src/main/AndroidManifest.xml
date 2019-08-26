@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ciyuanplus.mobile">
+    <!-- 短信相关 -->
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!-- 电话号码相关 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" /> <!-- 电话号码相关 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 重点2 -->
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 电话号码相关 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 允许程序设置内置sd卡的写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 允许程序获取网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序访问WiFi网络信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 允许程序读写手机状态和身份 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".SophixStubApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+        <activity android:name=".module.home.activity.RankDetailActivity" />
+        <activity android:name=".module.home.activity.ParticipationDetailsActivity" />
+        <activity android:name=".module.home.activity.RankingListActivity" />
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e8d01315353a0b3599c63c4bf0dc862e" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5bfe1d70f1f556652300011e" />
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="2b52c3f0b0667cd6fac3c8485580f073" />
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="y745wfm8yrevv" /> <!-- qf3d5gbjq0p4h / y745wfm8yrevv -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".module.settings.address.AddAddressActivity" />
+        <activity android:name=".module.mine.sign.ChangeSignActivity" />
+        <activity android:name=".module.store.shop_car.ShopCarActivity" />
+        <activity android:name=".module.bind_phone.LoginBindActivity" />
+        <activity
+            android:name=".module.search.SearchActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activity.MessageCenterActivity" />
+        <activity android:name=".module.release.ReleasePostActivity" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivityNew"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" /> <!--  -->
+        <activity
+            android:name=".activity.GuideActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/SplashActivityTheme" />
+        <activity
+            android:name=".module.webview.JsWebViewActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".module.webview.TbWebViewActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".module.popup.share_invite_popup.ShareInvitePopupActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.mine_center_guide.MineCenterGuideActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.select_location_guide.SelectLocationGuideActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.news.select_show_type.SelectShowTypeActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.NewsSearchPopUpActivity"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.start_post_guide.StartPostGuideActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.start_stuff_guide.StartStuffGuideActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.news.marking.MarkingActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.main_welfare_enter.MainWelfareEnterActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.daily_popup.DailyPopupActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.ReportPostActivity"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.chat.ReportUserActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.found.market.MarketActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.wiki.around_wiki.AroundWikiActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.wiki.wiki_position.WikiPositionActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.found.market_search.MarketSearchActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.mine.my_publish.MinePublishActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.mine.change_head_icon.ChangeHeadIconActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.mine.MineWelfareActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.start_forum.start_stuff.StartStuffActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.start_forum.start_food.StartFoodActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.start_forum.start_live.StartLiveActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.forum_detail.stuff_detail.StuffDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.live_hood.LiveHoodActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.register.forget_password.ForgetPasswordActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.setting.SettingsActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.reset_password.ResetPasswordActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.settings.message_setting.MessageSettingActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.about.AboutActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.help.HelpActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.bind_phone.BindPhoneActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.settings.change_name.ChangeNameActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.settings.address.AddressManagerActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.settings.select_sex.SelectSexPopActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.select_image_pop.SelectImagePopActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.mine.friends.MyFriendsActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.mine.search_friends.SearchFriendsActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.chat.UserMessageListActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.chat.SystemMessageListActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.chat.SystemMessageDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.chat.FeedBackActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.chat.InviteActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.chat.CommunityContactsActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.login.LoginActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.register.select_location.SelectLocationActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".module.register.search_community.SearchCommunityActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.register.register.RegisterActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.mine.change_community.ChangeCommunityActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.select_stuff_community.SelectStuffCommunityActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.register.agreement.AgreementActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.news.FullScreenImageActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".module.start_forum.start_option.StartOptionActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.start_forum.select_post_location.SelectPostLocationActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.ShareNewsPopupActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.ShareDailyPopupActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.NewsSearchActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.comment_detail.CommentDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|stateUnchanged" />
+        <activity
+            android:name=".activity.chat.SearchCommunityContactsActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activity.news.SelectEditOrDeleteNewsActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.news.select_collect_or_report.SelectCollectOrReportActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.select_edit_or_delete_stuff.SelectEditOrDeleteStuffActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.change_stuff_state.ChangeStuffStateActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".activity.news.SelectDeleteCommentActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.forum_detail.post_detail.PostDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.note_detail.NoteDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.daily_detail.DailyDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.twitter_detail.TwitterDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.food_detail.FoodDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.want_list.WantListActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.forum_detail.rate_list.RateListActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".module.start_forum.start_news.StartNewsActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.start_forum.start_note.StartNoteActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.start_forum.start_twitter.StartTwitterActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".module.start_forum.start_post.StartPostActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".image_select.ImgSelActivity"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name=".activity.mine.MyCollectionActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".activity.mine.MyProfileActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name="com.asdfghjjkk.superiordiaryokdsakd.wxapi.WXEntryActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTop"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1107996120" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.umeng.socialize.media.WBShareCallBackActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".WBShareActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".module.start_forum.start_seek_help.StartSeekHelpActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NormalActivityTheme" />
+        <activity
+            android:name=".module.popup.share_game_invite_popup.ShareH5GameInvitePopup"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.mine.my_order.MyOrderListActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.mine.my_order_detail.MyOrderDetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/MyDialogStyleBottom" />
+        <activity
+            android:name=".module.popup.square.SquareFragmentGuideActivity"
+            android:theme="@style/MyTransDialogStyleBottom" />
+        <activity
+            android:name=".module.start_forum.add_position.AddPositionActivity"
+            android:theme="@style/MyTransDialogStyleBottom" /> <!-- <activity -->
+        <!-- android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity" -->
+        <!-- android:configChanges="orientation|keyboard|keyboardHidden|screenSize" -->
+        <!-- android:exported="false" -->
+        <!-- android:windowSoftInputMode="adjustResize" /> -->
+        <activity android:name=".module.mine.welfare_and_activity.MyActivityAndWelfareActivity" />
+        <activity android:name=".module.account_manage.AccountManageActivity" />
+        <activity
+            android:name=".module.others.new_others.OthersActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|screenSize"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.asdfghjjkk.superiordiaryokdsakd.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/MyTransDialogStyleBottom">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx018ce9bef8b8acbf" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".module.forum_detail.forum_detail.ForumDetailActivity" />
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24779361" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="b98ddd681cf9736e15993594e23ac553" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC/wiW3AIXz3zNG1Dvs5YZJ5UxhnXzXXTGwxbeWCKhuT0uVZNfGZUZ+xtoTJUyqB0rmf9Nvs78VJl0dEDkGL9MKJc5eQ0lOE7QnINS7sXEImW243mZ96e1ojW/JF2bms+uSm/duXChbq8aschZoHFsagL9/Cxl+1YgXi45gt3Fv0JS8hpfTvuZIX4SYXLaIFKvcwvhzs2hhiDPrpxT1VGtRjhOoNWyYICKL/KRO+HHACygXJ4DTQ9BYcplkC6P+VQ8IIkOOJ6wPPnzvfBIbKB8gKo0q+welHpoOZLPz4A7FC9PzTohePF9tVYVSMAgHhzaGyQ0Y1mFnOmqJwQ2EIFahAgMBAAECggEBAKRc11LqweZs1FjLpanCer5wKm4pPU6j9OmeL2QMe8JBeXnN/B1zxV75NwbeG75JjevQePzvxsNsJLe6pgYli/DQwviNGBIyVWKMg4t15nsGd8PT7WnTzsilIsHsqyjn4u3Bfe48U+Nvc1VwXMBUPcqTvJA6hVnv0TzNQ/amhjbdx2rvk9DvrB0bm/wbTPWZyXDujFHiMxGxTpSUQBRceO1/J8QI3Ol1+/llYUk3MogDh/EVQKQq7NYFyVUY4dlYWGR1W8rN1IGnah+h0xVh/ic7qUOb0GjowoVNRATNtva/+qE09YQQZBrUnPUpckppTGuYYNOlvjK5D7h+udzr96ECgYEA6/0Az9zEfB9ce/hw9yyCzLDjoDf2A/G9EF2YpAT1EdwkGRAVCm4wZOthidKEPQCag10AKDMvZNBJSD5xEvU4FbvhiI7Y0nf9U6Cj+SDhWu5lUJciMj5Om1hCdqY4ukMEYDe6uL5IqXRXRUEr7oASWg6s9qay/WgP0rX/iwhTKGUCgYEA0AT4h5rLzFROokBitKAy6Wmv8YBesnLRXOUdW9FaaaDDKKwC9RkIt5ZWNB0PGYIP++eoOhzLw3SbncAjyBYcEEWeXOqS+/klIEVNK6gtSMTVmE8+/5SUkh7er4RskdsS5xu11RIVq7s/fjqH6FRaaDM36ZWAA2O/qMhAVjvvy40CgYBhenWeZwPmfZHXR41qHEG/SYYNBXCiunUtUGwfvEh64yMqEyGN2Gw3E5+LraCgDiLFBmJtOI9oJj1PETPl79MF70C/Brp7XcMPiziQTMupovXIr1UZyfDwbCmwFwMxtUMWd46yhy8+h+cQnVYHQ3HRL2S00bD3ycdXc4QmKv8mnQKBgQCWeTIKbbhEWyvyhF6iSEvruk7ShEh8D0BRUU72by9WvzrM/fi5sV0z6CT9V5PnoMTNNNrlBpWDEqPK7gU0JIIyZxnSHsEqUiQ//sF+9g2j2PalUZXBrYn3VStCjak3rOA0mz/iHE3exvl75v0O2432WC524nUSfqJShmC7wGmKtQKBgHx1GZZ7n8bnq3/F3ahFuIhdHMZrDhsL/9NKrDVZmcbYVzuD7R27H/lg/zgNeXxZO+iR4/tvYeygJwWoyI2GNWVIVWedv7rtoU2DcBOi+ySSij5Gf5L5zuZ0gQXAfISCWA1QW2QS8jqyG8nIz4qXJtDVw78cRs8xGHRwO4xnFsir" />
+        <meta-data
+            android:name="design_width"
+            android:value="750" />
+        <meta-data
+            android:name="design_height"
+            android:value="1334" />
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" /> <!-- 小米刘海屏 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.3" /> <!-- 小米全面屏 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/rc_file_path" />
+        </provider> <!-- <receiver -->
+        <!-- android:name=".server.RongNotificationReceiver" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" /> -->
+        <!-- <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" /> -->
+        <!-- <action android:name="io.rong.push.intent.MESSAGE_CLICKED" /> -->
+        <!-- <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <service
+            android:name=".server.BadgeIntentService"
+            android:exported="false" />
+    </application>
+
+</manifest>

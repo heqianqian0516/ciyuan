@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:orientation="vertical">-->
+
+<!--<FrameLayout--><!--android:clickable="true"--><!--android:focusable="true"--><!--android:id="@+id/ll_root"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content">-->
+
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/deleteLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    app:ios="false">
+
+    <RelativeLayout
+
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:src="@mipmap/icon_location_me" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/iv_location"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_toRightOf="@id/iv_location">
+
+            <TextView
+                android:id="@+id/tv_buyer_phone_num"
+                style="@style/TextFormatOrderBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="#ff1f191a"
+                android:textSize="15sp"
+                tools:text="1333333333333333" />
+
+            <TextView
+                android:id="@+id/tv_buyer"
+                style="@style/TextFormatOrderBlackBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_toLeftOf="@id/tv_buyer_phone_num"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:maxLines="1"
+                android:textColor="#ff1f191a"
+                android:textSize="15sp"
+                tools:text="米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米米小米" />
+
+
+            <TextView
+                android:id="@+id/tv_buyer_address"
+                style="@style/TextFormatOrderBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_buyer"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginBottom="19dp"
+                android:textColor="#ff9b9b9b"
+                android:textSize="14sp"
+                tools:text="北京市 朝阳区 晃光华路28号 世界财富中心东塔a座12F 1209" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@color/app_lavender"
+        android:text="删除"
+        android:textColor="@android:color/white" />
+
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

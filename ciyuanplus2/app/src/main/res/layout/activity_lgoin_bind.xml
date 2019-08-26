@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="360dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/register_view_bg">
+
+        <TextView
+            android:id="@+id/m_bind_phone_top_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="绑定手机号"
+            android:textColor="#333333"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="2.5dp"
+            android:layout_below="@id/m_bind_phone_top_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:background="#333333" />
+
+        <ImageView
+            android:id="@+id/m_bind_phone_close_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="center"
+            android:src="@mipmap/my_icon_location_close" />
+
+        <LinearLayout
+            android:id="@+id/m_bind_phone_first_lp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/m_bind_phone_top_text"
+            android:layout_marginTop="35dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <EditText
+                android:id="@+id/m_bind_phone_account_view"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:background="@drawable/shape_edit_bg"
+                android:drawableLeft="@mipmap/login_icon_phone"
+                android:drawablePadding="10dp"
+                android:hint="@string/string_forget_password_account_alert"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLines="1"
+                android:maxLength="11"
+                android:paddingLeft="20dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="12dp"
+
+                />
+
+            <!--android:textCursorDrawable="@drawable/editcolor"-->
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/m_bind_phone_verify_view"
+                    android:layout_width="250dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/shape_edit_bg"
+                    android:drawableLeft="@mipmap/login_icon_verification"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/string_forget_password_verify_alert"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:maxLines="1"
+                    android:paddingLeft="20dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    android:textCursorDrawable="@drawable/editcolor"
+                    android:textSize="12dp" />
+
+
+                <TextView
+                    android:id="@+id/m_bind_phone_send_verify_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_alignTop="@id/m_bind_phone_verify_view"
+                    android:layout_alignRight="@id/m_bind_phone_verify_view"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:text="@string/string_forget_password_send_verify_alert"
+                    android:textColor="#999999"
+                    android:textSize="11dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/m_bind_phone_confirm_text"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/login_login_btn_bg"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

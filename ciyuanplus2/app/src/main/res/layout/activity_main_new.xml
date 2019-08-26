@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/bottomBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/m_main_news_tab_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tab_news_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="首页"
+                android:textColor="#333333"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/m_main_chat_tab_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/m_main_news_chat_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/tab_chat_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/m_main_news_chat_image"
+                android:layout_centerHorizontal="true"
+                android:text="商城"
+                android:textColor="#333333"
+                android:textSize="11dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/m_main_mine_tab_lp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/m_main_news_mine_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/tab_mine_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/m_main_news_mine_image"
+                android:layout_centerHorizontal="true"
+                android:text="我的"
+                android:textColor="#333333"
+                android:textSize="11dp" />
+
+            <!--<ImageView-->
+            <!--android:id="@+id/m_main_mine_chat_dot"-->
+            <!--android:layout_width="8dp"-->
+            <!--android:layout_height="8dp"-->
+            <!--android:layout_alignTop="@id/m_main_news_mine_image"-->
+            <!--android:layout_alignRight="@id/m_main_news_mine_image"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:layout_marginRight="-8dp"-->
+            <!--android:background="@drawable/my_message_hot_tag_bg"-->
+            <!---->
+            <!--android:visibility="gone" />-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@id/bottomBarLayout"
+        android:background="#f1f1f1" />
+
+    <FrameLayout
+        android:id="@+id/m_main_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/view_line"
+        android:layout_below="@id/title_bar" />
+</RelativeLayout>

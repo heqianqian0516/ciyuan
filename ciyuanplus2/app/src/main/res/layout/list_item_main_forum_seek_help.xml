@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<tech.milin.social.Widget.RoundImageView-->
+        <!--android:id="@+id/m_list_item_main_forum_seek_help_head_image"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginLeft="19dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:src="@mipmap/default_head_" />-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/m_list_item_main_forum_seek_help_head_sex"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@id/m_list_item_main_forum_seek_help_head_image"-->
+        <!--android:layout_alignRight="@id/m_list_item_main_forum_seek_help_head_image"-->
+        <!--android:layout_marginRight="5dp"-->
+        <!--android:src="@mipmap/my_icon_boy_small"-->
+        <!--android:visibility="gone" />-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/m_list_item_main_forum_seek_help_name_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="80dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:ellipsize="end"-->
+        <!--android:maxLength="10"-->
+        <!--android:maxWidth="150dp"-->
+        <!--android:singleLine="true"-->
+        <!--android:text="姓名"-->
+        <!--android:textColor="#333333"-->
+        <!--android:textSize="15dp" />-->
+
+
+        <!--<ImageView-->
+        <!--android:id="@+id/m_list_item_main_forum_seek_help_follow_text"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="35dp"-->
+        <!--android:layout_toRightOf="@id/m_list_item_main_forum_seek_help_name_text"-->
+        <!--android:src="@mipmap/list_icon_follow2x" />-->
+
+        <!--<ImageView-->
+        <!--android:id="@+id/m_list_item_main_forum_seek_help_is_neighbor"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="8dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--android:layout_toRightOf="@id/m_list_item_main_forum_seek_help_name_text"-->
+        <!--android:src="@mipmap/icon_neighbor_label" android:visibility="gone"-->
+        <!--android:visibility="gone" />-->
+
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:src="@mipmap/icon_follow"-->
+        <!--android:visibility="gone" />-->
+
+
+        <!--<LinearLayout-->
+        <!--android:id="@+id/ll_type"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:layout_marginTop="30dp"-->
+        <!--android:layout_toLeftOf="@id/m_list_item_main_forum_seek_help_is_neighbor"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
+
+
+        <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:gravity="right"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+        <!--android:id="@+id/tv_seek_help_type_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="求助"-->
+        <!--android:textColor="#333333"-->
+        <!--android:textSize="14dp" />-->
+
+        <!--<View-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="3dp"-->
+        <!--android:layout_alignEnd="@id/tv_seek_help_type_name"-->
+        <!--android:layout_alignLeft="@id/tv_seek_help_type_name"-->
+        <!--android:layout_alignRight="@id/tv_seek_help_type_name"-->
+        <!--android:layout_alignStart="@id/tv_seek_help_type_name"-->
+        <!--android:layout_below="@id/tv_seek_help_type_name"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="#ffb2b3" />-->
+        <!--</RelativeLayout>-->
+        <!--</LinearLayout>-->
+
+
+        <!--<TextView-->
+        <!--android:id="@id/tv_seek_help_type_name"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignBottom="@id/ll_type"-->
+        <!--android:layout_alignTop="@id/ll_type"-->
+        <!--android:layout_marginTop="2dp"-->
+        <!--android:layout_toLeftOf="@id/ll_type"-->
+        <!--android:text="question"-->
+        <!--android:textColor="#c1c1c1"-->
+        <!--android:textSize="@dimen/list_item_en_label" />-->
+        <!--</RelativeLayout>-->
+        <include layout="@layout/item_list_header" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_marginBottom="-5dp">
+
+            <TextView
+                android:id="@+id/m_list_item_main_forum_seek_help_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="8dp"
+                android:maxLines="4"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="15dp"
+                tools:text="菩提本非树，明镜亦非台。本来无一物，何处惹尘埃。菩提本非树，明镜亦非台。本来无一物，何处惹尘埃。菩提本非树，明镜亦非台。本来无一物，何处惹尘埃。" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal">
+
+            <TextView
+                android:id="@+id/tv_resolve_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="已解决"
+                android:textColor="#666"
+                android:textSize="10dp" />
+
+
+            <ImageView
+                android:id="@+id/iv_resolve_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tv_resolve_status"
+                android:src="@mipmap/icon_sel22x" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="@dimen/spacing_normal">
+
+            <com.ciyuanplus.mobile.widget.ThreeGrideView
+                android:id="@+id/m_list_item_main_forum_seek_help_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="#ff0000"
+                tools:layout_height="50dp"
+                tools:layout_width="match_parent" />
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_image_num"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="bottom|end"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_marginBottom="5dp"-->
+            <!--android:background="@drawable/backimg"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:visibility="gone"-->
+            <!--tools:visibility="visible"-->
+            <!--android:padding="5dp">-->
+
+            <!--<ImageView-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:src="@mipmap/list_icon_more_img3x"-->
+            <!--android:scaleType="fitXY"-->
+            <!--/>-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_image_num"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:text="12"-->
+            <!--android:textColor="#fff"-->
+            <!--android:textSize="14dp" />-->
+            <!--</LinearLayout>-->
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-01-01 12:00"
+                android:textColor="#999999"
+                android:textSize="11dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:ellipsize="end"
+                android:maxWidth="150dp"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#999999"
+                android:textSize="11dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="@dimen/spacing_normal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="center"
+                android:src="@mipmap/btn_ect"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/m_list_item_main_forum_seek_help_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="2017-01-01 12:00"
+                android:textColor="#999999"
+                android:textSize="11dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/m_list_item_main_forum_seek_help_share_image"
+                        android:layout_width="@dimen/list_icon_bottom"
+                        android:layout_height="@dimen/list_icon_bottom"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_list_share" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/list_item_width"
+                    android:layout_height="wrap_content"
+                    android:gravity=""
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/list_icon_bottom"
+                        android:layout_height="@dimen/list_icon_bottom"
+                        android:src="@drawable/icon_brower" />
+
+                    <TextView
+                        android:id="@+id/tv_browse_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="0"
+                        android:textColor="#666666"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/list_item_width"
+                    android:layout_height="wrap_content"
+                    android:gravity=""
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/m_list_item_main_forum_seek_help_like_image"
+                        android:layout_width="@dimen/list_icon_bottom"
+                        android:layout_height="@dimen/list_icon_bottom"
+                        android:src="@drawable/icon_unlike" />
+
+
+                    <TextView
+                        android:id="@+id/m_list_item_main_forum_seek_help_like_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="0"
+                        android:textColor="#666666"
+                        android:textSize="11dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/list_item_width"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/m_list_item_main_forum_seek_help_comment_image"
+                        android:layout_width="@dimen/list_icon_bottom"
+                        android:layout_height="@dimen/list_icon_bottom"
+                        android:scaleType="fitStart"
+                        android:src="@mipmap/icon_comment" />
+
+                    <TextView
+                        android:id="@+id/m_list_item_main_forum_seek_help_comment_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="0"
+                        android:textColor="#666666"
+                        android:textSize="11dp"
+                        tools:text="200" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
