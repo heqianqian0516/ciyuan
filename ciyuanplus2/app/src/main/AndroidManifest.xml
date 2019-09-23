@@ -72,6 +72,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
+        <activity android:name=".module.mine.sign_tasks.SignInActivity"></activity>
+        <activity android:name=".module.mine.exchange_mall.ExchangeOrderActivity" />
+        <activity android:name=".module.mine.exchange_mall.ExchangeMallDetailActivity" />
+        <activity android:name=".module.mine.exchange_mall.ConsumptionRecordActivity" />
+        <activity android:name=".module.mine.exchange_mall.ExchangeActivity" />
+        <activity android:name=".module.mine.newbie_task.NewbietaskActivity" />
+        <activity android:name=".module.mine.daily_tasks.DailytasksActivity" />
         <activity android:name=".module.home.activity.RankDetailActivity" />
         <activity android:name=".module.home.activity.ParticipationDetailsActivity" />
         <activity android:name=".module.home.activity.RankingListActivity" />

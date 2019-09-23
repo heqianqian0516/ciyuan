@@ -21,10 +21,14 @@ import com.ciyuanplus.mobile.manager.EventCenterManager
 import com.ciyuanplus.mobile.manager.LoginStateManager
 import com.ciyuanplus.mobile.manager.SharedPreferencesManager
 import com.ciyuanplus.mobile.manager.UserInfoData
+import com.ciyuanplus.mobile.module.mine.daily_tasks.DailytasksActivity
+import com.ciyuanplus.mobile.module.mine.exchange_mall.ExchangeActivity
 import com.ciyuanplus.mobile.module.mine.friends.MyFriendsActivity
 import com.ciyuanplus.mobile.module.mine.friends.MyFriendsPresenter
 import com.ciyuanplus.mobile.module.mine.my_order.MyOrderListActivity
+import com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity
 import com.ciyuanplus.mobile.module.mine.news.MineNewsFragment
+import com.ciyuanplus.mobile.module.mine.sign_tasks.SignInActivity
 import com.ciyuanplus.mobile.module.mine.stuff.MineLikeFragment
 import com.ciyuanplus.mobile.module.search.SearchActivity
 import com.ciyuanplus.mobile.module.settings.about.AboutActivity
@@ -51,6 +55,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import kotlinx.android.synthetic.main.activity_main_new.*
 import kotlinx.android.synthetic.main.fragment_mine_new.*
+import kotlinx.android.synthetic.main.mine_bar.*
 import org.jetbrains.anko.support.v4.startActivity
 import java.util.*
 import javax.inject.Inject
@@ -108,7 +113,10 @@ class MineFragmentNew : LazyLoadBaseFragment(), MineContract.View,
         super.onActivityCreated(savedInstanceState)
 
         initView()
-
+        ll_sign_in.setOnClickListener { startActivity<SignInActivity>() }
+        ll_daily.setOnClickListener { startActivity<DailytasksActivity>() }
+        ll_novice.setOnClickListener { startActivity<NewbietaskActivity>() }
+        ll_exchange.setOnClickListener { startActivity<ExchangeActivity>() }
         ll_my_orders.setOnClickListener { startActivity<MyOrderListActivity>() }
         ll_follow.setOnClickListener { startActivity<MyFriendsActivity>(Constants.INTENT_MY_FRIENDS_TYPE to MyFriendsPresenter.FOLLOW_TYPE) }
         ll_fan.setOnClickListener { startActivity<MyFriendsActivity>(Constants.INTENT_MY_FRIENDS_TYPE to MyFriendsPresenter.FAN_TYPE) }
@@ -123,11 +131,21 @@ class MineFragmentNew : LazyLoadBaseFragment(), MineContract.View,
 
         mPresenter.requestPersonInfo()
         mPresenter.requestCount()
+        image_setup.setOnClickListener(){
+            val intent = Intent(activity, MyProfileActivity::class.java)
+            intent.putExtra(Constants.INTENT_SEARCH_TYPE, SearchActivity.SEARCH_TYPE_USER)
+            startActivity(intent)
+        }
+        iv_notifications.setOnClickListener(){
+            requestNoticeCount()
+            val intent = Intent(activity, MessageCenterActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initView() {
         DaggerMinePresenterComponent.builder().minePresenterModule(MinePresenterModule(this)).build().inject(this)
-        initTitleBar(2)
+       // initTitleBar(2)
         mPostFragment = MineNewsFragment.newInstance()
         this.mFragments.add(mPostFragment)
         mPostFragment.setLoadMoreStatusInterface(this)
@@ -288,9 +306,20 @@ class MineFragmentNew : LazyLoadBaseFragment(), MineContract.View,
             mPresenter.handleClick(v.id)
         }
     }
-    private fun updateUnReadMessage(i: Int) {
+
+    fun setNotificationNumber(count: Int) {
+
+        if (count > 0) {
+            tv_notification_num?.visibility = View.VISIBLE
+            tv_notification_num?.text = count.toString()
+        } else {
+            tv_notification_num?.visibility = View.GONE
+        }
+    }
+    fun updateUnReadMessage(i: Int) {
         mSystemMessageCount = i
-        title_bars.setNotificationNumber(mSystemMessageCount)
+        setNotificationNumber(mSystemMessageCount)
+
     }
     private fun requestNoticeCount() {
         // 获取临时用户的系统消息个数
@@ -337,7 +366,7 @@ class MineFragmentNew : LazyLoadBaseFragment(), MineContract.View,
 
 
 
-    private fun initTitleBar(index: Int) {
+  /*  private fun initTitleBar(index: Int) {
 
         title_bars.setRightImageVisible(View.VISIBLE)
 
@@ -398,6 +427,6 @@ class MineFragmentNew : LazyLoadBaseFragment(), MineContract.View,
             }
         }
     }
-
+*/
 }
 

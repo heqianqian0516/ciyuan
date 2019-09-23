@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_exchange_mall"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/songyi" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:gravity="top|left"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#ff2e2e2e"
+        android:textSize="14sp"
+        android:layout_marginLeft="10dp"
+        android:text="动漫动漫动漫全套超牛的全套" />;
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_price_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:layout_centerVertical="true"
+            android:maxLines="1"
+            android:textSize="14dp"
+            android:layout_marginRight="@dimen/spacing_normal"
+            android:textColor="#FFF14454"
+            android:text="￥29098987877aaaaaaaaaaaaassssssssssss" />
+
+        <TextView
+            android:layout_toRightOf="@id/tv_price_now"
+            android:id="@+id/tv_price_original"
+            android:layout_width="wrap_content"
+            android:maxLines="1"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+            android:textColor="#ff999999"
+            android:textSize="10dp"
+
+            android:text="￥31112" />
+
+    </RelativeLayout>
+</LinearLayout>

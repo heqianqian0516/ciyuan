@@ -8,10 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.ViewGroup
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -20,6 +18,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.R2.id.rcl_list
+import com.ciyuanplus.mobile.R2.id.refresh
 import com.ciyuanplus.mobile.activity.MessageCenterActivity
 import com.ciyuanplus.mobile.activity.news.ShareNewsPopupActivity
 import com.ciyuanplus.mobile.adapter.HomeFragmentAdapter
@@ -66,6 +66,7 @@ import kotlinx.android.synthetic.main.fragment_shopping_mall.*
 import kotlinx.android.synthetic.main.home_bar.*
 import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.find
+import org.jetbrains.anko.support.v4.runOnUiThread
 import org.jetbrains.anko.support.v4.startActivity
 import javax.inject.Inject
 import kotlin.math.log
@@ -269,6 +270,7 @@ class HomeFragment : LazyLoadBaseFragment(), HomeFragmentContract.View, EventCen
         super.onActivityCreated(savedInstanceState)
 
         initView()
+        fistPopuwindow()
         DaggerHomeFragmentPresenterComponent.builder().homeFragmentPresenterModule(HomeFragmentPresenterModule(this)).build().inject(this)
         // 第二个参数是状态栏色值。
         // 第三个参数是兼容5.0到6.0之间的状态栏颜色字体只能是白色，如果沉浸的颜色与状态栏颜色冲突, 设置一层浅色对比能显示出状态栏字体（可以找ui给一个合适颜色值）。
@@ -337,6 +339,37 @@ class HomeFragment : LazyLoadBaseFragment(), HomeFragmentContract.View, EventCen
             mPresenter.doRequest(false)
         }
         iv_release.setOnClickListener { startActivity<ReleasePostActivity>(Constants.INTENT_OPEN_TYPE to 0) }
+
+    }
+
+    private fun fistPopuwindow() {
+        Thread(Runnable {
+            try {
+                Thread.sleep(1500)
+                runOnUiThread {
+                    val view = View.inflate(activity, R.layout.home_sign_everyday, null)
+                    val mImg_back = view.findViewById<ImageView>(R.id.home_back)
+                    val mLine = view.findViewById<RelativeLayout>(R.id.relative_layout)
+                    val mPopu = PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT)
+                    mPopu.height = ViewGroup.LayoutParams.MATCH_PARENT
+                    mLine.background.alpha = 50
+
+                    mImg_back.setOnClickListener {
+                        // ToastUtils.makeShortToast(MainActivity.this,"我还没有写内容呢");
+                        mPopu.dismiss()
+                    }
+                    //  mPopu.setOutsideTouchable(true);//判断在外面点击是否有效
+                    //mPopu.setFocusable(true);
+                    mPopu.showAsDropDown(view)
+                    mPopu.isShowing
+                }
+
+
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+        }).start()
 
     }
 

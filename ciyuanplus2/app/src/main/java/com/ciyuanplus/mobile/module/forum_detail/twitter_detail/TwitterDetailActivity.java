@@ -2,6 +2,7 @@ package com.ciyuanplus.mobile.module.forum_detail.twitter_detail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -36,6 +37,8 @@ import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 import java.util.ArrayList;
 
+import crossoverone.statuslib.StatusUtil;
+
 /**
  * @author Alen
  * @date 2017/5/12
@@ -65,6 +68,10 @@ public class TwitterDetailActivity extends ForumDetailActivity implements EventC
     /** 更新界面信息 */
     @Override
     public void updateView() {
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
+
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
         if (null == mPresenter.mItem) {
             return;
         }

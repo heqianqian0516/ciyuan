@@ -3,6 +3,7 @@ package com.ciyuanplus.mobile.module.webview
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.PixelFormat
 import android.net.Uri
 import android.os.Build
@@ -50,6 +51,7 @@ import com.orhanobut.logger.Logger
 import com.tencent.smtt.sdk.ValueCallback
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebView
+import crossoverone.statuslib.StatusUtil
 import kotlinx.android.synthetic.main.activity_js_webview.*
 import org.jetbrains.anko.startActivity
 
@@ -76,7 +78,10 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_js_webview)
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"))
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true)
         mUrl = intent.getStringExtra(Constants.INTENT_OPEN_URL)
         mParams = intent.getStringExtra(Constants.INTENT_JS_WEB_VIEW_PARAM)
         mPrePage = intent.getStringExtra("prePage")

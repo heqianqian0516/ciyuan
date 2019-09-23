@@ -3,8 +3,16 @@ package com.ciyuanplus.mobile.module.mine.change_head_icon;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
@@ -42,7 +50,11 @@ import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.orhanobut.logger.Logger;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -109,13 +121,16 @@ public class ChangeHeadIconPresenter implements ChangeHeadIconContract.Presenter
             boolean isImage = PictureConfig.TYPE_IMAGE == PictureMimeType.isPictureType(firstMedia.getPictureType());
             if (isImage) {
                 Logger.e("media路径-----》", firstMedia.getPath());
-                mHeadIconPath = firstMedia.getPath();
+                if (firstMedia.isCut())
+                    mHeadIconPath = firstMedia.getCutPath();
+                else
+                    mHeadIconPath = firstMedia.getPath();
                 Constant.imageList.clear();
                 uploadImageFile();
             }
         }
 
-//        uploadImageFile();
+        // uploadImageFile();
     }
 
 
@@ -131,6 +146,7 @@ public class ChangeHeadIconPresenter implements ChangeHeadIconContract.Presenter
                 .imageSpanCount(3)// 每行显示个数
                 .selectionMode(PictureConfig.SINGLE)// 多选 or 单选
                 .previewImage(true)// 是否可预览图片
+
                 .previewVideo(false)// 是否可预览视频
                 .enablePreviewAudio(true) // 是否可播放音频
                 .isCamera(true)// 是否显示拍照按钮
@@ -186,9 +202,128 @@ public class ChangeHeadIconPresenter implements ChangeHeadIconContract.Presenter
         ((Activity) mView).startActivityForResult(intent, Constants.REQUEST_CODE_IMAGE_CROP_CODE);
     }
 
+    /**
+     * 转换图片成圆形
+     *
+     * @param bitmap 传入Bitmap对象
+     * @return
+     */
+    /*public static Bitmap toRoundBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float roundPx;
+        float left, top, right, bottom, dst_left, dst_top, dst_right, dst_bottom;
+        if (width <= height) {
+            roundPx = width / 2;
+            top = 0;
+            bottom = width;
+            left = 0;
+            right = width;
+            height = width;
+            dst_left = 0;
+            dst_top = 0;
+            dst_right = width;
+            dst_bottom = width;
+        } else {
+            roundPx = height / 2;
+            float clip = (width - height) / 2;
+            left = clip;
+            right = width - clip;
+            top = 0;
+            bottom = height;
+            width = height;
+            dst_left = 0;
+            dst_top = 0;
+            dst_right = height;
+            dst_bottom = height;
+        }
+
+        Bitmap output = Bitmap.createBitmap(width,
+                height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+        final Rect dst = new Rect((int) dst_left, (int) dst_top, (int) dst_right, (int) dst_bottom);
+        final RectF rectF = new RectF(dst);
+
+        paint.setAntiAlias(true);
+
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, src, dst, paint);
+        return output;
+    }
+
+    *//**
+     * 获取本地图片并指定高度和宽度
+     *//*
+    public static Bitmap getNativeImage(String imagePath) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+// 获取这个图片的宽和高
+        Bitmap myBitmap = BitmapFactory.decodeFile(imagePath, options); //此时返回myBitmap为空
+//计算缩放比
+        int be = (int) (options.outHeight / (float) 200);
+        int ys = options.outHeight % 200;//求余数
+        float fe = ys / (float) 200;
+        if (fe >= 0.5)
+            be = be + 1;
+        if (be <= 0)
+            be = 1;
+        options.inSampleSize = be;
+//重新读入图片，注意这次要把options.inJustDecodeBounds 设为 false
+        options.inJustDecodeBounds = false;
+        myBitmap = BitmapFactory.decodeFile(imagePath, options);
+        return myBitmap;
+    }
+
+    *//**
+     * 以最省内存的方式读取本地资源的图片 或者SDCard中的图片
+     *
+     * @param
+     * @return
+     *//*
+    public static Bitmap getSDCardImg(String imagePath) {
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+        opt.inPurgeable = true;
+        opt.inInputShareable = true;
+//获取资源图片
+        return BitmapFactory.decodeFile(imagePath, opt);
+    }
+
+    //在这里抽取了一个方法   可以封装到自己的工具类中...
+    public File getFile(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+        File file = new File(Environment.getExternalStorageDirectory() + "/temp.jpg");
+        try {
+            file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            int x = 0;
+            byte[] b = new byte[1024 * 100];
+            while ((x = is.read(b)) != -1) {
+                fos.write(b, 0, x);
+            }
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return file;
+    }*/
+
     // 上传头像文件， 如果成功就提交修改头像
     private void uploadImageFile() {
         if (Utils.isStringEmpty(mHeadIconPath)) return;
+       /* Bitmap b = toRoundBitmap(getSDCardImg(mHeadIconPath));
+        File f = getFile(b);
+        mHeadIconPath = f.getPath();*/
         mView.showLoadingDialog();
         MultipartBody body = new UpLoadFileApiParameter().getRequestBody();
         File origin = new File(mHeadIconPath);

@@ -10,6 +10,7 @@
     <com.ciyuanplus.mobile.widget.TitleBarView
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content" />
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
@@ -26,20 +27,31 @@
                 android:id="@id/stickyHeadView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@mipmap/mine_bg"
                 android:descendantFocusability="blocksDescendants"
                 android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/image_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@mipmap/mine_personal_white"
+                        />
 
                 <RelativeLayout
                     android:id="@+id/rl_top"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
                     android:layout_height="79dp">
 
-                    <ImageView
+                   <!-- <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="-1dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/mine_top_bg" />
+                        android:src="@drawable/mine_top_bg" />-->
 
                     <com.ciyuanplus.mobile.widget.RoundImageView
                         android:id="@+id/iv_head"
@@ -48,6 +60,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginLeft="30dp"
+
                         android:src="@mipmap/default_head_" />
 
                     <ImageView
@@ -88,9 +101,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="18dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@color/white"
                         android:text="我是签名，我是就爱签名"
-                        android:textColor="#ffb2b2b2"
+                        android:textColor="@color/white"
                         android:textSize="13sp" />
 
                     <RelativeLayout
@@ -102,6 +114,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentLeft="true"
+                            android:layout_marginStart="0dp"
                             android:gravity="bottom"
                             android:orientation="horizontal">
 
@@ -118,7 +131,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="bottom"
                                     android:text="0"
-                                    android:textColor="#ff666666"
+                                    android:textColor="@color/white"
                                     android:textSize="18sp"
                                     tools:text="5000" />
 
@@ -127,7 +140,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
                                     android:text="获赞"
-                                    android:textColor="#ffb2b2b2"
+                                    android:textColor="@color/white"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -146,7 +159,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="bottom"
                                     android:text="0"
-                                    android:textColor="#ff666666"
+                                    android:textColor="@color/white"
                                     android:textSize="18sp"
                                     tools:text="5000" />
 
@@ -155,7 +168,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
                                     android:text="关注"
-                                    android:textColor="#ffb2b2b2"
+                                    android:textColor="@color/white"
                                     android:textSize="12sp" />
                             </LinearLayout>
 
@@ -173,7 +186,7 @@
                                     android:layout_gravity="bottom"
                                     android:gravity="bottom"
                                     android:text="0"
-                                    android:textColor="#ff666666"
+                                    android:textColor="@color/white"
                                     android:textSize="18sp"
                                     tools:text="5000" />
 
@@ -182,37 +195,33 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
                                     android:text="粉丝"
-                                    android:textColor="#ffb2b2b2"
+                                    android:textColor="@color/white"
                                     android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
 
-                        <TextView
+                        <ImageView
                             android:id="@+id/tv_add"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:background="@drawable/home_list_follow_backgroud"
-                            android:gravity="center"
-                            android:text="+关注"
-                            android:textColor="#fffffdfd"
-                            android:textSize="12sp"
+                            android:src="@mipmap/mine_personal_follow"
                             tools:visibility="visible" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
 
-                <View
-                    android:id="@+id/line"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/spacing_small"
-                    android:layout_below="@id/ll_social"
-                    android:layout_marginTop="20dp"
-                    android:background="#ffebebeb" />
 
             </RelativeLayout>
 
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_small"
+                android:layout_below="@id/ll_social"
+                android:layout_marginTop="5dp"
+                android:background="#ffebebeb" />
             <com.flyco.tablayout.SlidingTabLayout
                 android:id="@+id/stl_tabs"
                 android:layout_width="match_parent"

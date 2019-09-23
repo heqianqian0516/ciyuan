@@ -2,6 +2,7 @@ package com.ciyuanplus.mobile.module.mine.friends;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import crossoverone.statuslib.StatusUtil;
 
 
 /**
@@ -63,7 +65,10 @@ public class MyFriendsActivity extends MyBaseActivity implements MyFriendsContra
         this.setContentView(R.layout.activity_my_friends);
         StatusBarCompat.compat(this, getResources().getColor(R.color.title));
         this.initView();
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
         mPresenter.initData(getIntent());
     }
 

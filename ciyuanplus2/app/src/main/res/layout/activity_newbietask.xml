@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity">
+
+
+<RelativeLayout
+    android:layout_marginTop="50dp"
+    android:layout_width="match_parent"
+    android:background="@mipmap/newbie_bg"
+    android:layout_height="187dp">
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="25/100%"
+       android:textColor="@color/white"
+       android:layout_alignParentRight="true"
+       android:textSize="13sp"
+       android:layout_marginTop="120dp"
+       android:layout_marginRight="35dp"
+       />
+</RelativeLayout>
+<RelativeLayout
+    android:id="@+id/rl_daily"
+    android:layout_width="match_parent"
+    android:background="@drawable/mine_daily_task_bg"
+    android:layout_marginTop="200dp"
+    android:layout_height="430dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_check_in"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:id="@+id/image_check_in"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/newbie_head_portrait" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置头像"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成1/1"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="35dp"
+            android:textSize="12sp"
+            android:textColor="#9D9D9D"
+            />
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/daily_button_bg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="去设置"
+            android:textColor="#C66BD4"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:background="#DDDDDD"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_posts"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_check_in"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/newbie_nickname" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置昵称"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成1/1"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="35dp"
+            android:textSize="12sp"
+            android:textColor="#9D9D9D"
+            />
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/daily_button_bg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="去设置"
+            android:textColor="#C66BD4"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:background="#DDDDDD"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_review"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_posts"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/newbie_birthday" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置生日"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成1/1"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="35dp"
+            android:textSize="12sp"
+            android:textColor="#9D9D9D"
+            />
+
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="17dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/daily_button_bg"
+            android:text="去设置"
+            android:textColor="#C66BD4" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#DDDDDD"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_compleme"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_review"
+        android:layout_height="55dp">
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/newbie_address" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置地址"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成1/1"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="35dp"
+            android:textSize="12sp"
+            android:textColor="#9D9D9D"
+            />
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="17dp"
+            android:background="@drawable/daily_button_bg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="去点赞"
+            android:textColor="#C66BD4"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:background="#DDDDDD"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_mall"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_compleme"
+        android:layout_marginTop="10dp"
+        android:layout_height="55dp">
+
+        <TextView
+            android:id="@+id/tv_first_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首次发帖"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成1/1"
+            android:textSize="12sp"
+            android:textColor="#9D9D9D"
+            android:layout_marginLeft="74dp"
+            android:layout_toRightOf="@id/tv_first_post"
+            android:layout_marginTop="17dp"
+            />
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/daily_button_bg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="去发帖"
+            android:textColor="#C66BD4"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_reward"
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_mall"
+        android:layout_marginTop="10dp"
+        android:layout_height="55dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="任务奖励"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:layout_width="86dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/daily_button_bg"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="领取奖励"
+            android:textColor="#C66BD4"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/rl_reward"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="完成以上任务可获赠200次元币"
+            android:layout_marginLeft="80dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="次元币可用于兑换礼品哦"
+            android:layout_below="@id/tv_a1"
+            android:layout_marginLeft="95dp"
+            android:layout_marginTop="10dp"
+            />
+    </RelativeLayout>
+</RelativeLayout>
+
+<com.ciyuanplus.mobile.widget.TitleBarView
+    android:id="@+id/title_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+</RelativeLayout>
+

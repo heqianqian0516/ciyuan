@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.module.settings.about;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import crossoverone.statuslib.StatusUtil;
 
 /**
  * Created by Alen on 2017/5/18.
@@ -43,6 +45,10 @@ public class AboutActivity extends MyBaseActivity implements AboutContract.View 
         this.setContentView(R.layout.activity_about);
         StatusBarCompat.compat(this, getResources().getColor(R.color.title));
         this.initView();
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
+
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
         mPresenter.requestAbout();
     }
 

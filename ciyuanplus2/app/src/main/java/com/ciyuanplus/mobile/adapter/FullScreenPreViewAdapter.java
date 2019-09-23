@@ -131,20 +131,20 @@ public class FullScreenPreViewAdapter extends PagerAdapter {
         });
         if (images[position].startsWith("/storage")) {
 
-            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail).fitCenter();
+            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail);
             Glide.with(mContext).load(images[position]).apply(options).into(photoView);
             photoView.setTag(R.id.glide_item_tag, images[position]);
             //ImageLoader.getInstance().displayImage("file:///" + images[position], photoView);
 
         } else if (images[position].startsWith("http://") || images[position].startsWith("https://")) {
 
-            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail).dontAnimate().fitCenter();
+            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail).dontAnimate();
             Glide.with(mContext).load(images[position]).apply(options).into(photoView);
             photoView.setTag(R.id.glide_item_tag, images[position]);
             //ImageLoader.getInstance().displayImage(images[position], photoView);
         } else {
 
-            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail).dontAnimate().fitCenter();
+            RequestOptions options = new RequestOptions().error(R.mipmap.imgfail).dontAnimate();
             Glide.with(mContext).load(Constants.IMAGE_LOAD_HEADER + images[position]).apply(options).into(photoView);
             photoView.setTag(R.id.glide_item_tag, Constants.IMAGE_LOAD_HEADER + images[position]);
             //ImageLoader.getInstance().displayImage(Constants.IMAGE_LOAD_HEADER + images[position], photoView);

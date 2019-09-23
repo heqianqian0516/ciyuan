@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.module.home.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +50,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import crossoverone.statuslib.StatusUtil;
 
 /*排行榜页面
  * */
@@ -104,7 +106,10 @@ public class RankingListActivity extends MyBaseActivity implements EventCenterMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking_list);
         ButterKnife.bind(this);
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
 
         mStepRankingTest.setEnableRefresh(true);
         mStepRankingTest.setEnableLoadMore(true);

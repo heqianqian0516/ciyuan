@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:layout_height="60dp">
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日本进口很牛很牛全套动漫"
+            android:textColor="#ff333333"
+            android:textSize="15sp"
+            android:layout_marginLeft="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-16000"
+            android:textColor="#fffd7f03"
+            android:textSize="15sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="19dp"
+            android:layout_marginRight="19dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8月18日    15:30"
+            android:textColor="#ff9b9b9b"
+            android:textSize="13sp"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            />
+    </RelativeLayout>
+</LinearLayout>

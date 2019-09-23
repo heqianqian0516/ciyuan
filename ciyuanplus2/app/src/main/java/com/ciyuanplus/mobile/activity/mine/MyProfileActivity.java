@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.activity.mine;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -61,6 +62,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import crossoverone.statuslib.StatusUtil;
 
 /**
  * Created by Alen on 2017/5/17.
@@ -102,7 +104,10 @@ public class MyProfileActivity extends MyBaseActivity implements AdapterView.OnI
         this.setContentView(R.layout.activity_my_profile);
         StatusBarCompat.compat(this, getResources().getColor(R.color.title));
         this.initView();
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
         requestBindDetail();
 //        updateView();
     }
@@ -203,44 +208,6 @@ public class MyProfileActivity extends MyBaseActivity implements AdapterView.OnI
 //                    getResources().getString(R.string.string_my_profile_password_alert), ""));// 如果没有设置过密码   不显示这个选项
         mAdapter.notifyDataSetChanged();
 //        initData();
-    }
-
-    private void initData() {
-        mlist.clear();
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_HEAD,
-                getResources().getString(R.string.string_my_profile_head_alert),
-                UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().photo) ?
-                        "" : UserInfoData.getInstance().getUserInfoItem().photo));
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_NAME,
-                getResources().getString(R.string.string_my_profile_name_alert),
-                UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().nickname) ?
-                        "" : UserInfoData.getInstance().getUserInfoItem().nickname));
-
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_SIGN,
-                "签名",
-                UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().personalizedSignature) ?
-                        "" : UserInfoData.getInstance().getUserInfoItem().personalizedSignature));
-
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_SEX,
-                getResources().getString(R.string.string_my_profile_sex_alert),
-                UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().getUserSex()) ?
-                        "" : UserInfoData.getInstance().getUserInfoItem().getUserSex()));
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_BIRTHDAY,
-                getResources().getString(R.string.string_my_profile_birthday_alert), UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().getUserSex()) ?
-                "" : UserInfoData.getInstance().getUserInfoItem().birthday));
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_PHONE,
-                getResources().getString(R.string.string_my_profile_phone_alert),
-                UserInfoData.getInstance().getUserInfoItem() == null || Utils.isStringEmpty(UserInfoData.getInstance().getUserInfoItem().mobile) ? "绑定手机" : UserInfoData.getInstance().getUserInfoItem().mobile));
-        mlist.add(new MyProfileItem(MyProfileItem.TYPE_CACHE,
-                getResources().getString(R.string.string_my_profile_cache_alert), CacheManager.getInstance().getCacheSize()));
-
-        MyProfileItem accountItem = new MyProfileItem(MyProfileItem.TYPE_ACCOUNT_MANAGE, "账号管理", "");
-        mlist.add(accountItem);
-
-//        if (UserInfoData.getInstance().getUserInfoItem() != null && UserInfoData.getInstance().getUserInfoItem().isPassword == 1)
-//            mlist.add(new MyProfileItem(MyProfileItem.TYPE_PASSWORD,
-//                    getResources().getString(R.string.string_my_profile_password_alert), ""));// 如果没有设置过密码   不显示这个选项
-        mAdapter.notifyDataSetChanged();
     }
 
     @Override

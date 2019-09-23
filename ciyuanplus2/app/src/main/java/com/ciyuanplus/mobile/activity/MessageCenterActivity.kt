@@ -1,5 +1,6 @@
 package com.ciyuanplus.mobile.activity
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import com.ciyuanplus.mobile.App
@@ -19,6 +20,7 @@ import com.litesuits.http.request.AbstractRequest
 import com.litesuits.http.request.StringRequest
 import com.litesuits.http.request.param.HttpMethods
 import com.litesuits.http.response.Response
+import crossoverone.statuslib.StatusUtil
 
 class MessageCenterActivity : MyBaseActivity() {
 
@@ -29,7 +31,10 @@ class MessageCenterActivity : MyBaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message_center)
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
 //        requestUserInfoRedDot()
 
         supportFragmentManager.beginTransaction().add(R.id.fl_container, ChatFragment()).commitAllowingStateLoss()

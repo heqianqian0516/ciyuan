@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.module.settings.address
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -31,6 +32,7 @@ import com.litesuits.http.request.StringRequest
 import com.litesuits.http.request.param.HttpMethods
 import com.litesuits.http.response.Response
 import com.orhanobut.logger.Logger
+import crossoverone.statuslib.StatusUtil
 import kotlinx.android.synthetic.main.activity_address_manager.*
 import org.jetbrains.anko.startActivity
 import javax.inject.Inject
@@ -54,9 +56,14 @@ open class AddressManagerActivity : MyBaseActivity(), AddressManagerContract.Vie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_address_manager)
-        StatusBarCompat.compat(this, resources.getColor(R.color.title))
+       /* StatusBarCompat.compat(this, resources.getColor(R.color.title))*/
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"))
+
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true)
         this.initView()
         mPresenter.initData()
+
     }
 
     private fun initView() {

@@ -11,7 +11,7 @@
         android:id="@+id/rl_title_bar_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/title_bar_height"
-        android:background="#212021">
+        android:background="#ffffff">
 
         <ImageView
             android:id="@+id/iv_title_bar_back"
@@ -67,7 +67,7 @@
                 android:singleLine="true"
                 android:text="子标题"
                 android:visibility="gone"
-                tools:visibility="gone" />
+                tools:visibility="gone" /> 
         </LinearLayout>
 
 

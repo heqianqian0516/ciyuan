@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.module.others.new_others
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -26,7 +27,9 @@ import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import com.shuyu.gsyvideoplayer.GSYVideoManager
+import crossoverone.statuslib.StatusUtil
 import kotlinx.android.synthetic.main.activity_others_news.*
+import kotlinx.android.synthetic.main.header_home_fragment.view.*
 import java.util.*
 import javax.inject.Inject
 
@@ -55,7 +58,10 @@ class OthersActivity : MyBaseActivity(), OthersContract.View, EventCenterManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_others_news)
+        StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"));
 
+        // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
+        StatusUtil.setSystemStatus(this, false, true);
         this.initView()
         mPresenter.initData(intent)
     }
@@ -140,6 +146,9 @@ class OthersActivity : MyBaseActivity(), OthersContract.View, EventCenterManager
         EventCenterManager.addEventListener(Constants.EVENT_MESSAGE_UPDATE_PEOPLE_STATE, this)
         viewPagerOther.addOnPageChangeListener(this@OthersActivity)
         iv_head.requestFocus()// 防止直接跳到列表那边了
+        image_back.setOnClickListener(){
+            finish()
+        }
     }
 
     // 更新页面的状态
@@ -157,9 +166,11 @@ class OthersActivity : MyBaseActivity(), OthersContract.View, EventCenterManager
         }
 
         if (!Utils.isStringEquals(mPresenter.mUserInfo.uuid, UserInfoData.getInstance().userInfoItem.uuid) && mPresenter.mUserInfo.isFollow != 1) { // 关注
-            tv_add.text = "+关注"
+           /* tv_add.text = "+关注"*/
+            tv_add.setImageResource(R.mipmap.mine_personal_follow)
         } else {
-            tv_add.text = "已关注"
+          /*  tv_add.text = "已关注"*/
+            tv_add.setImageResource(R.mipmap.mine_personal_concerned)
         }
 
         iv_head_sex.setImageResource(mPresenter.mUserInfo.sexImageResource)
