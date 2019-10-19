@@ -54,6 +54,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/tv_head_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="完成1/1"
@@ -63,6 +64,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textColor="#9D9D9D"
             />
         <Button
+            android:id="@+id/bt_head_icon"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_marginTop="17dp"
@@ -101,6 +103,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/tv_nick_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="完成1/1"
@@ -110,6 +113,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textColor="#9D9D9D"
             />
         <Button
+            android:id="@+id/bt_nick_name"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_marginTop="17dp"
@@ -148,9 +152,10 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/tv_birthy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="完成1/1"
+            android:text="完成0/1"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="35dp"
             android:textSize="12sp"
@@ -158,6 +163,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             />
 
         <Button
+            android:id="@+id/bt_birthy"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_alignParentTop="true"
@@ -196,22 +202,24 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textSize="16sp"
             />
         <TextView
+            android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="完成1/1"
+            android:text="完成0/1"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="35dp"
             android:textSize="12sp"
             android:textColor="#9D9D9D"
             />
         <Button
+            android:id="@+id/bt_address"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_marginTop="17dp"
             android:background="@drawable/daily_button_bg"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:text="去点赞"
+            android:text="去设置"
             android:textColor="#C66BD4"
             />
         <View
@@ -240,9 +248,10 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:textColor="@color/black"
             />
         <TextView
+            android:id="@+id/tv_postings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="完成1/1"
+            android:text="完成0/1"
             android:textSize="12sp"
             android:textColor="#9D9D9D"
             android:layout_marginLeft="74dp"
@@ -250,6 +259,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             android:layout_marginTop="17dp"
             />
         <Button
+            android:id="@+id/bt_postings"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_marginTop="12dp"
@@ -279,6 +289,7 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
             />
 
         <Button
+            android:id="@+id/bt_receive_awards"
             android:layout_width="86dp"
             android:layout_height="30dp"
             android:layout_marginTop="12dp"

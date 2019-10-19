@@ -1,7 +1,9 @@
 package com.ciyuanplus.mobile.module.home
 
 
+
 import android.content.Context
+
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -331,6 +333,7 @@ class HomeFragment : LazyLoadBaseFragment(), HomeFragmentContract.View, EventCen
 
         refresh.setOnRefreshListener {
 
+
             mPresenter.doRequest(true)
 
         }
@@ -580,8 +583,8 @@ class HomeFragment : LazyLoadBaseFragment(), HomeFragmentContract.View, EventCen
                  super.onSuccess(s, response)
                  mItem = RequestAdvertisementList(s)
                //  Log.e("zzzzzzzz", "getInfo: " + mItem!!.get(0).getUuid())
-                 EventBus.getDefault().postSticky(mItem)
-                 if (mItem != null) {
+                 EventBus.getDefault().postSticky(mItem!=null)
+                 if (mItem !=null) {
                      activity?.let {
                          imageActivity?.let { it1 ->
                              Glide.with(it)

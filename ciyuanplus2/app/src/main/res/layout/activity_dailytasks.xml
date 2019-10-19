@@ -66,6 +66,7 @@
              android:textSize="16sp"
              />
            <TextView
+               android:id="@+id/tv_check_in"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:text="次元币+5  完成1/3"
@@ -75,6 +76,7 @@
                android:textColor="#9D9D9D"
                />
            <Button
+               android:id="@+id/bu_check_in"
                android:layout_width="86dp"
                android:layout_height="30dp"
                android:layout_marginTop="17dp"
@@ -83,6 +85,7 @@
                android:layout_marginRight="20dp"
                android:text="去签到"
                android:textColor="#C66BD4"
+               android:visibility="visible"
                />
            <View
                android:layout_width="match_parent"
@@ -113,6 +116,7 @@
                     android:textSize="16sp"
                     />
                 <TextView
+                    android:id="@+id/tv_posting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="次元币+5  完成1/3"
@@ -122,6 +126,7 @@
                     android:textColor="#9D9D9D"
                     />
                 <Button
+                    android:id="@+id/bu_posting"
                     android:layout_width="86dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="17dp"
@@ -160,6 +165,7 @@
                     android:textSize="16sp"
                     />
                 <TextView
+                    android:id="@+id/tv_daily_review"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="次元币+5  完成1/2"
@@ -170,6 +176,7 @@
                     />
 
                 <Button
+                    android:id="@+id/bu_daily_review"
                     android:layout_width="86dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="17dp"
@@ -208,6 +215,7 @@
                     android:textSize="16sp"
                     />
                 <TextView
+                    android:id="@+id/tv_daily_compliments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="次元币+1  完成1/10"
@@ -217,6 +225,7 @@
                     android:textColor="#9D9D9D"
                     />
                 <Button
+                    android:id="@+id/bu_daily_compliments"
                     android:layout_width="86dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="17dp"
@@ -255,6 +264,7 @@
                     android:textSize="16sp"
                     />
                 <TextView
+                    android:id="@+id/tv_daily_mall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="次元币+2  完成1/5"
@@ -264,6 +274,7 @@
                     android:textColor="#9D9D9D"
                     />
                 <Button
+                    android:id="@+id/bu_daily_mall"
                     android:layout_width="86dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="17dp"
@@ -301,6 +312,7 @@
                     android:textSize="16sp"
                     />
                 <TextView
+                    android:id="@+id/tv_daily_sharing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="次元币+5  完成1/1"
@@ -310,6 +322,7 @@
                     android:textColor="#9D9D9D"
                     />
                 <Button
+                    android:id="@+id/bu_daily_sharing"
                     android:layout_width="86dp"
                     android:layout_height="30dp"
                     android:layout_marginTop="17dp"

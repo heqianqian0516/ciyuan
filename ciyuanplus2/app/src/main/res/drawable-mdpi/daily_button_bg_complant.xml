@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--阴影-->
+    <item>
+        <shape android:shape="rectangle">
+            <!--渐变色-->
+            <gradient
+                android:angle="90"
+                android:endColor="#B2B2B2"
+                android:startColor="#B2B2B2"/>
+            <!--圆角可以自行更改-->
+            <corners
+                android:radius="30dp"/>
+        </shape>
+    </item>
+    <!--阴影-->
+
+    <!--白色背景-->
+    <!--item里参数相当于margin由于边框粗细-->
+    <item
+        android:top="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:bottom="2dp"
+        >
+        <shape android:shape="rectangle">
+            <!--这里设置背景颜色将背景色设置为与父大背景色一样-->
+            <solid android:color="#ffffff"/>
+            <!--圆角可以自行更改-->
+            <corners
+                android:radius="30dp"/>
+        </shape>
+    </item>
+
+</layer-list>

@@ -6,14 +6,26 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ciyuanplus.mobile.App;
 import com.ciyuanplus.mobile.MyBaseActivity;
 import com.ciyuanplus.mobile.R;
+import com.ciyuanplus.mobile.manager.SharedPreferencesManager;
+import com.ciyuanplus.mobile.manager.UserInfoData;
 import com.ciyuanplus.mobile.net.ApiContant;
+import com.ciyuanplus.mobile.net.LiteHttpManager;
+import com.ciyuanplus.mobile.net.MyHttpListener;
+import com.ciyuanplus.mobile.net.ResponseData;
 import com.ciyuanplus.mobile.net.bean.FreshNewItem;
 import com.ciyuanplus.mobile.net.bean.HomeADBean;
+import com.ciyuanplus.mobile.net.parameter.UserScoredApiParameter;
+import com.ciyuanplus.mobile.net.response.UserScoredResponse;
 import com.ciyuanplus.mobile.utils.Constants;
 import com.ciyuanplus.mobile.utils.Utils;
 import com.ciyuanplus.mobile.widget.CommonToast;
+import com.litesuits.http.exception.HttpException;
+import com.litesuits.http.request.StringRequest;
+import com.litesuits.http.request.param.HttpMethods;
+import com.litesuits.http.response.Response;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
@@ -52,6 +64,40 @@ public class ShareNewsPopupActivity extends MyBaseActivity implements UMShareLis
 
         this.initView();
         initData();
+
+    }
+
+    private void sharingPoints() {
+         StringRequest postRequest = new StringRequest(ApiContant.URL_HEAD
+                + ApiContant.SHARE_INTEGRAL);
+        postRequest.setMethod(HttpMethods.Post);
+        String sessionKey = SharedPreferencesManager.getString(
+                Constants.SHARED_PREFERENCES_SET, Constants.SHARED_PREFERENCES_LOGIN_USER_SESSION_KEY, "");
+         postRequest.setHttpBody(new UserScoredApiParameter().getRequestBody());
+        postRequest.addHeader("authToken", sessionKey);
+       // Log.i("ttt", sessionKey);
+        postRequest.setHttpListener(new MyHttpListener<String>(App.mContext) {
+            @Override
+            public void onSuccess(String s, Response<String> response) {
+                super.onSuccess(s, response);
+                Log.i("bbb", s + "______" + response);
+                //t.setText(s+"________"+response);
+                UserScoredResponse response1 = new UserScoredResponse(s);
+                if (!Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
+                    CommonToast.getInstance(response1.mMsg).show();
+                } else {
+                 //   tvCiyuanNum.setText("今日获得" + response1.data1 + "次元币");
+                    CommonToast.getInstance(response1.mMsg).show();
+                }
+            }
+
+            @Override
+            public void onFailure(HttpException e, Response<String> response) {
+                super.onFailure(e, response);
+                CommonToast.getInstance("操作失败").show();
+            }
+        });
+        LiteHttpManager.getInstance().executeAsync(postRequest);
     }
 
     private void initData() {
@@ -252,6 +298,7 @@ public class ShareNewsPopupActivity extends MyBaseActivity implements UMShareLis
 
     @Override
     public void onResult(SHARE_MEDIA share_media) {
+        sharingPoints();
         this.runOnUiThread(() -> CommonToast.getInstance(getResources().getString(R.string.string_share_success_alert), Toast.LENGTH_SHORT).show());
     }
 

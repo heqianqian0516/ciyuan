@@ -8,7 +8,10 @@ import android.graphics.PixelFormat
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.webkit.JavascriptInterface
 import android.widget.Toast
@@ -17,6 +20,7 @@ import com.blankj.utilcode.util.StringUtils
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyBaseActivity
 import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.R2.id.m_js_webview
 import com.ciyuanplus.mobile.activity.chat.FeedBackActivity
 import com.ciyuanplus.mobile.activity.mine.MineWelfareActivity
 import com.ciyuanplus.mobile.activity.news.ShareNewsPopupActivity
@@ -33,7 +37,9 @@ import com.ciyuanplus.mobile.net.ResponseData
 import com.ciyuanplus.mobile.net.bean.FreshNewItem
 import com.ciyuanplus.mobile.net.bean.HomeADBean
 import com.ciyuanplus.mobile.net.parameter.RequesAliPayOrderInfoApiParameter
+import com.ciyuanplus.mobile.net.parameter.UserScoredApiParameter
 import com.ciyuanplus.mobile.net.response.CommodityListItemRes
+import com.ciyuanplus.mobile.net.response.UserScoredResponse
 import com.ciyuanplus.mobile.statistics.StatisticsManager
 import com.ciyuanplus.mobile.utils.Constants
 import com.ciyuanplus.mobile.utils.Utils
@@ -74,7 +80,14 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
     private var uploadFiles: ValueCallback<Array<Uri>>? = null
      var mList : ArrayList<CommodityListItemRes.CommodityItem>?=null
     private var money: String? = null
-
+    val  handler : Handler = Handler {
+        when(it?.what){
+            1 ->{
+                browesMall();
+            }
+        }
+        false
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_js_webview)
@@ -88,12 +101,46 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
         isShowTitleBar = intent.getBooleanExtra(Constants.INTENT_SHOW_TITLE_BAR, true)
         title = intent.getStringExtra(Constants.INTENT_TITLE_BAR_TITLE)
         money = intent.getStringExtra(Constants.INTENT_PAY_TOTAL_MONEY)
+      //  browesMall();
+            handler.sendEmptyMessageDelayed(1,5000)
+
+
+
 
 
         if (Utils.isStringEmpty(mUrl)) finish()
 
         window.setFormat(PixelFormat.TRANSLUCENT)// X5 网页中的视频，上屏幕的时候，可能出现闪烁的情况
         initView()
+    }
+
+    private fun browesMall() {
+        val postRequest = StringRequest(ApiContant.URL_HEAD + ApiContant.SELECT_SHOP_INTEGRAL)
+        postRequest.setMethod<AbstractRequest<String>>(HttpMethods.Post)
+        val sessionKey = SharedPreferencesManager.getString(
+                Constants.SHARED_PREFERENCES_SET, Constants.SHARED_PREFERENCES_LOGIN_USER_SESSION_KEY, "")
+        postRequest.setHttpBody<AbstractRequest<String>>(UserScoredApiParameter().requestBody)
+        postRequest.addHeader<AbstractRequest<String>>("authToken", sessionKey)
+        // Log.i("ttt", sessionKey);
+        postRequest.setHttpListener<AbstractRequest<String>>(object : MyHttpListener<String>(App.mContext) {
+            override fun onSuccess(s: String?, response: Response<String>?) {
+                super.onSuccess(s, response)
+                Log.i("bbb", s + "______" + response)
+                //t.setText(s+"________"+response);
+                val response1 = UserScoredResponse(s)
+                if (!Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
+                    CommonToast.getInstance(response1.mMsg).show()
+                } else {
+                    CommonToast.getInstance(response1.mMsg).show()
+                }
+            }
+
+            override fun onFailure(e: HttpException?, response: Response<String>?) {
+                super.onFailure(e, response)
+                CommonToast.getInstance("操作失败").show()
+            }
+        })
+        LiteHttpManager.getInstance().executeAsync(postRequest)
     }
 
     private fun initView() {
@@ -238,6 +285,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
     override fun onPause() {
         m_js_webview!!.onPause()
         super.onPause()
+        handler.removeCallbacksAndMessages(null)
     }
 
     override fun onResume() {

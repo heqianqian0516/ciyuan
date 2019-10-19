@@ -16,7 +16,8 @@ import com.ciyuanplus.mobile.widget.TitleBarView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import crossoverone.statuslib.StatusUtil;
-
+/**立即兑换商品页面
+ * **/
 public class ExchangeMallDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.title_bar)

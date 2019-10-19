@@ -139,9 +139,9 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
      * base on mSelectedTab;
      */
     private fun switchFragment() {
+
         GSYVideoManager.releaseAllVideos()
         val transaction = supportFragmentManager.beginTransaction()
-
         mShoppingMallFragment?.let { transaction.hide(it) }
         mMineFragment?.let { transaction.hide(it) }
         myHomeFragment?.let { transaction.hide(it) }

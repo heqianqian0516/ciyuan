@@ -9,7 +9,22 @@ import com.orhanobut.logger.Logger;
  * Created by Alen on 2017/2/11.
  */
 public class ApiContant {
-    //最新版本接口
+    //查看是否完成了新手任务
+    public static final String GET_USER_NEWTASK_STATUS="/api/user/sign/getUserNewTaskStatus";
+       //获取总积分
+    public static final String GET_INTEGRAL_DETAILS="/api/user/sign/getIntegralDetails";
+      //查询用户资料完善情况以及发帖数量
+    public static  final String GET_NEWTASK_DATA_DETAILS="/api/user/sign/getNewTaskDataDetails";
+    // 浏览商城获得积分
+    public static  final  String SELECT_SHOP_INTEGRAL="/api/user/sign/selectShopIntegral";
+    //POST 分享获得积分
+    public  static  final String SHARE_INTEGRAL="/api/user/sign/shareIntegral";
+    //新手任务领取积分POST /api/user/sign/newTaskIntegral
+    public  static  final String NEW_TASK_INTEGRAL="/api/user/sign/newTaskIntegral";
+    //查询用户当天任务次数
+    public  static  final String GET_USER_TODAY_TASKNUM="/api/user/sign/getUserTodayTaskNum";
+    //查看用户今日获得积分
+    public static  final String GET_USER_INTEGRALBY_TODAY="/api/user/sign/getUserIntegralByToday";
     //参加活动
     public static final String REQUEST_ACTIVITY_LIST = "/api/event/getEventList";
     //排行榜

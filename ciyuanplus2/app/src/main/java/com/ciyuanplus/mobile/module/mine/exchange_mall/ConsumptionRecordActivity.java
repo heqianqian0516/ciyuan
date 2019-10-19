@@ -14,7 +14,9 @@ import com.ciyuanplus.mobile.widget.TitleBarView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import crossoverone.statuslib.StatusUtil;
-
+/**
+ *次元币消费记录页面
+ * */
 public class ConsumptionRecordActivity extends AppCompatActivity {
 
     @BindView(R.id.title_bar)

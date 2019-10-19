@@ -437,7 +437,7 @@ public class Utils {
     public static boolean isDebug() {
        /* return App.mContext.getApplicationInfo() != null &&
                 (App.mContext.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;*/
-         return false;
+         return true;
     }
 
     // 判断是否是正常的日期格式

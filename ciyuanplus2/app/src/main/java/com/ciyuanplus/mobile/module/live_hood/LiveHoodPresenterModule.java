@@ -16,6 +16,6 @@ class LiveHoodPresenterModule {
 
     @Provides
     LiveHoodContract.View providesLiveHoodContractView() {
-        return mView;
+            return mView;
     }
 }
