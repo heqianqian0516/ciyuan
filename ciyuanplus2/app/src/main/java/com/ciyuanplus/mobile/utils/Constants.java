@@ -161,7 +161,7 @@ public class Constants {
     public static final String INTENT_PAY_TOTAL_MONEY = "pay_total_money";
     public static final String TAO_BAO_LINK = "taobaoLink";
     public static final String COUPON_LINK = "couponLink";
-
+    public static final String  PROD_ID="prodId" ;
     public static final String SHARED_PREFERENCES_SQUARE_HOME_HAS_GUIDE = "mine_center_has_guide";
 
     // 以下是EventCenter 需要用到的信息关注更新

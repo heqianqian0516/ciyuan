@@ -42,6 +42,7 @@ class ZWCalendar extends View {
     private Bitmap signSuccess, signError;
     private ZWCalendarView.Config config;
     private Paint paint = new Paint();
+    private Paint paint2 = new Paint();
     private LunarHelper lunarHelper;
     private int itemWidth, itemHeight;
     private float solarTextHeight;
@@ -76,9 +77,14 @@ class ZWCalendar extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setTextAlign(Paint.Align.CENTER);
         paint.setStrokeWidth(sp2px(0.6f));
+        paint2.setAntiAlias(true);
+        paint2.setStyle(Paint.Style.FILL);
+        paint2.setTextAlign(Paint.Align.CENTER);
+        paint2.setStrokeWidth(sp2px(0.6f));
+        paint2.setTextSize(14);
         currentPosition = (currentYear - 1970) * 12 + currentMonth + 1;
         setClickable(true);
-      //  if (config.isShowLunar) lunarHelper = new LunarHelper();
+        //  if (config.isShowLunar) lunarHelper = new LunarHelper();
         if (config.signIconSuccessId != 0) {
             signSuccess = BitmapFactory.decodeResource(getResources(), config.signIconSuccessId);
             signError = BitmapFactory.decodeResource(getResources(), config.signIconErrorId);
@@ -123,12 +129,12 @@ class ZWCalendar extends View {
         canvas.drawLine(0, config.weekHeight, 0, getHeight() - config.weekHeight, paint);
         //画日历顶部周的标题
         paint.setColor(config.weekBackgroundColor);
-        canvas.drawRect(0, 0, getWidth(), config.weekHeight, paint);
+        canvas.drawRect(10, 0, getWidth()-14, config.weekHeight, paint);
         paint.setTextSize(config.weekTextSize);
         paint.setColor(config.weekTextColor);
         float delay = getTextHeight() / 4;
         for (int i = 0; i < 7; i++) {
-            canvas.drawText(weekTitles[i], itemWidth * (i + 0.5f), config.weekHeight / 2 + delay, paint);
+            canvas.drawText(weekTitles[i], itemWidth * (i + 0.5f), config.weekHeight / 0.5f+ delay, paint);
         }
         //画日历
         int year = 1970 + currentPosition / 12;
@@ -144,7 +150,7 @@ class ZWCalendar extends View {
         for (int i = 1; i <= 42; i++) {
             int copyI = i - 1;
             int x = (copyI % 7) * itemWidth + itemWidth / 2;
-            int y = (copyI / 7) * itemHeight + itemHeight / 2 + (int) config.weekHeight + (int) delay;
+            int y = (copyI / 7) * itemHeight + itemHeight / 1 + (int) config.weekHeight + (int) delay;
             if (i <= firstDay) {//前一月数据
                 if (!config.isShowOtherMonth) continue;
                 int day = previousMonthMaxDay - firstDay + i;
@@ -171,6 +177,9 @@ class ZWCalendar extends View {
                     canvas.drawCircle(x, y - delay, Math.min(itemHeight, itemWidth) / 2, paint);
                     paint.setColor(config.selectTextColor);
                 }
+
+
+
                 paint.setTextSize(config.calendarTextSize);
                 drawSign(canvas, year, month, day, x, y);
                 canvas.drawText(String.valueOf(day), x, y, paint);
@@ -185,9 +194,9 @@ class ZWCalendar extends View {
             if (year != clickYear || month != clickMonth || day != clickDay) {
                 paint.setColor(config.lunarTextColor);
             }
-          //  String lunar = lunarHelper.SolarToLunarString(year, month + 1, day);
+            //  String lunar = lunarHelper.SolarToLunarString(year, month + 1, day);
             paint.setTextSize(config.lunarTextSize);
-           // canvas.drawText(lunar, x, y + solarTextHeight * 2 / 3, paint);
+            // canvas.drawText(lunar, x, y + solarTextHeight * 2 / 3, paint);
         }
     }
 
@@ -195,18 +204,37 @@ class ZWCalendar extends View {
         if (signSuccess == null || signRecords == null) return;
         date.set(year, month, day);
         String dateStr = format.format(date.getTime());
-        if (signRecords.containsKey(dateStr)) {
+        //选中所有的签到日期
+
+        if(day<=currentDay){
+            //是否签到的标识
+            if(signRecords.containsKey(dateStr)){
+                canvas.drawText("已签到",x,y+solarTextHeight*2/3,paint2);
+                canvas.drawBitmap(signSuccess, x - (signDelay-signDelay/4) ,
+                        y - (signDelay+signDelay/6), paint);
+            }else{
+                //新创建画笔改变背景颜色
+
+                //绘制字体
+                canvas.drawText("可补签",x,y+solarTextHeight*2/3,paint2);
+                canvas.drawBitmap(signError, x -(signDelay-signDelay/4),
+                        y - (signDelay+signDelay/6), paint);
+            }
+        }
+
+       /* if (signRecords.containsKey(dateStr)) {
             if (year != clickYear || month != clickMonth || day != clickDay) {
                 paint.setColor(config.signTextColor);
             }
+            //这里调整背景的位置
             if (signRecords.get(dateStr)) {
-                canvas.drawBitmap(signSuccess, x + signDelay - config.signIconSize / 2,
-                        y - signDelay - config.signIconSize / 2, paint);
+                canvas.drawBitmap(signSuccess, x - (signDelay+signDelay/3) ,
+                        y + (signDelay+signDelay/3), paint);
             } else {
-                canvas.drawBitmap(signError, x + signDelay - config.signIconSize / 2,
-                        y - signDelay - config.signIconSize / 2, paint);
+                canvas.drawBitmap(signError, x -(signDelay+signDelay/3),
+                        y + (signDelay+signDelay/3), paint);
             }
-        }
+        }*/
     }
 
     int[] getCurrentDayInfo() {

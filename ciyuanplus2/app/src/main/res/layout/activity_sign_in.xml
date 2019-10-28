@@ -16,7 +16,7 @@
         android:layout_height="wrap_content" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="550dp"
         android:background="@mipmap/calendar_bg"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="3dp"
@@ -67,9 +67,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/tv_supplementary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="补签次数 3/3"
+                android:text="补签次数 0/3"
                 android:textColor="#fff"
                 android:layout_alignParentRight="true"
                 android:textSize="13sp"
@@ -77,7 +78,7 @@
                 android:layout_marginTop="5dp"
                 />
         </RelativeLayout>
-        <com.ciyuanplus.mobile.zwcalendar.ZWSignCalendarView
+        <com.ciyuanplus.mobile.zwcalendar.ZWCalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="350dp"
@@ -93,28 +94,33 @@
             app:weekTextColor="#0D0D0D"
             app:weekTextSize="15sp"
             android:layout_marginTop="20dp"
+            app:signIconSize="28dp"
+            app:selectColor="#5675F2"
+            app:signIconErrorId="@mipmap/icon"
+            app:signIconSuccessId="@mipmap/data_checkin_bg"
             >
             <TextView
+                android:id="@+id/tv_check_days"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="连续签到5天~"
+                android:text="连续签到0天啦"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
-                android:visibility="gone"
+                android:layout_marginTop="5dp"
                 />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="13dp"
                 android:src="@mipmap/week_bg"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="70dp"
                 />
-        </com.ciyuanplus.mobile.zwcalendar.ZWSignCalendarView>
+        </com.ciyuanplus.mobile.zwcalendar.ZWCalendarView>
         <ImageView
             android:id="@+id/immediately_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/buton_sign_in"
-            android:layout_marginBottom="20dp"
+             android:layout_marginTop="20dp"
             />
           </LinearLayout>
     </LinearLayout>

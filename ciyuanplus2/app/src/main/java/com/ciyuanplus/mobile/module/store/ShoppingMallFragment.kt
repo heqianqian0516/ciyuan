@@ -160,7 +160,7 @@ class ShoppingMallFragment : LazyLoadBaseFragment(), ViewPager.OnPageChangeListe
 
         mSystemMessageCount = i
         //title_bars.setNotificationNumber(mSystemMessageCount)
-       setNotificationNumber(mSystemMessageCount)
+        setNotificationNumber(mSystemMessageCount)
 
 
     }

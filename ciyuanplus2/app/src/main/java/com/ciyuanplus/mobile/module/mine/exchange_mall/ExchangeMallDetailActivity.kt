@@ -1,50 +1,67 @@
-package com.ciyuanplus.mobile.module.webview
+package com.ciyuanplus.mobile.module.mine.exchange_mall
 
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PixelFormat
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.os.Message
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.JavascriptInterface
+import android.widget.Button
+import android.widget.PopupWindow
+import android.widget.TextView
 import android.widget.Toast
-import butterknife.ButterKnife
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+
+import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.module.login.LoginActivity
+
 import com.blankj.utilcode.util.StringUtils
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyBaseActivity
-import com.ciyuanplus.mobile.R
-import com.ciyuanplus.mobile.R2.id.m_js_webview
 import com.ciyuanplus.mobile.activity.chat.FeedBackActivity
 import com.ciyuanplus.mobile.activity.mine.MineWelfareActivity
 import com.ciyuanplus.mobile.activity.news.ShareNewsPopupActivity
+import com.ciyuanplus.mobile.adapter.ExchangeDetailAdapter
+import com.ciyuanplus.mobile.adapter.ExchangeMallAdapter
 import com.ciyuanplus.mobile.dialog.PayResultDialogFragment
 import com.ciyuanplus.mobile.inter.MyOnClickListener
 import com.ciyuanplus.mobile.manager.*
-import com.ciyuanplus.mobile.module.login.LoginActivity
 import com.ciyuanplus.mobile.module.popup.share_game_invite_popup.ShareH5GameInvitePopup
 import com.ciyuanplus.mobile.module.popup.share_invite_popup.ShareInvitePopupActivity
+import com.ciyuanplus.mobile.module.webview.JsWebViewActivity
 import com.ciyuanplus.mobile.net.ApiContant
 import com.ciyuanplus.mobile.net.LiteHttpManager
 import com.ciyuanplus.mobile.net.MyHttpListener
 import com.ciyuanplus.mobile.net.ResponseData
 import com.ciyuanplus.mobile.net.bean.FreshNewItem
-import com.ciyuanplus.mobile.net.bean.HomeADBean
 import com.ciyuanplus.mobile.net.parameter.RequesAliPayOrderInfoApiParameter
+import com.ciyuanplus.mobile.net.parameter.ShopProdDetailApiParameter
+import com.ciyuanplus.mobile.net.parameter.ShopProdListApiParameter
 import com.ciyuanplus.mobile.net.parameter.UserScoredApiParameter
 import com.ciyuanplus.mobile.net.response.CommodityListItemRes
+import com.ciyuanplus.mobile.net.response.ShopProdDetailItemRes
+import com.ciyuanplus.mobile.net.response.ShopProdListItemRes
 import com.ciyuanplus.mobile.net.response.UserScoredResponse
 import com.ciyuanplus.mobile.statistics.StatisticsManager
 import com.ciyuanplus.mobile.utils.Constants
 import com.ciyuanplus.mobile.utils.Utils
 import com.ciyuanplus.mobile.widget.CommonToast
 import com.ciyuanplus.mobile.widget.CustomDialog
+import com.ciyuanplus.mobile.widget.SquareImageView
 import com.ciyuanplus.pay.ali.AliPay
 import com.ciyuanplus.pay.ali.PayResult
 import com.ciyuanplus.pay.wx.WXPay
@@ -58,39 +75,42 @@ import com.tencent.smtt.sdk.ValueCallback
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebView
 import crossoverone.statuslib.StatusUtil
-import kotlinx.android.synthetic.main.activity_js_webview.*
+import kotlinx.android.synthetic.main.activity_exchange.*
+import kotlinx.android.synthetic.main.activity_exchange_mall_detail.*
+import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
-/**
- * Created by Alen on 2017/7/3.
- *
- *
- * 通用的注册 与 H5 调用的 webview Activity
+/**立即兑换商品页面
  */
+class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandleEventListener {
 
-class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventListener {
 
-       private var mUrl: String? = null
+
+    private var mUrl: String? = null
     private var mParams: String? = null//可能需要传给页面一些参数
     private var mPrePage: String? = null
     private var isShowTitleBar = true
     private var configerManagner: ConfigerManagner? = null
     private var title: String? = null
+    private var prodId:Int?=null
     private var uploadFile: ValueCallback<Uri>? = null
     private var uploadFiles: ValueCallback<Array<Uri>>? = null
-    var mList : ArrayList<CommodityListItemRes.CommodityItem>?=null
     private var money: String? = null
+    var popupWindow:PopupWindow?=null
+    private var mList = ArrayList<ShopProdDetailItemRes.CommodityItem>()
+    var exchangeDetailAdapter:ExchangeDetailAdapter? = null
+    private var layoutManager: GridLayoutManager? = null
     val  handler : Handler = Handler {
         when(it?.what){
             1 ->{
-                browesMall();
+               // browesMall();
             }
         }
         false
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(R.layout.activity_js_webview)
+        this.setContentView(R.layout.activity_exchange_mall_detail)
         StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"))
 
         // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
@@ -101,6 +121,8 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
         isShowTitleBar = intent.getBooleanExtra(Constants.INTENT_SHOW_TITLE_BAR, true)
         title = intent.getStringExtra(Constants.INTENT_TITLE_BAR_TITLE)
         money = intent.getStringExtra(Constants.INTENT_PAY_TOTAL_MONEY)
+        prodId=intent.getIntExtra("prodId",54);
+        CommonToast.getInstance("aaaa"+prodId.toString()).show()
         //  browesMall();
         handler.sendEmptyMessageDelayed(1,5000)
 
@@ -112,6 +134,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
 
         window.setFormat(PixelFormat.TRANSLUCENT)// X5 网页中的视频，上屏幕的时候，可能出现闪烁的情况
         initView()
+
     }
 
     private fun browesMall() {
@@ -142,7 +165,6 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
     }
 
     private fun initView() {
-        ButterKnife.bind(this)
 
         initTitleBar()
 
@@ -151,8 +173,93 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
         m_js_webview.addJavascriptInterface(this, "Android")
         m_js_webview.loadUrl(mUrl)
         EventCenterManager.addEventListener(Constants.EVENT_MESSAGE_PAY_SUCCESS, this)
+        bt_redeem_now.setOnClickListener {
+            /*val intent = Intent(this@ExchangeMallDetailActivity, ExchangeOrderActivity::class.java)
+            startActivity(intent)*/
+
+            intPop();
+            initSpecifications();
+        }
     }
 
+
+    private fun intPop() {
+        val popupView = LayoutInflater.from(this).inflate(R.layout.exchange_mall_detail_pop, null)
+        popupWindow = PopupWindow(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        popupWindow!!.contentView = popupView
+        popupWindow!!.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+        popupWindow!!.isOutsideTouchable = true
+
+//        popupWindow.isFocusable = true
+        //设置PopupWindow动画
+//        popupWindow.animationStyle = R.style.a
+        //设置是否允许PopupWindow的范围超过屏幕范围
+       // popupWindow!!.isClippingEnabled = true
+        popupWindow!!.showAtLocation(popupView, Gravity.BOTTOM, 0, 500)
+        /**
+         * 设置添加屏幕的背景透明度
+         *
+         * @param bgAlpha
+         * 屏幕透明度0.0-1.0 1表示完全不透明
+         */
+
+        setBackgroundAlpha(0.8f)
+        val recyclerView = popupView.find<RecyclerView>(R.id.exchange_recycle)
+        val exchangeDetermine=popupView.find<Button>(R.id.exchange_determine)
+        val exchangeImg=popupView.find<SquareImageView>(R.id.exchange_img)
+        val exchangePrice=popupView.find<TextView>(R.id.exchange_price)
+        val exchangeStock=popupView.find<TextView>(R.id.exchange_stock)
+        layoutManager = GridLayoutManager(applicationContext, 2)
+        recyclerView!!.layoutManager = layoutManager
+        exchangeDetailAdapter= ExchangeDetailAdapter(this,mList)
+        recyclerView.adapter=exchangeDetailAdapter
+     /*   val options = RequestOptions().placeholder(R.drawable.ic_default_image_007).error(R.mipmap.imgfail).dontAnimate().centerCrop()
+        Glide.with(this).load(Constants.IMAGE_LOAD_HEADER ).apply(options).into()*/
+
+        exchangeDetermine.setOnClickListener {
+            CommonToast.getInstance("点到了").show();
+        }
+
+    }
+    //商品规格
+    private fun initSpecifications() {
+        val postRequest = StringRequest(ApiContant.URL_HEAD + ApiContant.SELECT_PROD_DETAIL_BYPRODID)
+        postRequest.setMethod<AbstractRequest<String>>(HttpMethods.Post)
+        val sessionKey = SharedPreferencesManager.getString(
+                Constants.SHARED_PREFERENCES_SET, Constants.SHARED_PREFERENCES_LOGIN_USER_SESSION_KEY, "")
+        postRequest.setHttpBody<AbstractRequest<String>>(ShopProdDetailApiParameter(prodId.toString()+"").requestBody)
+        postRequest.addHeader<AbstractRequest<String>>("authToken", sessionKey)
+        Log.i("ttt", sessionKey)
+        postRequest.setHttpListener<AbstractRequest<String>>(object : MyHttpListener<String>(App.mContext) {
+            override fun onSuccess(s: String?, response: Response<String>?) {
+                super.onSuccess(s, response)
+                Log.i("ttt", s + "______" + response)
+                val response1 = ShopProdDetailItemRes(s)
+                if (Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
+                    if (response1.communityListItem!!.specList != null) {
+                        response1.communityListItem?.let { mList.addAll(it.specList) }
+                        CommonToast.getInstance(mList.toString()).show();
+                        exchangeDetailAdapter?.notifyDataSetChanged()
+                    }
+                }
+            }
+
+            override fun onFailure(e: HttpException?, response: Response<String>?) {
+                super.onFailure(e, response)
+                CommonToast.getInstance("操作失败").show()
+            }
+        })
+        LiteHttpManager.getInstance().executeAsync(postRequest)
+
+    }
+
+    fun setBackgroundAlpha(bgAlpha: Float) {
+        val lp = (this as Activity).window
+                .attributes
+        lp.alpha = bgAlpha
+        (this as Activity).window.attributes = lp
+    }
     private fun initWebView() {
 
 
@@ -315,7 +422,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
 
         runOnUiThread {
             CommonToast.getInstance("成功调用了 原生的接口，如果没有关闭页面是原生的bug").show()
-            this@JsWebViewActivity.finish()
+            this@ExchangeMallDetailActivity.finish()
         }
     }
 
@@ -333,12 +440,12 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
 
         runOnUiThread {
             if (!LoginStateManager.isLogin()) {
-                val intent = Intent(this@JsWebViewActivity, LoginActivity::class.java)
-                this@JsWebViewActivity.startActivity(intent)
+                val intent = Intent(this@ExchangeMallDetailActivity, LoginActivity::class.java)
+                this@ExchangeMallDetailActivity.startActivity(intent)
                 return@runOnUiThread
             }
 
-            val intent = Intent(this@JsWebViewActivity, ShareInvitePopupActivity::class.java)
+            val intent = Intent(this@ExchangeMallDetailActivity, ShareInvitePopupActivity::class.java)
             intent.putExtra("url", urls)
             intent.putExtra("icon", icon)
             intent.putExtra("title", title)
@@ -354,12 +461,12 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
 
         runOnUiThread {
             if (!LoginStateManager.isLogin()) {
-                val intent = Intent(this@JsWebViewActivity, LoginActivity::class.java)
-                this@JsWebViewActivity.startActivity(intent)
+                val intent = Intent(this@ExchangeMallDetailActivity, LoginActivity::class.java)
+                this@ExchangeMallDetailActivity.startActivity(intent)
                 return@runOnUiThread
             }
 
-            val intent = Intent(this@JsWebViewActivity, ShareH5GameInvitePopup::class.java)
+            val intent = Intent(this@ExchangeMallDetailActivity, ShareH5GameInvitePopup::class.java)
             intent.putExtra("url", urls)
             intent.putExtra("icon", icon)
             intent.putExtra("title", title)
@@ -372,7 +479,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
     @JavascriptInterface
     fun sendProgramSession() {
         runOnUiThread {
-            val intent = Intent(this@JsWebViewActivity, FeedBackActivity::class.java)
+            val intent = Intent(this@ExchangeMallDetailActivity, FeedBackActivity::class.java)
             startActivity(intent)
         }
     }
@@ -424,7 +531,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
         if (type > 0) {
             builder.setMessage(alert + "")
             builder.setPositiveButton("立刻查看") { dialog, which ->
-                val intent = Intent(this@JsWebViewActivity, MineWelfareActivity::class.java)
+                val intent = Intent(this@ExchangeMallDetailActivity, MineWelfareActivity::class.java)
                 startActivity(intent)
                 dialog.dismiss()
             }
@@ -503,7 +610,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
                         }
                     })
                 } else {
-                    WXPay(this@JsWebViewActivity).pay(res.mRawDataString)
+                    WXPay(this@ExchangeMallDetailActivity).pay(res.mRawDataString)
 
                 }
             }
@@ -535,7 +642,7 @@ class JsWebViewActivity : MyBaseActivity(), EventCenterManager.OnHandleEventList
 
     @JavascriptInterface
     fun openAndroid(msg: String) {
-        Toast.makeText(this@JsWebViewActivity, "返回按钮监控", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@ExchangeMallDetailActivity, "返回按钮监控", Toast.LENGTH_SHORT).show()
         onBackPressed()
     }
 

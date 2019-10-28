@@ -83,7 +83,7 @@ class ZWSignCalendar extends View {
         canvas.drawLine(0, config.weekHeight, 0, getHeight() - config.weekHeight, paint);
         //画日历顶部周的标题
         paint.setColor(config.weekBackgroundColor);
-        canvas.drawRect(32, 0, getWidth()-30, config.weekHeight, paint);
+        canvas.drawRect(30, 0, getWidth()-30, config.weekHeight, paint);
         paint.setTextSize(config.weekTextSize);
         paint.setColor(config.weekTextColor);
         float delay = getTextHeight() / 4;

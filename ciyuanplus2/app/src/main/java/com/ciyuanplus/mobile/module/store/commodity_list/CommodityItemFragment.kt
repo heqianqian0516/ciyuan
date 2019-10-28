@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyFragment
 import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.R2.id.noDataView
+import com.ciyuanplus.mobile.R2.id.rcl
+import com.ciyuanplus.mobile.R2.layout.item
 import com.ciyuanplus.mobile.manager.SharedPreferencesManager
 import com.ciyuanplus.mobile.manager.UserInfoData
 import com.ciyuanplus.mobile.module.store.ShoppingMallFragment
@@ -85,13 +88,13 @@ class CommodityItemFragment : MyFragment() {
             val userUuid = UserInfoData.getInstance().userInfoItem.uuid
             val sessionKey = SharedPreferencesManager.getString(
                     Constants.SHARED_PREFERENCES_SET, Constants.SHARED_PREFERENCES_LOGIN_USER_SESSION_KEY, "")
-             if (item.source==null){
+            /* if (item.source==null){*/
                  val url = "${ApiContant.WEB_DETAIL_VIEW_URL}cyplus-share/prod.html?userUuid=$userUuid&authToken=$sessionKey&p=${item.prodId}"
                  startActivity<JsWebViewActivity>(Constants.INTENT_OPEN_URL to url, Constants.INTENT_TITLE_BAR_TITLE to "详情", Constants.INTENT_PAY_TOTAL_MONEY to -1)
-             }else if(item.source=="taobao"){
-                 val url1 = "${ApiContant.WEB_DETAIL_VIEW_URL_TB}cyplus-share/prod.html?userUuid=$userUuid&authToken=$sessionKey&p=${item.prodId}"
-                 startActivity<TbWebViewActivity>(Constants.INTENT_OPEN_URL to url1, Constants.INTENT_TITLE_BAR_TITLE to "详情", Constants.INTENT_PAY_TOTAL_MONEY to -1,Constants.TAO_BAO_LINK to item.taobaoLink,Constants.COUPON_LINK to item.couponLink)
-             }
+            /* }else if(item.source=="taobao"){*/
+              //   val url1 = "${ApiContant.WEB_DETAIL_VIEW_URL_TB}cyplus-share/prod.html?userUuid=$userUuid&authToken=$sessionKey&p=${item.prodId}"
+                // startActivity<TbWebViewActivity>(Constants.INTENT_OPEN_URL to url1, Constants.INTENT_TITLE_BAR_TITLE to "详情", Constants.INTENT_PAY_TOTAL_MONEY to -1,Constants.TAO_BAO_LINK to item.taobaoLink,Constants.COUPON_LINK to item.couponLink)
+            // }
 
              }
         rcl.adapter = mAdapter

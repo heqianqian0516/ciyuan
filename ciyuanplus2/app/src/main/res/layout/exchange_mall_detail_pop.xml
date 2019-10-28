@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_height="wrap_content">
+    <com.ciyuanplus.mobile.widget.SquareImageView
+        android:id="@+id/exchange_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/songyi"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="10dp"
+        />
+    <TextView
+        android:id="@+id/exchange_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/exchange_img"
+        android:text="￥999999999"
+        android:textColor="#ff0000"
+        />
+    <TextView
+        android:id="@+id/exchange_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/exchange_img"
+        android:layout_marginTop="30dp"
+        android:text="库存:0件"
+        />
+</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择规格"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exchange_recycle"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    <Button
+        android:id="@+id/exchange_determine"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:background="@drawable/exchange_mall_detail_determine_bg"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp" 
+        />
+</LinearLayout>

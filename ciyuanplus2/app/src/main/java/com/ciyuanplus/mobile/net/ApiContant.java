@@ -9,6 +9,22 @@ import com.orhanobut.logger.Logger;
  * Created by Alen on 2017/2/11.
  */
 public class ApiContant {
+    //次元币比商城详情规格
+    public static final String SELECT_PROD_DETAIL_BYPRODID="/api/server/prod/selectProdDetailByProdId";
+    //次元币商城列表
+    public static final String SELECT_INTEGRAL_PRODL_LIST="/api/server/prod/selectIntegralProdList";
+    //查询今天是否签到
+    public static final String GET_IS_SIGN="/api/user/sign/isSign";
+    //用户签到
+    public static final String USER_SIGN="/api/user/sign/userSign";
+    //查询用户连续签到天数
+    public static final String SELECT_USER_CONTINUOUS_SIGN="/api/user/sign/selectUserContinuousSign";
+    //查询用户本月补签次数
+    public static final String SELECT_USER_RETROACTIVE_NUM="/api/user/sign/selectUserRetroactiveNum";
+    //查询用户用户签到日期
+    public static final String SELECT_USER_SIGN_DATE="/api/user/sign/selectUserSignDate";
+    //补签
+    public static final String SIGNED_SUPPLEMENT="/api/user/sign/signedSupplement";
     //查看是否完成了新手任务
     public static final String GET_USER_NEWTASK_STATUS="/api/user/sign/getUserNewTaskStatus";
        //获取总积分
@@ -59,6 +75,7 @@ public class ApiContant {
     public static String WEB_DETAIL_VIEW_URL = "http://ciyuanplus.ciyuanguiji.com/h5/";
     //http://ciyuanplus.ciyuanguiji.com/h5/test/
     public static String WEB_DETAIL_VIEW_URL_TB = "http://ciyuanplus.ciyuanguiji.com/h5/";
+    public static String WEB_DETAIL_CESHI="http://39.98.84.95/h5/";
     //网络请求地址
     public static final String REQUEST_LOGIN_URL = "/api/user/login";
     public static final String REQUEST_AUTO_LOGIN = "/api/user/autoLoginWithToken";

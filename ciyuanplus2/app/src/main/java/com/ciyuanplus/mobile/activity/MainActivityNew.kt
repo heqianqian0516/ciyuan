@@ -24,9 +24,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyBaseActivity
 import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.R2.id.*
 import com.ciyuanplus.mobile.activity.mine.MyProfileActivity
 import com.ciyuanplus.mobile.image_select.utils.StatusBarCompat
 import com.ciyuanplus.mobile.manager.*
+import com.ciyuanplus.mobile.module.camera.CameraFragment
 import com.ciyuanplus.mobile.module.home.HomeFragment
 import com.ciyuanplus.mobile.module.login.LoginActivity
 import com.ciyuanplus.mobile.module.mine.mine.MineFragmentNew
@@ -34,6 +36,7 @@ import com.ciyuanplus.mobile.module.search.SearchActivity
 import com.ciyuanplus.mobile.module.search.SearchActivity.Companion.SEARCH_TYPE_COMMODITY
 import com.ciyuanplus.mobile.module.search.SearchActivity.Companion.SEARCH_TYPE_USER
 import com.ciyuanplus.mobile.module.store.ShoppingMallFragment
+import com.ciyuanplus.mobile.module.video.VideoFragment
 import com.ciyuanplus.mobile.net.ApiContant
 import com.ciyuanplus.mobile.net.LiteHttpManager
 import com.ciyuanplus.mobile.net.MyHttpListener
@@ -75,6 +78,8 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
     private var mShoppingMallFragment: ShoppingMallFragment? = null
     private var mMineFragment: MineFragmentNew? = null
     private var myHomeFragment: HomeFragment? = null
+    private var myVideoFragment:VideoFragment?=null
+    private var myCameraFragment:CameraFragment?=null
     private var mSystemMessageCount: Int = 0
     //再按一次退出程序
     private var exitTime: Long = 0
@@ -95,6 +100,8 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
             mShoppingMallFragment = supportFragmentManager.findFragmentByTag("2")?.let { it as ShoppingMallFragment }
             mMineFragment = supportFragmentManager.findFragmentByTag("3")?.let { it as MineFragmentNew }
             myHomeFragment = supportFragmentManager.findFragmentByTag("5")?.let { it as HomeFragment }
+            myVideoFragment=supportFragmentManager.findFragmentByTag("6")?.let { it as VideoFragment }
+            myCameraFragment=supportFragmentManager.findFragmentByTag("8")?.let { it as CameraFragment }
         }
 
         AppVersionManager.requestAppVersion(this)
@@ -145,6 +152,8 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
         mShoppingMallFragment?.let { transaction.hide(it) }
         mMineFragment?.let { transaction.hide(it) }
         myHomeFragment?.let { transaction.hide(it) }
+        myVideoFragment?.let { transaction.hide(it) }
+        myCameraFragment?.let { transaction.hide(it) }
 
         when (mSelectedTab) {
             0 -> {
@@ -170,9 +179,25 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
                 }
                 transaction.show(mMineFragment!!)
             }
+            3 -> {
+                if (myVideoFragment == null) {//重复利用，否则会oom
+                    myVideoFragment = VideoFragment()
+                    transaction.add(R.id.m_main_fragment_container, myVideoFragment!!, "6")
+                }
+                transaction.show(myVideoFragment!!)
+            }
+            4 -> {
+                if (myCameraFragment == null) {//重复利用，否则会oom
+                    myCameraFragment = CameraFragment()
+                    transaction.add(R.id.m_main_fragment_container, myCameraFragment!!, "8")
+                }
+                transaction.show(myCameraFragment!!)
+            }
         }
         transaction.commitAllowingStateLoss()// 使用 commitAllowingStateLoss 代替commit 解决bug: Can not perform this action after onSaveInstanceState
+
     }
+
 
     // 默认选中第一个tab
     private fun initData() {
@@ -191,16 +216,36 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
                 m_main_news_tab_lp.isSelected = true
                 m_main_chat_tab_lp.isSelected = false
                 m_main_mine_tab_lp.isSelected = false
+                m_main_video_tab_lp.isSelected=false
+                m_main_camera_tab_lp.isSelected=false
             }
             1 -> {
                 m_main_news_tab_lp.isSelected = false
                 m_main_chat_tab_lp.isSelected = true
                 m_main_mine_tab_lp.isSelected = false
+                m_main_video_tab_lp.isSelected=false
+                m_main_camera_tab_lp.isSelected=false
             }
             2 -> {
                 m_main_news_tab_lp.isSelected = false
                 m_main_chat_tab_lp.isSelected = false
                 m_main_mine_tab_lp.isSelected = true
+                m_main_video_tab_lp.isSelected=false
+                m_main_camera_tab_lp.isSelected=false
+            }
+            3 -> {
+                m_main_news_tab_lp.isSelected = false
+                m_main_chat_tab_lp.isSelected = false
+                m_main_mine_tab_lp.isSelected = false
+                m_main_video_tab_lp.isSelected=true
+                m_main_camera_tab_lp.isSelected=false
+            }
+            4 -> {
+                m_main_news_tab_lp.isSelected = false
+                m_main_chat_tab_lp.isSelected = false
+                m_main_mine_tab_lp.isSelected = false
+                m_main_video_tab_lp.isSelected=false
+                m_main_camera_tab_lp.isSelected=true
             }
         }
         initTitleBar(mSelectedTab)
@@ -379,7 +424,7 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
         dialog.show()
     }
 
-    @OnClick(R.id.m_main_news_tab_lp, R.id.m_main_chat_tab_lp, R.id.m_main_mine_tab_lp)
+    @OnClick(R.id.m_main_news_tab_lp, R.id.m_main_chat_tab_lp, R.id.m_main_mine_tab_lp,R.id.m_main_video_tab_lp,R.id.m_main_camera_tab_lp)
     override fun onViewClicked(view: View) {
         super.onViewClicked(view)
         when (view.id) {
@@ -394,6 +439,12 @@ class MainActivityNew : MyBaseActivity(), EventCenterManager.OnHandleEventListen
             R.id.m_main_mine_tab_lp -> {
                 changeTabSelected(2)
                 initTitleBar(2)
+            }
+            R.id.m_main_video_tab_lp->{
+                changeTabSelected(3)
+            }
+            R.id.m_main_camera_tab_lp->{
+                changeTabSelected(4)
             }
         }
     }

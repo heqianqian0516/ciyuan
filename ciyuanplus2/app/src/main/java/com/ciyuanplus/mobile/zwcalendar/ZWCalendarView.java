@@ -14,9 +14,13 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ciyuanplus.mobile.R;
+import com.ciyuanplus.mobile.net.bean.UserSignDataBean;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -28,10 +32,10 @@ public class ZWCalendarView extends FrameLayout {
     private ArraySet<ZWCalendar> destroyViews = new ArraySet<>();
     private ArraySet<ZWCalendar> viewSet = new ArraySet<>();
     private int selectYear, selectMonth, selectDay, selectWeek;
-    private HashMap<String, Boolean> signRecords;
+    private HashMap<String, Boolean> signRecords = new HashMap<>();
     private int PAGER_SIZE = 1200;
     private Calendar calendar;
-    private ViewPager pager;
+    private NoScrollViewPager pager;
     private Config config;
 
     public ZWCalendarView(Context context) {
@@ -102,7 +106,7 @@ public class ZWCalendarView extends FrameLayout {
     }
 
     private void initPager() {
-        pager = new ViewPager(getContext());
+        pager = new NoScrollViewPager(getContext());
         addView(pager);
         pager.setOffscreenPageLimit(1);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -267,11 +271,14 @@ public class ZWCalendarView extends FrameLayout {
      *
      * @param signRecords 为日期格式像 "2017-08-25"
      */
-    public void setSignRecords(final HashMap<String, Boolean> signRecords) {
+    public void setSignRecords(List<UserSignDataBean.DataBean> signRecords) {
         if (signRecords == null) return;
-        this.signRecords = signRecords;
+        for (int i = 0 ;i<signRecords.size();i++){
+            this.signRecords.put(signRecords.get(i).getDate(),true);
+        }
+
         for (ZWCalendar view : viewSet) {
-            view.setSignRecords(signRecords);
+            view.setSignRecords(this.signRecords);
             view.invalidate();
         }
     }
@@ -301,4 +308,15 @@ public class ZWCalendarView extends FrameLayout {
     }
 
 
+    private HashMap<String, Boolean> datas;
+    private  HashMap<String, Boolean> createMonthDay() {
+        datas = new HashMap<>();
+        int fullYear = new Date().getYear();
+        int month = new Date().getMonth() + 1;
+        int date = new Date(fullYear, month, 0).getDate();
+        for (int i = 1; i <= date; i++) {
+            datas.put((fullYear + "-" + month + "-" + i),false);
+        };
+        return datas;
+    }
 }
