@@ -9,6 +9,8 @@ import com.orhanobut.logger.Logger;
  * Created by Alen on 2017/2/11.
  */
 public class ApiContant {
+    //获取短视频列表
+    public static final String REQUEST_VIDEO_LIST_URL = "/api/posting/getVideoList";
     //次元币比商城详情规格
     public static final String SELECT_PROD_DETAIL_BYPRODID="/api/server/prod/selectProdDetailByProdId";
     //次元币商城列表

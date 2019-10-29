@@ -6,7 +6,15 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/baselibrary/baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ciyuan-ciyuanplus2.iml" filepath="$PROJECT_DIR$/ciyuan-ciyuanplus2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ciyuanplus2.iml" filepath="$PROJECT_DIR$/ciyuanplus2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UMLibrary/ciyuanplus2-UMLibrary.iml" filepath="$PROJECT_DIR$/UMLibrary/ciyuanplus2-UMLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/ciyuanplus2-app.iml" filepath="$PROJECT_DIR$/app/ciyuanplus2-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/base/ciyuanplus2-base.iml" filepath="$PROJECT_DIR$/base/ciyuanplus2-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baselibrary/ciyuanplus2-baselibrary.iml" filepath="$PROJECT_DIR$/baselibrary/ciyuanplus2-baselibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/picture_library/ciyuanplus2-picture_library.iml" filepath="$PROJECT_DIR$/picture_library/ciyuanplus2-picture_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucrop/ciyuanplus2-ucrop.iml" filepath="$PROJECT_DIR$/ucrop/ciyuanplus2-ucrop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xrichtext/ciyuanplus2-xrichtext.iml" filepath="$PROJECT_DIR$/xrichtext/ciyuanplus2-xrichtext.iml" />
       <module fileurl="file://$PROJECT_DIR$/picture_library/picture_library.iml" filepath="$PROJECT_DIR$/picture_library/picture_library.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucrop/ucrop.iml" filepath="$PROJECT_DIR$/ucrop/ucrop.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrichtext/xrichtext.iml" filepath="$PROJECT_DIR$/xrichtext/xrichtext.iml" />
