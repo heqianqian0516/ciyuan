@@ -14,9 +14,10 @@ tools:context="com.ciyuanplus.mobile.module.mine.newbie_task.NewbietaskActivity"
     android:background="@mipmap/newbie_bg"
     android:layout_height="187dp">
    <TextView
+       android:id="@+id/tv_totle_task"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="25/100%"
+       android:text="0/100%"
        android:textColor="@color/white"
        android:layout_alignParentRight="true"
        android:textSize="13sp"

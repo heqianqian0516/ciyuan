@@ -2,6 +2,9 @@ package com.ciyuanplus.mobile.module.mine.exchange_mall
 
 import android.annotation.TargetApi
 import android.app.Activity
+import android.app.Dialog
+import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PixelFormat
@@ -32,6 +35,10 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyBaseActivity
+import com.ciyuanplus.mobile.R2
+import com.ciyuanplus.mobile.R2.id.position
+import com.ciyuanplus.mobile.R2.id.recyclerView
+import com.ciyuanplus.mobile.R2.layout.item
 import com.ciyuanplus.mobile.activity.chat.FeedBackActivity
 import com.ciyuanplus.mobile.activity.mine.MineWelfareActivity
 import com.ciyuanplus.mobile.activity.news.ShareNewsPopupActivity
@@ -65,6 +72,7 @@ import com.ciyuanplus.mobile.widget.SquareImageView
 import com.ciyuanplus.pay.ali.AliPay
 import com.ciyuanplus.pay.ali.PayResult
 import com.ciyuanplus.pay.wx.WXPay
+import com.kris.baselibrary.util.NumberUtil
 import com.litesuits.http.exception.HttpException
 import com.litesuits.http.request.AbstractRequest
 import com.litesuits.http.request.StringRequest
@@ -96,10 +104,16 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
     private var uploadFile: ValueCallback<Uri>? = null
     private var uploadFiles: ValueCallback<Array<Uri>>? = null
     private var money: String? = null
-    var popupWindow:PopupWindow?=null
+    private  var mPrice:Int?=null
     private var mList = ArrayList<ShopProdDetailItemRes.CommodityItem>()
     var exchangeDetailAdapter:ExchangeDetailAdapter? = null
     private var layoutManager: GridLayoutManager? = null
+    private var dialog:Dialog?=null
+    private var exchangeStock:TextView?=null
+    private var view:View?=null
+    private var exchangeImg:SquareImageView?=null
+    var context: Context?=null
+    private var mTitle:String?=null
     val  handler : Handler = Handler {
         when(it?.what){
             1 ->{
@@ -122,7 +136,8 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
         title = intent.getStringExtra(Constants.INTENT_TITLE_BAR_TITLE)
         money = intent.getStringExtra(Constants.INTENT_PAY_TOTAL_MONEY)
         prodId=intent.getIntExtra("prodId",54);
-        CommonToast.getInstance("aaaa"+prodId.toString()).show()
+        mPrice=intent.getIntExtra("mPrice",0)
+        mTitle=intent.getStringExtra(Constants.EXCHANGE_TITLE)
         //  browesMall();
         handler.sendEmptyMessageDelayed(1,5000)
 
@@ -177,51 +192,53 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
             /*val intent = Intent(this@ExchangeMallDetailActivity, ExchangeOrderActivity::class.java)
             startActivity(intent)*/
 
-            intPop();
+
             initSpecifications();
-        }
-    }
+            dialog = Dialog(this, R.style.DialogTheme)
+            view = View.inflate(this, R.layout.exchange_mall_detail_pop, null)
+            dialog!!.setContentView(view)
+            dialog!!.window.setGravity(Gravity.BOTTOM)
+            dialog!!.show()
+            getshoud()
+             exchangeImg = view!!.findViewById<SquareImageView>(R.id.exchange_img)
+            val exchangePrice = view!!.findViewById<TextView>(R.id.exchange_price)
+             exchangeStock = view!!.findViewById<TextView>(R.id.exchange_stock)
+            val recyclerView = view!!.findViewById<RecyclerView>(R.id.exchange_recycle)
+            val exchangeDetermine = view!!.findViewById<Button>(R.id.exchange_determine)
+            exchangePrice.setText("￥ ${NumberUtil.getAmountValue(mPrice!!.toDouble() / 100)}")
 
+            layoutManager = GridLayoutManager(applicationContext, 2)
+             recyclerView!!.layoutManager = layoutManager
+            exchangeDetailAdapter= ExchangeDetailAdapter(this,mList)
+             recyclerView.adapter=exchangeDetailAdapter
+            exchangeDetailAdapter!!.setOnItemClickListener { adapter, view, position ->
+                exchangeStock!!.setText("库存:"+mList[position].stock+"件")
+            }
 
-    private fun intPop() {
-        val popupView = LayoutInflater.from(this).inflate(R.layout.exchange_mall_detail_pop, null)
-        popupWindow = PopupWindow(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        popupWindow!!.contentView = popupView
-        popupWindow!!.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        popupWindow!!.isOutsideTouchable = true
-
-//        popupWindow.isFocusable = true
-        //设置PopupWindow动画
-//        popupWindow.animationStyle = R.style.a
-        //设置是否允许PopupWindow的范围超过屏幕范围
-       // popupWindow!!.isClippingEnabled = true
-        popupWindow!!.showAtLocation(popupView, Gravity.BOTTOM, 0, 500)
-        /**
-         * 设置添加屏幕的背景透明度
-         *
-         * @param bgAlpha
-         * 屏幕透明度0.0-1.0 1表示完全不透明
-         */
-
-        setBackgroundAlpha(0.8f)
-        val recyclerView = popupView.find<RecyclerView>(R.id.exchange_recycle)
-        val exchangeDetermine=popupView.find<Button>(R.id.exchange_determine)
-        val exchangeImg=popupView.find<SquareImageView>(R.id.exchange_img)
-        val exchangePrice=popupView.find<TextView>(R.id.exchange_price)
-        val exchangeStock=popupView.find<TextView>(R.id.exchange_stock)
-        layoutManager = GridLayoutManager(applicationContext, 2)
-        recyclerView!!.layoutManager = layoutManager
-        exchangeDetailAdapter= ExchangeDetailAdapter(this,mList)
-        recyclerView.adapter=exchangeDetailAdapter
-     /*   val options = RequestOptions().placeholder(R.drawable.ic_default_image_007).error(R.mipmap.imgfail).dontAnimate().centerCrop()
-        Glide.with(this).load(Constants.IMAGE_LOAD_HEADER ).apply(options).into()*/
-
-        exchangeDetermine.setOnClickListener {
-            CommonToast.getInstance("点到了").show();
+            exchangeDetermine.setOnClickListener {
+               /* startActivity<ExchangeMallDetailActivity>(
+                        "prodId" to prodId ,"title" to title)*/
+                val intent = Intent(this@ExchangeMallDetailActivity, ExchangeOrderActivity::class.java)
+                intent.putExtra("prodId",prodId);
+                intent.putExtra("title",mTitle);
+                startActivity(intent)
+            }
         }
 
     }
+
+    private fun getshoud() {
+        val dialogWindow = dialog?.getWindow()
+        val m = this.getWindow().getWindowManager()
+        val d = m.getDefaultDisplay() // 获取屏幕宽、高度
+        val p = dialogWindow!!.getAttributes() // 获取对话框当前的参数值
+        p.width = d.getWidth().toInt() // 宽度设置为屏幕的0.65，根据实际情况调整
+        p.height = (d.getHeight() * 0.5).toInt()
+        dialogWindow!!.setAttributes(p)
+
+    }
+
+
     //商品规格
     private fun initSpecifications() {
         val postRequest = StringRequest(ApiContant.URL_HEAD + ApiContant.SELECT_PROD_DETAIL_BYPRODID)
@@ -239,6 +256,11 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
                 if (Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
                     if (response1.communityListItem!!.specList != null) {
                         response1.communityListItem?.let { mList.addAll(it.specList) }
+
+                       // exchangeStock!!.setText(response1.communityListItem!!.specList[position].stock)
+                        val list = response1.communityListItem!!.img .split(",")
+                        val options = RequestOptions().placeholder(R.drawable.ic_default_image_007).error(R.mipmap.imgfail).dontAnimate().centerCrop()
+                        exchangeImg?.let { Glide.with(this@ExchangeMallDetailActivity).load(Constants.IMAGE_LOAD_HEADER + list[0]).apply(options).into(it) }
                         CommonToast.getInstance(mList.toString()).show();
                         exchangeDetailAdapter?.notifyDataSetChanged()
                     }

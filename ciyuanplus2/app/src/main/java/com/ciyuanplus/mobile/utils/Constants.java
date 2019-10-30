@@ -85,7 +85,7 @@ public class Constants {
     public static final String SHARED_PREFERENCES_CHANGE_DEBUG_SERVER = "change_debug_server";
     public static final String SHARED_PREFERENCES_LOGIN_TYPE = "login_type";
     public static final String SHARED_PREFERENCES_OTHER_PLATRORM_ACCOUNT = "other_platform_account";
-
+    public static final String EXCHANGE_TITLE="title";
     //以下是 REQUEST_CODE
     public static final int REQUEST_CODE_SELECT_PITCURE_OPTION = 10001;
     public static final int REQUEST_CODE_REQUEST_CAMERA_OPTION = 10002;
@@ -163,7 +163,6 @@ public class Constants {
     public static final String COUPON_LINK = "couponLink";
     public static final String  PROD_ID="prodId" ;
     public static final String SHARED_PREFERENCES_SQUARE_HOME_HAS_GUIDE = "mine_center_has_guide";
-
     // 以下是EventCenter 需要用到的信息关注更新
     public static final int EVENT_MESSAGE_LOGIN_USER_INFO_UPDATE = 30001; //头像更新
     public static final int EVENT_MESSAGE_UPDATE_COMMUNITY_LIST_FINISH = 30002;

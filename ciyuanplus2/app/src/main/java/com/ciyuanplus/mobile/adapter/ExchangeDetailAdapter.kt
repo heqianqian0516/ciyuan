@@ -36,7 +36,7 @@ class ExchangeDetailAdapter(var context: Context?, data: List<ShopProdDetailItem
 
             helper!!.setText(R.id.tv_guige, item.name)
 
-
         }
+
     }
 }

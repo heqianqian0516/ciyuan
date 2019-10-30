@@ -97,7 +97,7 @@ class ExchangeActivity : AppCompatActivity() {
                    Constants.SHARED_PREFERENCES_SET, Constants.SHARED_PREFERENCES_LOGIN_USER_SESSION_KEY, "")
            val url = "${ApiContant.WEB_DETAIL_CESHI}cyplus-share/prod.html?userUuid=$userUuid&authToken=$sessionKey&p=${item.prodId}"
            startActivity<ExchangeMallDetailActivity>(Constants.INTENT_OPEN_URL to url, Constants.INTENT_TITLE_BAR_TITLE to "详情", Constants.INTENT_PAY_TOTAL_MONEY to -1,
-                   "prodId" to item.prodId )
+                   "prodId" to item.prodId ,"mPrice" to item.price,Constants.EXCHANGE_TITLE to item.name)
 
        }
     }
