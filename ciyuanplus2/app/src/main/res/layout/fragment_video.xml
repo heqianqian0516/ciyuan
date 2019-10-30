@@ -1,12 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.ciyuanplus.mobile.module.video.VideoFragment">
 
-    <TextView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="113dp"
+        android:contentDescription="@string/stickyNavView">
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tl_video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tl_divider_color="#1A000000"
+            app:tl_indicator_color="#B422E4"
+            app:tl_indicator_height="2dp"
+            app:tl_indicator_width_equal_title="true"
+            app:tl_tab_space_equal="true"
+            app:tl_textBold="SELECT"
+            app:tl_textSelectColor="#000000"
+            app:tl_textUnselectColor="#7F7F7F"
+            app:tl_textsize="17sp" />
+
+    </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_video"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="视频" />
+        android:layout_marginTop="11dp"
+        android:contentDescription="@string/stickyContentView" />
 
-</FrameLayout>
+</LinearLayout>

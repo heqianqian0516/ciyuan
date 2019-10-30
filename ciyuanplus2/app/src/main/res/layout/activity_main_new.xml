@@ -18,7 +18,6 @@
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         android:orientation="horizontal">
-
         <LinearLayout
             android:id="@+id/m_main_news_tab_lp"
             android:layout_width="wrap_content"
@@ -55,7 +54,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/tab_video_selector" />
+                android:src="@drawable/tab_video_selector" />
 
             <TextView
                 android:layout_width="wrap_content"

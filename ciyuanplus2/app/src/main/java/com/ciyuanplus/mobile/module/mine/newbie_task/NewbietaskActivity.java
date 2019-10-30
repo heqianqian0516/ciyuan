@@ -28,7 +28,6 @@ import com.ciyuanplus.mobile.net.ResponseData;
 import com.ciyuanplus.mobile.net.bean.NewTaskBean;
 import com.ciyuanplus.mobile.net.parameter.UserScoredApiParameter;
 import com.ciyuanplus.mobile.net.response.NewTaskResponse;
-import com.ciyuanplus.mobile.net.response.TaskNumberResponse;
 import com.ciyuanplus.mobile.net.response.UserScoredResponse;
 import com.ciyuanplus.mobile.utils.Constants;
 import com.ciyuanplus.mobile.utils.Utils;
@@ -96,7 +95,10 @@ public class NewbietaskActivity extends AppCompatActivity {
     TextView tvA1;
     @BindView(R.id.rl_daily)
     RelativeLayout rlDaily;
-     ArrayList<NewTaskBean> newTaskBeanList=new ArrayList<>();
+    ArrayList<NewTaskBean> newTaskBeanList = new ArrayList<>();
+    @BindView(R.id.tv_totle_task)
+    TextView tvTotleTask;
+     private int TOTLE_TASK=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,10 +111,14 @@ public class NewbietaskActivity extends AppCompatActivity {
         initView();
         newUsertask();
         queryNewTask();
-
+        tvTotleTask.setText(TOTLE_TASK+"/100%");
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        newUsertask();
+    }
 
     private void initView() {
         titleBar.setTitle("新手任务");
@@ -131,7 +137,9 @@ public class NewbietaskActivity extends AppCompatActivity {
                 showNewsOperaActivity(1);
             }*/
         });
+
     }
+
     private void newUsertask() {
         StringRequest postRequest = new StringRequest(ApiContant.URL_HEAD
                 + ApiContant.GET_NEWTASK_DATA_DETAILS + "?userUuid=" + UserInfoData.getInstance().getUserInfoItem().uuid);
@@ -146,23 +154,25 @@ public class NewbietaskActivity extends AppCompatActivity {
                 super.onSuccess(s, response);
                 Log.i("ttt", s + "______" + response);
                 NewTaskResponse response1 = new NewTaskResponse(s);
-               if (response1.newTaskListBean.data!=null){
-                    Collections.addAll(newTaskBeanList,response1.newTaskListBean.data);
-                    if (response1.newTaskListBean.data.birthday!=null){
+                if (response1.newTaskListBean.data != null) {
+                    Collections.addAll(newTaskBeanList, response1.newTaskListBean.data);
+                    if (response1.newTaskListBean.data.birthday != null) {
                         tvBirthy.setText("完成1/1");
                         btBirthy.setEnabled(false);
                         btBirthy.setBackgroundResource(R.drawable.daily_button_bg_complant);
                         btBirthy.setText("已完成");
                         btBirthy.setTextColor(Color.GRAY);
+                        tvTotleTask.setText(TOTLE_TASK+25+"/100%");
                     }
-                    if (response1.newTaskListBean.data.address!=null){
+                    if (response1.newTaskListBean.data.address != null) {
                         tvAddress.setText("完成1/1");
                         btAddress.setEnabled(false);
                         btAddress.setBackgroundResource(R.drawable.daily_button_bg_complant);
                         btAddress.setText("已完成");
                         btAddress.setTextColor(Color.GRAY);
+                        tvTotleTask.setText(TOTLE_TASK+50+"/100%");
                     }
-                    if (response1.newTaskListBean.data.postNum!=0){
+                    if (response1.newTaskListBean.data.postNum != 0) {
                         tvPostings.setText("完成1/1");
                         btPostings.setEnabled(false);
                         btPostings.setBackgroundResource(R.drawable.daily_button_bg_complant);
@@ -180,6 +190,7 @@ public class NewbietaskActivity extends AppCompatActivity {
         });
         LiteHttpManager.getInstance().executeAsync(postRequest);
     }
+
     //查询任务完成情况
     private void queryNewTask() {
         StringRequest postRequest = new StringRequest(ApiContant.URL_HEAD
@@ -195,10 +206,9 @@ public class NewbietaskActivity extends AppCompatActivity {
                 super.onSuccess(s, response);
                 Log.i("ttt", s + "______" + response);
                 UserScoredResponse response1 = new UserScoredResponse(s);
-                if (!Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
+                if (Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
                     CommonToast.getInstance(response1.mMsg).show();
-                } else{
-                   // CommonToast.getInstance(response1.mMsg).show();
+                    //tvTotleTask.setText(response1.data1);
                 }
             }
 
@@ -210,6 +220,7 @@ public class NewbietaskActivity extends AppCompatActivity {
         });
         LiteHttpManager.getInstance().executeAsync(postRequest);
     }
+
     //完成任务领取奖励
     private void receiveAwards() {
         StringRequest postRequest = new StringRequest(ApiContant.URL_HEAD
@@ -228,9 +239,9 @@ public class NewbietaskActivity extends AppCompatActivity {
                 UserScoredResponse response1 = new UserScoredResponse(s);
                 if (!Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
                     CommonToast.getInstance(response1.mMsg).show();
-                } else{
-                     CommonToast.getInstance("hahhaha").show();
-                    if (response1.data1!=null){
+                } else {
+                    CommonToast.getInstance("hahhaha").show();
+                    if (response1.data1 != null) {
                         btReceiveAwards.setEnabled(false);
                         btReceiveAwards.setBackgroundResource(R.drawable.daily_button_bg_complant);
                         btReceiveAwards.setText("已完成");
@@ -252,23 +263,23 @@ public class NewbietaskActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_head_icon:
-                Intent intent =new Intent(NewbietaskActivity.this, MyProfileActivity.class);
+                Intent intent = new Intent(NewbietaskActivity.this, MyProfileActivity.class);
                 startActivity(intent);
                 break;
             case R.id.bt_nick_name:
-                Intent intentTwo =new Intent(NewbietaskActivity.this, MyProfileActivity.class);
+                Intent intentTwo = new Intent(NewbietaskActivity.this, MyProfileActivity.class);
                 startActivity(intentTwo);
                 break;
             case R.id.bt_birthy:
-                Intent intentThress =new Intent(NewbietaskActivity.this, MyProfileActivity.class);
+                Intent intentThress = new Intent(NewbietaskActivity.this, MyProfileActivity.class);
                 startActivity(intentThress);
                 break;
             case R.id.bt_address:
-                Intent intentFour =new Intent(NewbietaskActivity.this, AddAddressActivity.class);
+                Intent intentFour = new Intent(NewbietaskActivity.this, AddAddressActivity.class);
                 startActivity(intentFour);
                 break;
             case R.id.bt_postings:
-                Intent intentFive =new Intent(NewbietaskActivity.this, ReleasePostActivity.class);
+                Intent intentFive = new Intent(NewbietaskActivity.this, ReleasePostActivity.class);
                 startActivity(intentFive);
                 break;
             case R.id.bt_receive_awards:

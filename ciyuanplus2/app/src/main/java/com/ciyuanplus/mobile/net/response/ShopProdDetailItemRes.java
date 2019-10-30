@@ -51,7 +51,7 @@ public class ShopProdDetailItemRes extends ResponseData {
         private int prodId;
         private String name;
         private String contentText;
-        private String img;
+         String img;
         private int price;
         private int orgPrice;
         private Object tags;

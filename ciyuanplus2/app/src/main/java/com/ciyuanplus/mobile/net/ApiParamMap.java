@@ -13,9 +13,13 @@ public class ApiParamMap extends LinkedHashMap<String, ApiParamMap.ParamData> {
 
     public static class ParamData {
         public String value;
-
+        public int index;
         public ParamData(String value) {
             this.value = value;
+        }
+
+        public ParamData(int index) {
+            this.index = index;
         }
     }
 }
