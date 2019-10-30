@@ -8,20 +8,14 @@ import com.ciyuanplus.mobile.net.ApiParameter;
  */
 public class GetVideoListApiParameter extends ApiParameter {
     private String userUuid;
-    private int pager;
-    private int pageSize;
+    private String pager;
+    private String pageSize;
 
-    public GetVideoListApiParameter(String userUuid, int pager, int pageSize) {
+    public GetVideoListApiParameter(String userUuid, String pager, String pageSize) {
         this.userUuid = userUuid;
         this.pager = pager;
         this.pageSize = pageSize;
     }
-
-    public GetVideoListApiParameter(String userUuid, int pager) {
-        this.userUuid = userUuid;
-        this.pager = pager;
-    }
-
 
     @Override
     public ApiParamMap buildExtraParameter() {

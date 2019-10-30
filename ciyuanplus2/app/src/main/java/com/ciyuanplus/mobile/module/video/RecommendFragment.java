@@ -2,18 +2,20 @@ package com.ciyuanplus.mobile.module.video;
 
 
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.ciyuanplus.mobile.R;
 import com.ciyuanplus.mobile.manager.UserInfoData;
 import com.ciyuanplus.mobile.utils.Utils;
@@ -21,6 +23,8 @@ import com.google.gson.Gson;
 import com.kris.baselibrary.base.LazyLoadBaseFragment;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.HashMap;
@@ -44,6 +48,7 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
     private VideoPresenter mPresenter;
     private int page = 1;
     private int pageSize = 10;
+    private List<RecommendData.DataBean.ListBean> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,18 +56,21 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recommend, container, false);
         mUnbinder = ButterKnife.bind(this, view);
-        //请求数据
         requestData();
         rvRecommend.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-                outRect.bottom = Utils.dip2px(10);
+                outRect.bottom = Utils.dip2px(3);
+                outRect.left = Utils.dip2px(3);
             }
         });
         initView();
         return view;
     }
 
+    /**
+     * 请求网络 获取数据
+     */
     private void requestData() {
         mPresenter = new VideoPresenter(this);
         HashMap<String, String> params = new HashMap<>();
@@ -106,11 +114,39 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
         //5，给recyclerView设置空布局
         recommendDataAdapter.setEmptyView(emptyView);
         //6，给recyclerView的每一个子列表添加点击事件
-        recommendDataAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        rvRecommend.addOnItemTouchListener(new OnItemChildClickListener() {
+            private int isLike;
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(getActivity(), "我点击了第" + position + "个子view",
-                        Toast.LENGTH_SHORT).show();
+            public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+            }
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                super.onItemChildClick(adapter, view, position);
+                int id = view.getId();
+                if (list != null && list.size() > 0) {
+                    RecommendData.DataBean.ListBean bean = list.get(position);
+                    isLike = bean.getIsLike();
+                }
+                TextView tvGiveALike = view.findViewById(R.id.tv_give_a_like);
+                switch (id) {
+                    case R.id.iv_cover_recommend:
+                        //  TODO 跳转大图
+
+                        break;
+                    case R.id.tv_give_a_like:
+                        Drawable whiteHeart = getActivity().getResources().getDrawable(R.drawable.icon_white_hearts);
+                        Drawable redHeart = getActivity().getResources().getDrawable(R.drawable.icon_red_hearts);
+                        if (isLike == 0) {
+                            whiteHeart.setBounds(0, 0, whiteHeart.getMinimumWidth(), whiteHeart.getMinimumHeight());
+                            tvGiveALike.setCompoundDrawables(whiteHeart, null, null, null);
+                        }
+                        if (isLike == 1) {
+                            redHeart.setBounds(0, 0, redHeart.getMinimumWidth(), redHeart.getMinimumHeight());
+                            tvGiveALike.setCompoundDrawables(redHeart, null, null, null);
+                        }
+                        break;
+                }
+
             }
         });
     }
@@ -119,20 +155,15 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
      * 增加下拉刷新和上拉加载的监听方法
      */
     private void smartRefreshView() {
-        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                //下拉刷新,一般添加调用接口获取数据的方法
-                getData(2);
-                refreshLayout.finishRefresh(500);
-            }
-
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                //上拉加载，一般添加调用接口获取更多数据的方法
-                getData(3);
-                refreshLayout.finishLoadMore(500);
-            }
+        refreshLayout.setEnableLoadMore(true);
+        refreshLayout.setOnRefreshListener(refreshLayout -> {
+            //下拉刷新,一般添加调用接口获取数据的方法
+            getData(2);
+            refreshLayout.finishRefresh(500);
+        });
+        refreshLayout.setOnLoadMoreListener(refreshLayout -> {
+            getData(3);
+            refreshLayout.finishLoadMore(500);
         });
     }
 
@@ -148,12 +179,12 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
         Gson gson = new Gson();
         RecommendData recommendData = gson.fromJson(result, RecommendData.class);
         RecommendData.DataBean data = recommendData.getData();
-        List<RecommendData.DataBean.ListBean> list = data.getList();
+        list = data.getList();
         if (list == null || list.size() == 0) {
             return;
         }
         if (recommendDataAdapter == null || page == 1) {
-            recommendDataAdapter = new RecommendDataAdapter(list,getActivity());
+            recommendDataAdapter = new RecommendDataAdapter(list, getActivity());
             recommendDataAdapter.addData(list);
             rvRecommend.setAdapter(recommendDataAdapter);
             rvRecommend.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
@@ -165,7 +196,6 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
 
     @Override
     public void failure(String msg) {
-        LogUtils.e("failure" + msg);
     }
 
     /**
@@ -187,9 +217,6 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
             case 3:
                 page++;
                 requestData();
-                break;
-            default:
-
                 break;
         }
     }

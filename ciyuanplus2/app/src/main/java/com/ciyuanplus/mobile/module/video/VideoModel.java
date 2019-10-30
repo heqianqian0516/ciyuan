@@ -1,14 +1,11 @@
 package com.ciyuanplus.mobile.module.video;
 
 
-import com.blankj.utilcode.util.StringUtils;
 import com.ciyuanplus.mobile.App;
-import com.ciyuanplus.mobile.manager.UserInfoData;
 import com.ciyuanplus.mobile.net.ApiContant;
 import com.ciyuanplus.mobile.net.LiteHttpManager;
 import com.ciyuanplus.mobile.net.MyHttpListener;
 import com.ciyuanplus.mobile.net.parameter.GetVideoListApiParameter;
-import com.ciyuanplus.mobile.net.parameter.RequestOthersInfoApiParameter;
 import com.litesuits.http.exception.HttpException;
 import com.litesuits.http.request.StringRequest;
 import com.litesuits.http.request.param.HttpMethods;
@@ -25,7 +22,7 @@ public class VideoModel implements IVideoContract.IVideoModel {
         StringRequest postRequest = new StringRequest(ApiContant.URL_HEAD
                 + ApiContant.REQUEST_VIDEO_LIST_URL);
         postRequest.setMethod(HttpMethods.Post);
-        postRequest.setHttpBody(new GetVideoListApiParameter(userUuid,  Integer.parseInt(pager),Integer.parseInt(pageSize)).getRequestBody());
+        postRequest.setHttpBody(new GetVideoListApiParameter(userUuid, pager,pageSize).getRequestBody());
         postRequest.setHttpListener(new MyHttpListener<String>(App.mContext) {
             @Override
 
@@ -35,7 +32,6 @@ public class VideoModel implements IVideoContract.IVideoModel {
                     callback.success(s);
                 }
             }
-
             @Override
             public void onFailure(HttpException e, Response<String> response) {
                 super.onFailure(e, response);

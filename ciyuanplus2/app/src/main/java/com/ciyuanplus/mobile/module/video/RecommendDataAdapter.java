@@ -2,6 +2,7 @@ package com.ciyuanplus.mobile.module.video;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +12,9 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ciyuanplus.mobile.R;
+import com.ciyuanplus.mobile.utils.Utils;
+import com.ciyuanplus.mobile.widget.RoundImageView;
+import com.luck.picture.lib.tools.ScreenUtils;
 
 import java.util.List;
 
@@ -41,12 +45,17 @@ public class RecommendDataAdapter extends BaseQuickAdapter<RecommendData.DataBea
 
     @Override
     protected void convert(BaseViewHolder helper, RecommendData.DataBean.ListBean data) {
+        //适配item大小
+        int screenWidth = ScreenUtils.getScreenWidth(mContext);
+        ViewGroup.LayoutParams layoutParams = helper.getView(R.id.item_cl).getLayoutParams();
+        layoutParams.width = (screenWidth / 2) - Utils.dip2px(6);
+        helper.getView(R.id.item_cl).setLayoutParams(layoutParams);
         //标题
         helper.setText(R.id.tv_title, data.getContentText());
         //头像
         Glide.with(mContext)
                 .load(data.getPhoto())
-                .into((ImageView) helper.itemView.findViewById(R.id.iv_head_portrait));
+                .into((RoundImageView) helper.itemView.findViewById(R.id.iv_head_portrait));
         //昵称
         helper.setText(R.id.tv_author_name, data.getNickname());
         //封面
@@ -66,5 +75,9 @@ public class RecommendDataAdapter extends BaseQuickAdapter<RecommendData.DataBea
             redHeart.setBounds(0, 0, redHeart.getMinimumWidth(), redHeart.getMinimumHeight());
             tvGiveALike.setCompoundDrawables(redHeart, null, null, null);
         }
+
+        //给item子控件添加点击事件，至于处理，在RecommendFragment中执行
+        helper.addOnClickListener(R.id.tv_give_a_like);
+        helper.addOnClickListener(R.id.iv_cover_recommend);
     }
 }

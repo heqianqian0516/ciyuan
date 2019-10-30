@@ -18,7 +18,6 @@
             android:id="@+id/tl_video"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             app:tl_divider_color="#1A000000"
             app:tl_indicator_color="#B422E4"
             app:tl_indicator_height="2dp"
