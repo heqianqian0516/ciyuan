@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-   <item>
-       <shape android:shape="rectangle">
-           <solid android:color="#EDEDED" />
-           <corners android:radius="12dp"/>
-       </shape>
-   </item>
+    <item
+        android:drawable="@drawable/checked_bg"
+        android:state_checked="true"
+        >
+
+    </item>
+    <item
+        android:drawable="@drawable/normal_bg"></item>
 </selector>

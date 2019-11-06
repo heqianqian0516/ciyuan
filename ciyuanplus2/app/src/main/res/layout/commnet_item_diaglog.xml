@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/common_detail_root_lp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/video_comment_shape"
+    android:orientation="vertical">
+
+    <com.ciyuanplus.mobile.widget.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#eeeeee"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dp"
+            android:background="#ffffff"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:visibility="visible"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:visibility="gone"
+                android:src="@drawable/icon_list_share" />
+
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_toLeftOf="@id/iv_share"
+                android:visibility="gone"
+                android:src="@drawable/icon_like" />
+
+            <EditText
+                android:id="@+id/et_input"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="@dimen/spacing_normal"
+                android:layout_toLeftOf="@id/iv_like"
+                android:layout_centerVertical="true"
+                android:background="@drawable/news_detail_input_bg"
+                android:gravity="center_vertical"
+                android:maxLines="3"
+                android:paddingLeft="22dp"
+                android:paddingRight="15dp"
+                android:singleLine="true"
+                android:hint="说点什么吧..."
+                android:textColor="#ff999999"
+                android:textSize="11dp"
+
+                />
+
+            <ImageView
+                android:id="@+id/comment_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/et_input"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/comment_send"
+                android:layout_marginBottom="5dp"
+                />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/title_bar"
+        app:srlEnableLoadMore="false">
+
+
+        <ListView
+            android:id="@+id/lv_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_bottom"
+            android:layout_below="@id/title_bar"
+            android:layout_marginTop="0dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp"
+            android:fastScrollAlwaysVisible="false"
+            android:fastScrollEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none"
+            tools:background="#FF0000"
+            tools:visibility="visible" />
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</RelativeLayout>

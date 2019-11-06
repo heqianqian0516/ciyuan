@@ -44,6 +44,7 @@ import crossoverone.statuslib.StatusUtil;
  * @date 2017/5/12
  * <p>
  * 以前的说说  类型
+ * 帖子详情页
  */
 
 public class TwitterDetailActivity extends ForumDetailActivity implements EventCenterManager.OnHandleEventListener {

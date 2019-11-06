@@ -29,7 +29,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <com.ciyuanplus.mobile.widget.RoundImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_head_portrait"
         android:layout_width="26dp"
         android:layout_height="26dp"

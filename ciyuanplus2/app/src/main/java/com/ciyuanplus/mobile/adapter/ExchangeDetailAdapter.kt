@@ -1,5 +1,6 @@
 package com.ciyuanplus.mobile.adapter
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -16,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.ciyuanplus.mobile.R
+import com.ciyuanplus.mobile.R2
 import com.ciyuanplus.mobile.net.bean.RankedFirstItem
 import com.ciyuanplus.mobile.net.response.CommodityListItemRes
 import com.ciyuanplus.mobile.net.response.ShopProdDetailItemRes
@@ -35,6 +37,9 @@ class ExchangeDetailAdapter(var context: Context?, data: List<ShopProdDetailItem
         if (item != null) {
 
             helper!!.setText(R.id.tv_guige, item.name)
+           // helper.setBackgroundRes(R.id.tv_guige,R.drawable.exchange_guige_bg)
+           // helper.setTextColor(R.id.tv_guige,R.drawable.exchange_tv_color)
+            //helper.setBackgroundColor(R.id.tv_guige,R.drawable.exchange_guige_bg)
 
         }
 

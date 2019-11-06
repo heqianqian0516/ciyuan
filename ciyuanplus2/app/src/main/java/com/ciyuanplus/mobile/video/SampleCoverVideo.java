@@ -63,7 +63,7 @@ public class SampleCoverVideo extends StandardGSYVideoPlayer {
                 .setDefaultRequestOptions(
                         new RequestOptions()
                                 .frame(0)
-                                .centerCrop()
+                               // .centerCrop()
                                 .error(res)
 //                                .placeholder(res)
                 )
