@@ -72,7 +72,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <activity android:name=".module.mine.sign_tasks.SignInActivity"></activity>
+        <activity android:name=".module.video.activity.VideoDetailsActivity"></activity>
+        <activity android:name=".module.mine.sign_tasks.SignInActivity" />
         <activity android:name=".module.mine.exchange_mall.ExchangeOrderActivity" />
         <activity android:name=".module.mine.exchange_mall.ExchangeMallDetailActivity" />
         <activity android:name=".module.mine.exchange_mall.ConsumptionRecordActivity" />

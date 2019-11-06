@@ -131,7 +131,7 @@ class CommodityItemFragment : MyFragment() {
                             rcl.visibility = View.GONE
                             noDataView.visibility = View.VISIBLE
                         } else {
-                            rcl.visibility = View.VISIBLE
+                            rcl!!.visibility = View.VISIBLE
                             noDataView.visibility = View.GONE
                         }
                     } else {

@@ -8,10 +8,13 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.allen.library.CircleImageView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.ciyuanplus.mobile.R;
+import com.ciyuanplus.mobile.utils.Constants;
 import com.ciyuanplus.mobile.utils.Utils;
 import com.ciyuanplus.mobile.widget.RoundImageView;
 import com.luck.picture.lib.tools.ScreenUtils;
@@ -53,14 +56,16 @@ public class RecommendDataAdapter extends BaseQuickAdapter<RecommendData.DataBea
         //标题
         helper.setText(R.id.tv_title, data.getContentText());
         //头像
-        Glide.with(mContext)
-                .load(data.getPhoto())
-                .into((RoundImageView) helper.itemView.findViewById(R.id.iv_head_portrait));
+        RequestOptions options = new RequestOptions().placeholder(R.mipmap.default_head_)
+                .error(R.mipmap.default_head_).dontAnimate().centerCrop();
+        Glide.with(this.mContext).load(Constants.IMAGE_LOAD_HEADER + data.getPhoto()).apply(options).into((ImageView) helper.itemView.findViewById(R.id.iv_head_portrait));
+
         //昵称
         helper.setText(R.id.tv_author_name, data.getNickname());
         //封面
+
         Glide.with(mContext)
-                .load(data.getSomeOne())
+                .load(Constants.IMAGE_LOAD_HEADER+data.getSomeOne())
                 .into((ImageView) helper.itemView.findViewById(R.id.iv_cover_recommend));
         //点赞 isLike当前用户是否赞过(0:否，1:是)
         TextView tvGiveALike = helper.itemView.findViewById(R.id.tv_give_a_like);

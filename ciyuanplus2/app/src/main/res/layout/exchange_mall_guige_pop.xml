@@ -10,5 +10,6 @@
         android:textSize="14sp"
         android:padding="5dp"
         android:background="@drawable/exchange_guige_bg"
+        android:textColor="@drawable/exchange_tv_color"
         />
 </LinearLayout>

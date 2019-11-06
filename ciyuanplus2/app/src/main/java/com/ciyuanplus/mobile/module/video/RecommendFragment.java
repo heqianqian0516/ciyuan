@@ -1,6 +1,7 @@
 package com.ciyuanplus.mobile.module.video;
 
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,24 +10,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.ciyuanplus.mobile.R;
 import com.ciyuanplus.mobile.manager.UserInfoData;
+import com.ciyuanplus.mobile.module.video.activity.VideoDetailsActivity;
+import com.ciyuanplus.mobile.utils.Constants;
 import com.ciyuanplus.mobile.utils.Utils;
 import com.google.gson.Gson;
 import com.kris.baselibrary.base.LazyLoadBaseFragment;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,7 +46,7 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
     private VideoPresenter mPresenter;
     private int page = 1;
     private int pageSize = 10;
-    private List<RecommendData.DataBean.ListBean> list;
+    public List<RecommendData.DataBean.ListBean> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,7 +129,14 @@ public class RecommendFragment extends LazyLoadBaseFragment implements IVideoCon
                 switch (id) {
                     case R.id.iv_cover_recommend:
                         //  TODO 跳转大图
+                        Intent intent=new Intent(getContext(), VideoDetailsActivity.class);
+                        Bundle bundle=new Bundle();
+                        bundle.putSerializable("list", (Serializable) list);
+                        /*intent.putExtra(Constants.INTENT_NEWS_ID_ITEM, list.get(position-1).getPostUuid());
+                        intent.putExtra(Constants.INTENT_BIZE_TYPE,list.get(position-1).getBizType());*/
+                        intent.putExtras(bundle);
 
+                        startActivity(intent);
                         break;
                     case R.id.tv_give_a_like:
                         Drawable whiteHeart = getActivity().getResources().getDrawable(R.drawable.icon_white_hearts);

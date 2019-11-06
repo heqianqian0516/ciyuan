@@ -35,10 +35,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.ciyuanplus.mobile.App
 import com.ciyuanplus.mobile.MyBaseActivity
-import com.ciyuanplus.mobile.R2
-import com.ciyuanplus.mobile.R2.id.position
-import com.ciyuanplus.mobile.R2.id.recyclerView
-import com.ciyuanplus.mobile.R2.layout.item
 import com.ciyuanplus.mobile.activity.chat.FeedBackActivity
 import com.ciyuanplus.mobile.activity.mine.MineWelfareActivity
 import com.ciyuanplus.mobile.activity.news.ShareNewsPopupActivity
@@ -85,10 +81,13 @@ import com.tencent.smtt.sdk.WebView
 import crossoverone.statuslib.StatusUtil
 import kotlinx.android.synthetic.main.activity_exchange.*
 import kotlinx.android.synthetic.main.activity_exchange_mall_detail.*
+import org.jetbrains.anko.backgroundColorResource
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
 /**立即兑换商品页面
+ *
+ * bug 没有库存数据崩
  */
 class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandleEventListener {
 
@@ -128,7 +127,7 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
         StatusUtil.setUseStatusBarColor(this, Color.WHITE, Color.parseColor("#ffffff"))
 
         // 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色。
-        StatusUtil.setSystemStatus(this, false, true)
+        StatusUtil.setSystemStatus(this, false,  true)
         mUrl = intent.getStringExtra(Constants.INTENT_OPEN_URL)
         mParams = intent.getStringExtra(Constants.INTENT_JS_WEB_VIEW_PARAM)
         mPrePage = intent.getStringExtra("prePage")
@@ -211,16 +210,19 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
              recyclerView!!.layoutManager = layoutManager
             exchangeDetailAdapter= ExchangeDetailAdapter(this,mList)
              recyclerView.adapter=exchangeDetailAdapter
+
             exchangeDetailAdapter!!.setOnItemClickListener { adapter, view, position ->
                 exchangeStock!!.setText("库存:"+mList[position].stock+"件")
+
             }
 
             exchangeDetermine.setOnClickListener {
-               /* startActivity<ExchangeMallDetailActivity>(
-                        "prodId" to prodId ,"title" to title)*/
+
                 val intent = Intent(this@ExchangeMallDetailActivity, ExchangeOrderActivity::class.java)
                 intent.putExtra("prodId",prodId);
                 intent.putExtra("title",mTitle);
+                intent.putExtra("price", mPrice!!)
+               // intent.putExtra("name",mList[0].name)
                 startActivity(intent)
             }
         }
@@ -256,7 +258,7 @@ class ExchangeMallDetailActivity : MyBaseActivity(), EventCenterManager.OnHandle
                 if (Utils.isStringEquals(response1.mCode, ResponseData.CODE_OK)) {
                     if (response1.communityListItem!!.specList != null) {
                         response1.communityListItem?.let { mList.addAll(it.specList) }
-
+                       // mList.addAll(response1.communityListItem!!.specList)
                        // exchangeStock!!.setText(response1.communityListItem!!.specList[position].stock)
                         val list = response1.communityListItem!!.img .split(",")
                         val options = RequestOptions().placeholder(R.drawable.ic_default_image_007).error(R.mipmap.imgfail).dontAnimate().centerCrop()
